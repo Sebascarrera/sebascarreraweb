@@ -1,0 +1,109 @@
+.contact-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh; /* fuerza a ocupar toda la altura de la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('../assets/img/background-contact1.jpg') center center / cover no-repeat;
+  background-attachment: fixed;
+  animation: zoomBackground 20s ease-in-out infinite alternate;
+  overflow: hidden;
+}
+
+
+
+.contact-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 60px 30px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+  color: white;
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-subtitle {
+  font-size: 1.1rem;
+  margin: 15px 0 35px;
+  color: #ccc;
+}
+
+.contact-form {
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  resize: none;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #bbb;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.contact-form button {
+  background-color: #00ffff;
+  color: #000;
+  font-weight: bold;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #00cccc;
+}
+
+/* Animación de entrada */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animación de fondo */
+@keyframes zoomBackground {
+  0% {
+    background-size: 100%;
+  }
+  100% {
+    background-size: 115%;
+  }
+}

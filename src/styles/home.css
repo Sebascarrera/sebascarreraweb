@@ -1,0 +1,72 @@
+.home {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    font-family: 'Rubik', sans-serif;
+  }
+  
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .home-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .home-content h1 {
+    font-size: 2.5rem;
+    text-shadow: 4px 4px 3px black;
+    margin-bottom: 0.5rem;
+  }
+  
+  .home-content h2 {
+    font-size: 1.5rem;
+    text-shadow: 3px 3px 3px black;
+    margin-bottom: 1rem;
+  }
+  
+  .home-content p {
+    font-size: 1rem;
+    text-shadow: 3px 3px 2px black;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    background-color: #fff;
+    color: #000;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #fff;
+    box-shadow: #000 10px 30px 20px rgba(0, 0, 0, 0.1);
+  }
+  
