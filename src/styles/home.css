@@ -5,6 +5,7 @@
     width: 100%;
     overflow: hidden;
     font-family: 'Rubik', sans-serif;
+    background-color: rgba(0, 0, 0, 0.6);
   }
   
   .background-video {
@@ -15,7 +16,7 @@
     height: 100%;
     object-fit: cover;
     z-index: -1;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
   }
   
   .home-content {
@@ -28,18 +29,24 @@
   }
   
   .home-content h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700; /* Applies the bold weight */
     font-size: 2.5rem;
     text-shadow: 4px 4px 3px black;
     margin-bottom: 0.5rem;
   }
   
   .home-content h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400; /* Applies the bold weight */
     font-size: 1.5rem;
     text-shadow: 3px 3px 3px black;
     margin-bottom: 1rem;
   }
   
   .home-content p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400; /* Applies the bold weight */
     font-size: 1rem;
     text-shadow: 3px 3px 2px black;
     max-width: 600px;
@@ -59,7 +66,8 @@
     padding: 0.75rem 1.5rem;
     border-radius: 30px;
     text-decoration: none;
-    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400; /* Applies the bold weight */
     transition: all 0.3s ease;
   }
   
@@ -70,3 +78,22 @@
     box-shadow: #000 10px 30px 20px rgba(0, 0, 0, 0.1);
   }
   
+
+  @media (max-width: 480px) {
+    .home-content h1 {
+      font-size: 1.8rem;
+    }
+
+    .home-content h2 {
+      font-size: 1.2rem;
+    }
+
+    .home-content p {
+      font-size: 0.9rem;
+    }
+
+    .btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  }

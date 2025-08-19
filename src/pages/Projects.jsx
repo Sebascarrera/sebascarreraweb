@@ -7,7 +7,7 @@ import mundoColmenaVideo from '../assets/videos/mundo-colmena.mp4';
 import ColmenaRouteImage from '../assets/projects/colmena-route-game.png';
 import ColmenaRouteVideo from '../assets/videos/COLMENA-ROUTE-GAME.mp4';
 import UkcolTouchImage from '../assets/projects/ukcol-touch.png';
-import UkcolTouchVideo from '../assets/videos/COLMENA-ROUTE-GAME.mp4';
+import UkcolTouchVideo from '../assets/videos/ukcol-touch.mp4';
 
 const projects = [
   {
@@ -81,7 +81,7 @@ const projects = [
 
 function Projects() {
   const [activeVideo, setActiveVideo] = useState(null);
-
+  const activeProject = projects.find(p => p.id === activeVideo);
   // 👇 Scroll reveal
   useEffect(() => {
     const revealElements = document.querySelectorAll('.reveal');
@@ -118,20 +118,22 @@ function Projects() {
             <a href={project.link} target="_blank" rel="noopener noreferrer">
               Ver proyecto
             </a>
-            <button className="video-btn" onClick={() => openModal(project.id)}>
-              Ver video
-            </button>
+            {project.video && (
+              <button className="video-btn" onClick={() => openModal(project.id)}>
+                Ver video
+              </button>
+            )}
           </div>
         ))}
       </div>
 
       {/* Modal */}
-      {activeVideo !== null && (
+      {activeProject && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={closeModal}>✕</button>
             <video controls autoPlay className="modal-video">
-              <source src={projects.find(p => p.id === activeVideo).video} type="video/mp4" />
+              <source src={activeProject.video} type="video/mp4" />
               Tu navegador no soporta el video.
             </video>
           </div>

@@ -28,6 +28,8 @@
 }
 
 .contact-subtitle {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; /* Applies the bold weight */
   font-size: 1.1rem;
   margin: 15px 0 35px;
   color: #ccc;
@@ -40,6 +42,8 @@
   border-radius: 10px;
   max-width: 600px;
   width: 90%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; /* Applies the bold weight */
   text-align: center;
   color: #fff;
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
@@ -54,6 +58,8 @@
   border-radius: 6px;
   background-color: rgba(255, 255, 255, 0.08);
   color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100; /* Applies the bold weight */
   font-size: 1rem;
   outline: none;
   resize: none;
@@ -74,16 +80,43 @@
 .contact-form button {
   background-color: #00ffff;
   color: #000;
-  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100; /* Applies the bold weight */
   padding: 12px 18px;
   border: none;
-  border-radius: 6px;
+  border-radius: 50px;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .contact-form button:hover {
   background-color: #00cccc;
+}
+
+@media (max-width: 480px) {
+  .contact-overlay {
+    padding: 40px 20px;
+  }
+
+  .contact-subtitle {
+    font-size: 0.95rem;
+    margin: 10px 0 25px;
+  }
+
+  .contact-form {
+    padding: 20px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+
+  .contact-form button {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
 }
 
 /* Animación de entrada */
@@ -101,9 +134,9 @@
 /* Animación de fondo */
 @keyframes zoomBackground {
   0% {
-    background-size: 100%;
+    background-size: 200%;
   }
   100% {
-    background-size: 115%;
+    background-size: 180%;
   }
 }

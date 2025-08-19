@@ -10,12 +10,12 @@ function Home() {
         Tu navegador no soporta videos.
       </video>
       <div className="home-content">
-        <h1>Sebastián Carrera Moya</h1>
+        <h1>Juan Sebastián Carrera Moya</h1>
         <h2>Diseñador y Desarrollador Web Frontend</h2>
         <p>Transformo ideas en experiencias digitales impactantes y funcionales.</p>
         <div className="buttons">
-          <a href="#proyectos" className="btn">Ver proyectos</a>
-          <a href="/cv.pdf" className="btn" download>Descargar CV</a>
+          <a href="/proyectos" className="btn">Ver proyectos</a>
+          {/*<a href="/cv.pdf" className="btn" download>Descargar CV</a>*/}
         </div>
       </div>
     </section>
