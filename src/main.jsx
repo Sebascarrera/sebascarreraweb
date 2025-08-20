@@ -5,6 +5,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
 import './index.css';
+import { LanguageProvider } from './context/LanguageContext.jsx';
 
 function scrollReveal() {
   const reveals = document.querySelectorAll('.reveal');
@@ -25,7 +26,9 @@ window.addEventListener('DOMContentLoaded', scrollReveal);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <LanguageProvider>
+        <App />
+      </LanguageProvider>
     </BrowserRouter>
   </StrictMode>
 );
