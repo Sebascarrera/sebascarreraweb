@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "projects": "Proyectos",
+    "skills": "Habilidades",
+    "contact": "Contacto"
+  },
+  "home": {
+    "name": "Juan Sebastián Carrera Moya",
+    "subtitle": "Diseñador y Desarrollador Web Frontend",
+    "description": "Transformo ideas en experiencias digitales impactantes y funcionales.",
+    "viewProjects": "Ver proyectos"
+  },
+  "projects": {
+    "title": "Proyectos destacados",
+    "viewProject": "Ver proyecto",
+    "viewVideo": "Ver video",
+    "items": {
+      "1": {
+        "title": "Landing Ciberseguridad",
+        "description": "Diseño y desarrollo de Landing Web para una campaña interna sobre Ciberseguridad a los empleados de Porvenir."
+      },
+      "2": {
+        "title": "Mundo Colmena",
+        "description": "Landing de juego educativo interactivo desarrollado con React y animaciones CSS, la finalidad del juego era que los participantes fueran buscando en diferentes lugares unos QR Codes donde los dirijian a secciones especificas de la landing para realizar distintos retos relacionados con el evento y cumplir con informar de una manera dinámica e interactiva."
+      },
+      "3": {
+        "title": "Colmena Route Game",
+        "description": "Aplicación web para registrar y visualizar propósitos personales."
+      },
+      "4": {
+        "title": "Juego UKCOL Vida Silvestre",
+        "description": "Juego interactivo desarrollado para pantallas touch, el cual busca enseñar de forma amigable sobre la diversidad del ecosistema Colombiano."
+      },
+      "5": {
+        "title": "Juego de Pacman Antifraude",
+        "description": "Juego educativo interactivo desarrollado con React y animaciones CSS."
+      },
+      "6": {
+        "title": "App de Propósitos",
+        "description": "Aplicación web para registrar y visualizar propósitos personales."
+      },
+      "7": {
+        "title": "Portafolio Personal",
+        "description": "Diseño y desarrollo de mi sitio web como diseñador y desarrollador front-end."
+      },
+      "8": {
+        "title": "Juego de Pacman Antifraude",
+        "description": "Juego educativo interactivo desarrollado con React y animaciones CSS."
+      },
+      "9": {
+        "title": "App de Propósitos",
+        "description": "Aplicación web para registrar y visualizar propósitos personales."
+      }
+    }
+  },
+  "skills": {
+    "title": "Habilidades Profesionales",
+    "intro": "Como diseñador y desarrollador web front-end, combino creatividad y precisión técnica para construir experiencias digitales impactantes.",
+    "categories": {
+      "tech": {
+        "title": "Lenguajes & Tecnologías",
+        "items": ["HTML5", "CSS3", "JavaScript", "React", "WordPress"]
+      },
+      "design": {
+        "title": "Diseño & UI/UX",
+        "items": ["Figma", "Sketch", "Adobe XD", "Photoshop", "Illustrator", "After Effects"]
+      },
+      "frontend": {
+        "title": "Desarrollo Front-End",
+        "items": ["Componentes reutilizables", "Diseño responsivo", "Optimización de rendimiento", "Accesibilidad (A11y)"]
+      },
+      "video": {
+        "title": "Producción Audiovisual",
+        "items": ["Premiere Pro", "After Effects", "Realización audiovisual", "Motion Graphics"]
+      },
+      "tools": {
+        "title": "Herramientas & Metodologías",
+        "items": ["Git", "SCRUM", "SEO técnico básico", "Deployment con Vite"]
+      },
+      "soft": {
+        "title": "Soft Skills",
+        "items": ["Liderazgo de proyectos", "Comunicación efectiva", "Pensamiento creativo", "Gestión del tiempo"]
+      }
+    }
+  },
+  "contact": {
+    "title": "Contacto",
+    "description": "¿Tienes un proyecto en mente o simplemente quieres saludar? ¡Escríbeme!",
+    "form": {
+      "name": "Tu nombre",
+      "email": "Tu correo electrónico",
+      "message": "Tu mensaje...",
+      "send": "Enviar mensaje"
+    }
+  },
+  "common": {
+    "noVideoSupport": "Tu navegador no soporta videos."
+  }
+}

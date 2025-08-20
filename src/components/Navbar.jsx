@@ -1,13 +1,13 @@
 // src/components/Navbar.jsx
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import i18n from 'i18next';
 import '../styles/navbar.css';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [language, setLanguage] = useState(localStorage.getItem('language') || 'es');
   const location = useLocation();
+  const { t } = useTranslation();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -31,7 +31,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-      <Link to="/" onClick={closeMenu} className="signature">Sebastian Carrera</Link>
+        <Link to="/" onClick={closeMenu} className="signature">Sebastian Carrera</Link>
       </div>
       <div className={`navbar-toggle ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
         <span></span>
@@ -41,17 +41,17 @@ function Navbar() {
       <ul className={`navbar-links ${isOpen ? 'active' : ''}`}>
         <li>
           <Link to="/proyectos" onClick={closeMenu} className={location.pathname === '/proyectos' ? 'active' : ''}>
-            Proyectos
+            {t('nav.projects')}
           </Link>
         </li>
         <li>
           <Link to="/habilidades" onClick={closeMenu} className={location.pathname === '/habilidades' ? 'active' : ''}>
-            Habilidades
+            {t('nav.skills')}
           </Link>
         </li>
         <li>
           <Link to="/contacto" onClick={closeMenu} className={location.pathname === '/contacto' ? 'active' : ''}>
-            Contacto
+            {t('nav.contact')}
           </Link>
         </li>
         <li className="language-selector">

@@ -1,21 +1,22 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import '../styles/home.css';
-import videoBg from '../assets/video-fondo.mp4'; // Cambia el path según tu proyecto
+import videoBg from '../assets/video-fondo.mp4';
 
 function Home() {
+  const { t } = useTranslation();
   return (
     <section className="home">
       <video className="background-video" autoPlay muted loop playsInline>
         <source src={videoBg} type="video/mp4" />
-        Tu navegador no soporta videos.
+        {t('common.noVideoSupport')}
       </video>
       <div className="home-content">
-        <h1>Juan Sebastián Carrera Moya</h1>
-        <h2>Diseñador y Desarrollador Web Frontend</h2>
-        <p>Transformo ideas en experiencias digitales impactantes y funcionales.</p>
+        <h1>{t('home.name')}</h1>
+        <h2>{t('home.subtitle')}</h2>
+        <p>{t('home.description')}</p>
         <div className="buttons">
-          <a href="/proyectos" className="btn">Ver proyectos</a>
-          {/*<a href="/cv.pdf" className="btn" download>Descargar CV</a>*/}
+          <a href="/proyectos" className="btn">{t('home.viewProjects')}</a>
         </div>
       </div>
     </section>

@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../styles/contact.css';
 
 function Contact() {
+  const { t } = useTranslation();
+
   useEffect(() => {
     const revealElements = document.querySelectorAll('.reveal');
     const revealOnScroll = () => {
@@ -21,15 +24,15 @@ function Contact() {
   return (
     <section className="contact-section">
       <div className="contact-form">
-       <h2>Contacto</h2>
-       <p>¿Tienes un proyecto en mente o simplemente quieres saludar? ¡Escríbeme!</p>
-       <form>
-         <input type="text" placeholder="Tu nombre" />
-         <input type="email" placeholder="Tu correo electrónico" />
-         <textarea placeholder="Tu mensaje..." rows="4"></textarea>
-         <button type="submit">Enviar mensaje</button>
-       </form>
-     </div>
+        <h2>{t('contact.title')}</h2>
+        <p>{t('contact.description')}</p>
+        <form>
+          <input type="text" placeholder={t('contact.form.name')} />
+          <input type="email" placeholder={t('contact.form.email')} />
+          <textarea placeholder={t('contact.form.message')} rows="4"></textarea>
+          <button type="submit">{t('contact.form.send')}</button>
+        </form>
+      </div>
     </section>
   );
 }
