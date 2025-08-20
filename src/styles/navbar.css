@@ -63,6 +63,20 @@
   border-bottom: 2px solid #00ffff;
 }
 
+.language-selector select {
+  background: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-right: 25px;
+}
+
+.language-selector option {
+  color: #000000;
+}
+
 /* Hamburguesa para móviles */
 .navbar-toggle {
   display: none;

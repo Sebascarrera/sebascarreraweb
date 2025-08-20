@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "home": {
+    "name": "Juan Sebastián Carrera Moya",
+    "subtitle": "Frontend Web Designer and Developer",
+    "description": "I transform ideas into impactful and functional digital experiences.",
+    "viewProjects": "See projects"
+  },
+  "projects": {
+    "title": "Featured projects",
+    "viewProject": "View project",
+    "viewVideo": "Watch video",
+    "items": {
+      "1": {
+        "title": "Cybersecurity Landing",
+        "description": "Design and development of a web landing for an internal cybersecurity campaign for Porvenir employees."
+      },
+      "2": {
+        "title": "Mundo Colmena",
+        "description": "Interactive educational game landing developed with React and CSS animations. The purpose of the game was for participants to search in different places for QR codes that directed them to specific sections of the landing to perform various event-related challenges and communicate dynamically and interactively."
+      },
+      "3": {
+        "title": "Colmena Route Game",
+        "description": "Web application to record and visualize personal goals."
+      },
+      "4": {
+        "title": "UKCOL Wildlife Game",
+        "description": "Interactive game developed for touch screens that aims to teach in a friendly way about the diversity of the Colombian ecosystem."
+      },
+      "5": {
+        "title": "Pacman Anti-Fraud Game",
+        "description": "Educational interactive game developed with React and CSS animations."
+      },
+      "6": {
+        "title": "Goals App",
+        "description": "Web application to register and view personal goals."
+      },
+      "7": {
+        "title": "Personal Portfolio",
+        "description": "Design and development of my website as a front-end designer and developer."
+      },
+      "8": {
+        "title": "Pacman Anti-Fraud Game",
+        "description": "Educational interactive game developed with React and CSS animations."
+      },
+      "9": {
+        "title": "Goals App",
+        "description": "Web application to register and view personal goals."
+      }
+    }
+  },
+  "skills": {
+    "title": "Professional Skills",
+    "intro": "As a front-end web designer and developer, I combine creativity and technical precision to build impactful digital experiences.",
+    "categories": {
+      "tech": {
+        "title": "Languages & Technologies",
+        "items": ["HTML5", "CSS3", "JavaScript", "React", "WordPress"]
+      },
+      "design": {
+        "title": "Design & UI/UX",
+        "items": ["Figma", "Sketch", "Adobe XD", "Photoshop", "Illustrator", "After Effects"]
+      },
+      "frontend": {
+        "title": "Front-End Development",
+        "items": ["Reusable components", "Responsive design", "Performance optimization", "Accessibility (A11y)"]
+      },
+      "video": {
+        "title": "Audiovisual Production",
+        "items": ["Premiere Pro", "After Effects", "Audiovisual production", "Motion Graphics"]
+      },
+      "tools": {
+        "title": "Tools & Methodologies",
+        "items": ["Git", "SCRUM", "Basic technical SEO", "Deployment with Vite"]
+      },
+      "soft": {
+        "title": "Soft Skills",
+        "items": ["Project leadership", "Effective communication", "Creative thinking", "Time management"]
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Do you have a project in mind or just want to say hi? Write me!",
+    "form": {
+      "name": "Your name",
+      "email": "Your email",
+      "message": "Your message...",
+      "send": "Send message"
+    }
+  },
+  "common": {
+    "noVideoSupport": "Your browser does not support videos."
+  }
+}
