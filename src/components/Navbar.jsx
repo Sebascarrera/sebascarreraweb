@@ -1,14 +1,17 @@
 // src/components/Navbar.jsx
 
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import '../styles/navbar.css';
 import { LanguageContext } from '../context/LanguageContext.jsx';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
   const location = useLocation();
+  const navigate = useNavigate();
   const { t } = useTranslation();
+  const { language, setLanguage } = useContext(LanguageContext);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -20,14 +23,24 @@ function Navbar() {
 
   const handleLanguageChange = (lng) => {
     setLanguage(lng);
-    i18n.changeLanguage(lng);
-    localStorage.setItem('language', lng);
+    const pathMap = {
+      '/proyectos': '/projects',
+      '/projects': '/proyectos',
+      '/habilidades': '/skills',
+      '/skills': '/habilidades',
+      '/contacto': '/contact',
+      '/contact': '/contacto',
+    };
+    const newPath = pathMap[location.pathname] || '/';
+    navigate(newPath);
     closeMenu();
   };
 
-  useEffect(() => {
-    i18n.changeLanguage(language);
-  }, [language]);
+  const navLinks = {
+    projects: language === 'en' ? '/projects' : '/proyectos',
+    skills: language === 'en' ? '/skills' : '/habilidades',
+    contact: language === 'en' ? '/contact' : '/contacto',
+  };
 
   return (
     <nav className="navbar">
@@ -41,17 +54,17 @@ function Navbar() {
       </div>
       <ul className={`navbar-links ${isOpen ? 'active' : ''}`}>
         <li>
-          <Link to="/proyectos" onClick={closeMenu} className={location.pathname === '/proyectos' ? 'active' : ''}>
+          <Link to={navLinks.projects} onClick={closeMenu} className={location.pathname === navLinks.projects ? 'active' : ''}>
             {t('nav.projects')}
           </Link>
         </li>
         <li>
-          <Link to="/habilidades" onClick={closeMenu} className={location.pathname === '/habilidades' ? 'active' : ''}>
+          <Link to={navLinks.skills} onClick={closeMenu} className={location.pathname === navLinks.skills ? 'active' : ''}>
             {t('nav.skills')}
           </Link>
         </li>
         <li>
-          <Link to="/contacto" onClick={closeMenu} className={location.pathname === '/contacto' ? 'active' : ''}>
+          <Link to={navLinks.contact} onClick={closeMenu} className={location.pathname === navLinks.contact ? 'active' : ''}>
             {t('nav.contact')}
           </Link>
         </li>
@@ -62,10 +75,6 @@ function Navbar() {
           </select>
         </li>
       </ul>
-      <select className="lang-select" value={language} onChange={(e) => setLanguage(e.target.value)}>
-        <option value="es">ES</option>
-        <option value="en">EN</option>
-      </select>
     </nav>
   );
 }
