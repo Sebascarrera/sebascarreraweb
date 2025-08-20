@@ -1,11 +1,12 @@
 // src/components/Navbar.jsx
-import React, { useEffect, useState } from 'react';
+
 import { Link, useLocation } from 'react-router-dom';
 import '../styles/navbar.css';
+import { LanguageContext } from '../context/LanguageContext.jsx';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [language, setLanguage] = useState(localStorage.getItem('language') || 'es');
+
   const location = useLocation();
   const { t } = useTranslation();
 
@@ -61,6 +62,10 @@ function Navbar() {
           </select>
         </li>
       </ul>
+      <select className="lang-select" value={language} onChange={(e) => setLanguage(e.target.value)}>
+        <option value="es">ES</option>
+        <option value="en">EN</option>
+      </select>
     </nav>
   );
 }
