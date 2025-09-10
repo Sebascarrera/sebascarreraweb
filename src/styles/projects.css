@@ -1,208 +1,218 @@
 .projects-container {
-    position: relative;
-    min-height: 100vh;
-    padding-top: 35px; /* Altura del navbar + margen */
-    padding-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: url('../assets/img/background-projects.jpg') center center / cover no-repeat;
-    background-attachment: fixed;
-    animation: zoomBackground 20s ease-in-out infinite alternate;
-    z-index: 0;
-  }
+  position: relative;
+  min-height: 100vh;
+  padding: 35px 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: url('../assets/img/background-projects.jpg') center/cover no-repeat fixed;
+  overflow: hidden;
+  z-index: 0;
+}
 
-  .projects-container::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3); /* Ajusta la opacidad aquí */
-    z-index: -1;
+.projects-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -2;
+}
+
+.projects-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(from 0deg, #00ffa3, #00aaff, #ff00aa, #aaff00, #00ffa3);
+  animation: spin 20s linear infinite;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+.projects-container h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  padding-top: 25px;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.projects-grid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+  padding: 20px;
+}
+
+.project-card {
+  position: relative;
+  max-width: 480px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.project-card img {
+  width: 100%;
+  max-width: 300px;
+  min-width: 200px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+  border-radius: 12px;
+}
+
+.project-card h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  margin-top: 15px;
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.project-card p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size: 0.95rem;
+  color: #ccc;
+  margin: 10px 0 15px;
+}
+
+.project-card a,
+.project-card .video-btn {
+  position: relative;
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #00ffa3 0%, #00aaff 100%);
+  color: #000;
+  border: none;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  overflow: hidden;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.project-card a::before,
+.project-card .video-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card a:hover::before,
+.project-card .video-btn:hover::before {
+  opacity: 1;
+}
+
+.project-card a:hover,
+.project-card .video-btn:hover {
+  color: #fff;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #111;
+  padding: 1rem;
+  border-radius: 10px;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.modal-video {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  border-radius: 8px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
-  
+}
+
+@media (max-width: 480px) {
   .projects-container h2 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700; /* Applies the bold weight */
-    padding-top: 25px;
-    margin-bottom: 5px;
-  }
-  
-  .projects-grid {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 2rem;
-    padding: 20px;
-    border-radius: 10px;
-    backdrop-filter: blur(3px);
-  }
-  
-  .project-card {
-    max-width: 480px;
-    background-color: rgba(0, 0, 0, 0.5); /* Transparencia sutil */
-    border-radius: 10px;
-    padding: 20px;
-    transition: transform 0.3s ease;
-  }
-  
-  .project-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .project-card img {
-    width: 100%;
-    max-width: 300px;
-    min-width: 200px;
-    height: auto;
-    object-fit: contain;
-    margin: 0 auto;
-    display: block;
-    border-radius: 8px;
-  }
-  
-  .project-card h3 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400; /* Applies the bold weight */
-    margin-top: 15px;
-    font-size: 1.3rem;
-  }
-  
-  .project-card p {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100; /* Applies the bold weight */
-    font-size: 0.95rem;
-    color: #ccc;
-    margin: 10px 0 15px;
-  }
-  
-  .project-card a {
-    display: inline;
-    padding: 8px 16px;
-    background-color: #00ffff;
-    color: #000;
-    border-radius: 4px;
-    text-decoration: none;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100; /* Applies the bold weight */
-  }
-  
-  .project-card a:hover {
-    background-color: #00cccc;
-  }
-
-  .project-card a:visited {
-        color: #000;
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
-  }
-  
-  .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .video-btn {
-    margin-top: 10px;
-    margin-left: 20px;
-    padding: 8px 16px;
-    background-color: #00ffff;
-    color: #000;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100; /* Applies the bold weight */
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .video-btn:hover {
-    background-color: #00cccc;
-  }
-  
-  /* Modal */
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-  }
-  
-  .modal-content {
-    position: relative;
-    background-color: #111;
-    padding: 1rem;
-    border-radius: 10px;
-    max-width: 90%;
-    max-height: 90%;
-  }
-  
-  .modal-video {
-    width: 100%;
-    height: auto;
-    max-height: 80vh;
-    border-radius: 8px;
-  }
-  
-  .modal-close {
-    position: absolute;
-    top: 8px;
-    right: 12px;
     font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-  }
-  
-   
-
-  @media (max-width: 480px) {
-    .projects-container h2 {
-      font-size: 1.5rem;
-    }
-
-    .project-card {
-      padding: 15px;
-    }
-
-    .project-card img {
-      max-width: 200px;
-      min-width: 150px;
-    }
-
-    .project-card h3 {
-      font-size: 1.1rem;
-    }
-
-    .project-card p {
-      font-size: 0.85rem;
-    }
-
-    .project-card a,
-    .video-btn {
-      padding: 6px 12px;
-      font-size: 0.9rem;
-    }
   }
 
-    @keyframes zoomBackground {
-        0% {
-          background-size: 100%;
-        }
-        100% {
-          background-size: 115%;
-        }
-      }
+  .project-card {
+    padding: 15px;
+  }
+
+  .project-card img {
+    max-width: 200px;
+    min-width: 150px;
+  }
+
+  .project-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .project-card p {
+    font-size: 0.85rem;
+  }
+
+  .project-card a,
+  .project-card .video-btn {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}
+
