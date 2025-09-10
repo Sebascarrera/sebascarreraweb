@@ -1,54 +1,77 @@
 .contact-section {
   position: relative;
-  width: 100vw;
-  height: 100vh; /* fuerza a ocupar toda la altura de la pantalla */
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url('../assets/img/background-contact1.jpg') center center / cover no-repeat;
-  background-attachment: fixed;
-  animation: zoomBackground 20s ease-in-out infinite alternate;
+  padding-top: 35px;
+  background: url('../assets/img/background-contact1.jpg') center/cover no-repeat fixed;
   overflow: hidden;
+  z-index: 0;
 }
 
-
-
-.contact-overlay {
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 60px 30px;
-  border-radius: 10px;
-  width: 100%;
-  max-width: 700px;
-  text-align: center;
-  color: white;
-  backdrop-filter: blur(4px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.contact-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -2;
 }
 
-.contact-subtitle {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400; /* Applies the bold weight */
-  font-size: 1.1rem;
-  margin: 15px 0 35px;
-  color: #ccc;
+.contact-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(from 0deg, #00ffa3, #00aaff, #ff00aa, #aaff00, #00ffa3);
+  animation: spin 20s linear infinite;
+  opacity: 0.2;
+  z-index: -1;
 }
 
 .contact-form {
-  z-index: 1;
-  background-color: rgba(0, 0, 0, 0.7);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
   padding: 40px;
-  border-radius: 10px;
+  border-radius: 20px;
   max-width: 600px;
   width: 90%;
   font-family: 'Roboto', sans-serif;
-  font-weight: 400; /* Applies the bold weight */
   text-align: center;
   color: #fff;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
 }
 
+.contact-form h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.contact-form p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+.contact-details {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-details a {
+  color: #00ffa3;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+.contact-details a:hover {
+  text-decoration: underline;
+}
 
 .contact-form input,
 .contact-form textarea {
@@ -59,7 +82,7 @@
   background-color: rgba(255, 255, 255, 0.08);
   color: white;
   font-family: 'Roboto', sans-serif;
-  font-weight: 100; /* Applies the bold weight */
+  font-weight: 100;
   font-size: 1rem;
   outline: none;
   resize: none;
@@ -78,48 +101,38 @@
 }
 
 .contact-form button {
-  background-color: #00ffff;
-  color: #000;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100; /* Applies the bold weight */
+  position: relative;
+  display: inline-block;
   padding: 12px 18px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #00ffa3 0%, #00aaff 100%);
+  color: #000;
   border: none;
-  border-radius: 50px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
   cursor: pointer;
-  transition: background 0.3s ease;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.contact-form button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.contact-form button:hover::before {
+  opacity: 1;
 }
 
 .contact-form button:hover {
-  background-color: #00cccc;
+  color: #fff;
 }
 
-@media (max-width: 480px) {
-  .contact-overlay {
-    padding: 40px 20px;
-  }
-
-  .contact-subtitle {
-    font-size: 0.95rem;
-    margin: 10px 0 25px;
-  }
-
-  .contact-form {
-    padding: 20px;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    padding: 10px 12px;
-    font-size: 0.9rem;
-  }
-
-  .contact-form button {
-    padding: 10px 14px;
-    font-size: 0.9rem;
-  }
-}
-
-/* Animación de entrada */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -131,12 +144,20 @@
   transform: translateY(0);
 }
 
-/* Animación de fondo */
-@keyframes zoomBackground {
-  0% {
-    background-size: 200%;
-  }
-  100% {
-    background-size: 180%;
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }
+
+@media (max-width: 480px) {
+  .contact-form {
+    padding: 20px;
+  }
+
+  .contact-form button {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+}
+

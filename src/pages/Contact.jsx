@@ -4,6 +4,8 @@ import '../styles/contact.css';
 
 function Contact() {
   const { t } = useTranslation();
+  const email = 'sebascarreraweb@gmail.com';
+  const whatsapp = '+57 3133510006';
 
   useEffect(() => {
     const revealElements = document.querySelectorAll('.reveal');
@@ -23,9 +25,15 @@ function Contact() {
 
   return (
     <section className="contact-section">
-      <div className="contact-form">
+      <div className="contact-form reveal">
         <h2>{t('contact.title')}</h2>
         <p>{t('contact.description')}</p>
+        <div className="contact-details">
+          <a href={`mailto:${email}`}>{t('contact.details.email', { email })}</a>
+          <a href={`https://wa.me/573133510006`} target="_blank" rel="noopener noreferrer">
+            {t('contact.details.whatsapp', { number: whatsapp })}
+          </a>
+        </div>
         <form>
           <input type="text" placeholder={t('contact.form.name')} />
           <input type="email" placeholder={t('contact.form.email')} />

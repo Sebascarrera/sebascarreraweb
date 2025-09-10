@@ -113,7 +113,7 @@ function Projects() {
       <h2 className="reveal">{t('projects.title')}</h2>
       <div className="projects-grid reveal">
         {projects.map((project) => (
-          <div className="project-card" key={project.id}>
+          <div className="project-card reveal" key={project.id}>
             <img src={project.image} alt={project.title} />
             <h3>{project.title}</h3>
             <p>{project.description}</p>

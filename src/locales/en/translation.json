@@ -86,6 +86,10 @@
   "contact": {
     "title": "Contact",
     "description": "Do you have a project in mind or just want to say hi? Write me!",
+    "details": {
+      "email": "Email: {{email}}",
+      "whatsapp": "WhatsApp: {{number}}"
+    },
     "form": {
       "name": "Your name",
       "email": "Your email",
