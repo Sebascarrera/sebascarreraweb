@@ -8,7 +8,12 @@
     "name": "Juan Sebastián Carrera Moya",
     "subtitle": "Diseñador y Desarrollador Web Frontend",
     "description": "Transformo ideas en experiencias digitales impactantes y funcionales.",
-    "viewProjects": "Ver proyectos"
+    "viewProjects": "Ver proyectos",
+    "experienceCta": "Vive la experiencia",
+    "experienceEyebrow": "Porvenir 2025",
+    "experienceTitle": "Vive la experiencia de ciberseguridad",
+    "experienceDescription": "Explora juegos inmersivos que enseñan buenas prácticas digitales mientras pones a prueba tu intuición y reflejos.",
+    "experienceLinkLabel": "Explorar experiencias"
   },
   "projects": {
     "title": "Proyectos destacados",
@@ -99,5 +104,34 @@
   },
   "common": {
     "noVideoSupport": "Tu navegador no soporta videos."
+  },
+  "experience": {
+    "eyebrow": "Vive la experiencia",
+    "title": "Tres misiones para dominar la ciberseguridad",
+    "subtitle": "Selecciona un juego interactivo desarrollado para la campaña Porvenir 2025 y descubre cómo defenderte de las amenazas digitales.",
+    "bestScore": "Mejor puntuación: {{score}} pts",
+    "games": {
+      "firewall": {
+        "title": "Firewall Defender",
+        "description": "Controla el escudo de Cipo y bloquea cada amenaza antes de que alcance el servidor central.",
+        "badge": "Arcade en tiempo real",
+        "cta": "Jugar ahora",
+        "helper": "Duración: 1 minuto"
+      },
+      "password": {
+        "title": "Contraseña Maestra",
+        "description": "Crea claves imposibles de descifrar combinando símbolos, números y patrones memorables.",
+        "badge": "Lógica & memoria",
+        "cta": "Próximamente",
+        "helper": "Disponible muy pronto"
+      },
+      "malware": {
+        "title": "Escapa del Malware",
+        "description": "Resuelve acertijos y toma decisiones rápidas para salir ileso de un ataque coordinado.",
+        "badge": "Aventura narrativa",
+        "cta": "Próximamente",
+        "helper": "Disponible muy pronto"
+      }
+    }
   }
 }

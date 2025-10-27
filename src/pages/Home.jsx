@@ -11,20 +11,34 @@ function Home() {
   const projectsPath = language === 'en' ? '/projects' : '/proyectos';
 
   return (
-    <section className="home">
-      <video className="background-video" autoPlay muted loop playsInline>
-        <source src={videoBg} type="video/mp4" />
-        {t('common.noVideoSupport')}
-      </video>
-      <div className="home-content">
-        <h1>{t('home.name')}</h1>
-        <h2>{t('home.subtitle')}</h2>
-        <p>{t('home.description')}</p>
+    <>
+      <section className="home">
+        <video className="background-video" autoPlay muted loop playsInline>
+          <source src={videoBg} type="video/mp4" />
+          {t('common.noVideoSupport')}
+        </video>
+        <div className="home-content">
+          <h1>{t('home.name')}</h1>
+          <h2>{t('home.subtitle')}</h2>
+          <p>{t('home.description')}</p>
           <div className="buttons">
             <Link to={projectsPath} className="btn">{t('home.viewProjects')}</Link>
+            <Link to="/selector" className="btn btn--ghost">{t('home.experienceCta')}</Link>
           </div>
         </div>
       </section>
+
+      <section className="home-experience">
+        <div className="home-experience__inner">
+          <span className="home-experience__eyebrow">{t('home.experienceEyebrow')}</span>
+          <h2 className="home-experience__title">{t('home.experienceTitle')}</h2>
+          <p className="home-experience__description">{t('home.experienceDescription')}</p>
+          <Link to="/selector" className="home-experience__link">
+            {t('home.experienceLinkLabel')}
+          </Link>
+        </div>
+      </section>
+    </>
   );
 }
 

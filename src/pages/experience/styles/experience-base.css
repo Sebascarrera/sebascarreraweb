@@ -1,0 +1,40 @@
+.boton-enlace-juegos{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 22px;
+    border-radius: 999px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #041010;
+    background: linear-gradient(135deg, #00ffa3 0%, #00aaff 100%);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  
+  .boton-enlace-juegos:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px rgba(0, 175, 195, 0.35);
+  }
+  
+  .boton-enlace-juegos:active{
+    transform: translateY(0);
+    box-shadow: 0 6px 16px rgba(0, 175, 195, 0.25);
+  }
+  
+  .boton-enlace-juegos:focus-visible{
+    outline: 3px solid rgba(0, 255, 195, 0.65);
+    outline-offset: 2px;
+  }
+  
+  .boton-enlace-juegos[disabled],
+  .boton-enlace-juegos.is-disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+  }

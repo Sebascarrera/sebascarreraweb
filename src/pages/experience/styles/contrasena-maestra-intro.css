@@ -1,0 +1,166 @@
+/* Contenedor centrado vertical y horizontal, sin “desplazarse” en móvil */
+.cm-wrap{
+    color:#fff;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    --pad: clamp(12px, 3vw, 24px);
+    padding: var(--pad);
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+  }
+  
+  /* Fallback si el navegador no soporta 100dvh */
+  @supports not (min-height: 100dvh){
+    .cm-wrap{ min-height: 100svh; }
+  }
+  @supports not (min-height: 100svh){
+    .cm-wrap{ min-height: 100vh; }
+  }
+  
+  /* Safe areas (iPhone con notch) */
+  @supports (padding: max(0px)){
+    .cm-wrap{
+      padding-inline: max(var(--pad), env(safe-area-inset-left), env(safe-area-inset-right));
+      padding-block:  max(var(--pad), env(safe-area-inset-top),  env(safe-area-inset-bottom));
+    }
+  }
+  
+  /* Grid responsive */
+  .cm-grid{
+    display:grid;
+    gap: clamp(16px, 3vw, 28px);
+    align-items:center;
+    grid-template-columns: 1fr;  /* móvil */
+  }
+  @media (min-width: 860px){
+    .cm-grid{
+      grid-template-columns: minmax(320px, 1fr) 1.1fr; /* izquierda logo / derecha texto */
+    }
+  }
+  
+  .cm-left{ display:flex; justify-content:center; }
+  .cm-hero{
+    position:relative;
+    width: min(520px, 92%);
+    margin:0 auto;
+    border-radius:16px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.12);
+    background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+    box-shadow:0 10px 40px rgba(0,0,0,.35);
+  }
+  .cm-hero-img{
+    width:100%;
+    display:block;
+    transform:scale(1.02);
+    animation:cm-float 5s ease-in-out infinite;
+  }
+  @keyframes cm-float{
+    0%,100%{transform:scale(1.02) translateY(0)}
+    50%{transform:scale(1.02) translateY(-6px)}
+  }
+  .cm-hero-glow{
+    position:absolute; inset:auto 0 -2px 0; height:12px;
+    background:radial-gradient(50% 60% at 50% 100%, rgba(0,255,204,.55) 0%, rgba(0,0,0,0) 70%);
+    filter:blur(8px);
+    pointer-events:none;
+  }
+  
+  /* Columna derecha */
+  .cm-right{
+    text-align:left;
+    display:flex;
+    flex-direction:column;
+    gap: clamp(10px, 2.2vw, 16px);
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    padding: 50px 30px;
+  }
+  @media (max-width: 859px){
+    .cm-right{ text-align:center; }
+  }
+  
+  .cm-title{
+    margin:0;
+    font-size:clamp(24px,3.2vw,36px);
+    letter-spacing:.4px;
+  }
+  .cm-sub{
+    opacity:.9;
+    margin:0;
+    max-width: 62ch;
+    line-height:1.5;
+  }
+  
+  /* Badges */
+  .cm-badges{
+    display:flex;
+    gap:12px;
+    justify-content:flex-start;
+    align-items:center;
+    flex-wrap:wrap;
+  }
+  @media (max-width: 859px){
+    .cm-badges{ justify-content:center; }
+  }
+  .cm-badge{
+    background:rgba(0,0,0,.55);
+    border:1px solid #555;
+    color:#fff;
+    padding:6px 10px;
+    border-radius:999px;
+    font-size:14px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    box-shadow:0 0 0 0 rgba(255,255,255,0);
+    animation:cm-pulse 2.2s ease-in-out infinite;
+  }
+  .cm-badge-dot{ width:10px; height:10px; border-radius:50%; }
+  @keyframes cm-pulse{
+    0%{box-shadow:0 0 0 0 rgba(255,255,255,.12)}
+    70%{box-shadow:0 0 0 10px rgba(255,255,255,0)}
+    100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}
+  }
+  
+  /* CTA */
+  .cm-cta{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+  }
+  @media (max-width: 859px){
+    .cm-cta{ align-items:center; }
+  }
+  .cm-actions{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  @media (max-width: 859px){
+    .cm-actions{ justify-content: center; }
+  }
+  
+  .cm-btn{ width:220px; }
+  .cm-btn--sec{
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #fff;
+  }
+  .cm-btn--sec:hover{
+    background: rgba(255,255,255,.08);
+  }
+  
+  .cm-hint{ font-size:14px; opacity:.85; max-width: 60ch; }
+  
+  /* Ajustes móviles */
+  @media (max-width: 540px){
+    .cm-wrap{ padding:16px; }
+    .cm-hero{ width: min(520px, 100%); }
+  }
+  

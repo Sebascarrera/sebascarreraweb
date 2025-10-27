@@ -155,3 +155,96 @@
       font-size: 0.9rem;
     }
   }
+
+
+  .btn.btn--ghost {
+    background: rgba(0, 0, 0, 0.35);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .btn.btn--ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+
+  .home-experience {
+    position: relative;
+    padding: clamp(48px, 12vw, 120px) clamp(18px, 8vw, 140px);
+    background: radial-gradient(circle at top, rgba(0, 255, 163, 0.16) 0%, rgba(3, 6, 12, 0.92) 55%),
+                radial-gradient(circle at bottom, rgba(0, 170, 255, 0.12) 0%, rgba(3, 6, 12, 0.96) 60%),
+                #020409;
+    color: #f5fbff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+  }
+
+  .home-experience__inner {
+    max-width: 860px;
+    display: grid;
+    gap: clamp(12px, 2.6vw, 20px);
+  }
+
+  .home-experience__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .home-experience__eyebrow::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(0, 255, 163, 0.7), rgba(0, 0, 0, 0));
+  }
+
+  .home-experience__title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 0;
+  }
+
+  .home-experience__description {
+    margin: 0;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.78);
+    line-height: 1.6;
+  }
+
+  .home-experience__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    color: #00e5c1;
+    text-decoration: none;
+    position: relative;
+  }
+
+  .home-experience__link::after {
+    content: '→';
+    transition: transform 0.2s ease;
+  }
+
+  .home-experience__link:hover::after {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 720px) {
+    .home-experience {
+      text-align: center;
+    }
+
+    .home-experience__inner {
+      justify-items: center;
+    }
+
+    .home-experience__eyebrow::before {
+      display: none;
+    }
+  }

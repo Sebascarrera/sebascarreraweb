@@ -8,7 +8,12 @@
     "name": "Juan Sebastián Carrera Moya",
     "subtitle": "Frontend Web Designer and Developer",
     "description": "I transform ideas into impactful and functional digital experiences.",
-    "viewProjects": "See projects"
+    "viewProjects": "See projects",
+    "experienceCta": "Live the experience",
+    "experienceEyebrow": "Porvenir 2025",
+    "experienceTitle": "Experience cybersecurity firsthand",
+    "experienceDescription": "Dive into immersive mini-games that teach digital best practices while you test your reflexes and intuition.",
+    "experienceLinkLabel": "Explore experiences"
   },
   "projects": {
     "title": "Featured projects",
@@ -99,5 +104,34 @@
   },
   "common": {
     "noVideoSupport": "Your browser does not support videos."
+  },
+  "experience": {
+    "eyebrow": "Live the experience",
+    "title": "Three missions to master cybersecurity",
+    "subtitle": "Pick an interactive game created for the Porvenir 2025 campaign and learn how to defend yourself from digital threats.",
+    "bestScore": "Best score: {{score}} pts",
+    "games": {
+      "firewall": {
+        "title": "Firewall Defender",
+        "description": "Control Cipo’s shield and block every threat before it reaches the central server.",
+        "badge": "Real-time arcade",
+        "cta": "Play now",
+        "helper": "Duration: 1 minute"
+      },
+      "password": {
+        "title": "Master Password",
+        "description": "Build unbreakable passwords by combining symbols, numbers, and memorable patterns.",
+        "badge": "Logic & memory",
+        "cta": "Coming soon",
+        "helper": "Available very soon"
+      },
+      "malware": {
+        "title": "Escape the Malware",
+        "description": "Solve puzzles and make quick decisions to escape a coordinated attack.",
+        "badge": "Narrative adventure",
+        "cta": "Coming soon",
+        "helper": "Available very soon"
+      }
+    }
   }
 }
