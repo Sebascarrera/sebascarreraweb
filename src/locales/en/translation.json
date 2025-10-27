@@ -122,15 +122,15 @@
         "title": "Master Password",
         "description": "Build unbreakable passwords by combining symbols, numbers, and memorable patterns.",
         "badge": "Logic & memory",
-        "cta": "Coming soon",
-        "helper": "Available very soon"
+        "cta": "Play now",
+        "helper": "Duration: 1 minute"
       },
       "malware": {
         "title": "Escape the Malware",
         "description": "Solve puzzles and make quick decisions to escape a coordinated attack.",
         "badge": "Narrative adventure",
-        "cta": "Coming soon",
-        "helper": "Available very soon"
+        "cta": "Play now",
+        "helper": "Duration: 1 minute"
       }
     }
   }

@@ -28,7 +28,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="home-experience">
+      {/*<section className="home-experience">
         <div className="home-experience__inner">
           <span className="home-experience__eyebrow">{t('home.experienceEyebrow')}</span>
           <h2 className="home-experience__title">{t('home.experienceTitle')}</h2>
@@ -37,7 +37,7 @@ function Home() {
             {t('home.experienceLinkLabel')}
           </Link>
         </div>
-      </section>
+      </section>*/}
     </>
   );
 }
