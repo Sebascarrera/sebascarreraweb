@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import '../styles/home.css';
-import videoBg from '../assets/video-fondo.mp4';
+import videoBg from '../assets/background-portfolio-web-2.mp4';
 import { LanguageContext } from '../context/LanguageContext.jsx';
 
 function Home() {
