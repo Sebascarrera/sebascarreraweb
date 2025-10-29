@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.9);
   }
 
   .home::before {
@@ -23,10 +23,10 @@
     transform-origin: 50% 50%;
     border-radius: 50%;        /* círculo -> no hay esquinas visibles */
     background: conic-gradient(from 0deg,
-      #245342, #274452, #321b2b, #2a3318, #1b3f32
+      #153026, #1c3542, #39172f, #232c11, #113125
     );
     animation: spinWheel 5s linear infinite;
-    opacity: 0.55;
+    opacity: 0.80;
     z-index: 0;
     pointer-events: none;
   }
@@ -44,7 +44,7 @@
     height: 100%;
     object-fit: cover;
     z-index: -1;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.5);
   }
   
   .home-content {
@@ -147,6 +147,7 @@
   @media (max-width: 480px) {
     .home-content {
       padding: 1.5rem;
+      margin: 1.5rem;
     }
 
     .home-content h1 {

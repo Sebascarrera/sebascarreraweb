@@ -22,9 +22,9 @@
 
 .navbar-logo .signature {
   color: #ffffff;
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.5rem;
-  font-weight: lighter;
+  font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 900;     
   text-decoration: none;
   display: inline-block;
   opacity: 0;
@@ -151,6 +151,6 @@
   }
 
   .navbar-logo .signature {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
   }
 }

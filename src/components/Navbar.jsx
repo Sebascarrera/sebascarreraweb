@@ -45,7 +45,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <Link to="/" onClick={closeMenu} className="signature">Sebastian Carrera</Link>
+        <Link to="/" onClick={closeMenu} className="signature">Sebastian CM</Link>
       </div>
       <div className={`navbar-toggle ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
         <span></span>
