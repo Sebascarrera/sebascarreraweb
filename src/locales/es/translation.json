@@ -26,7 +26,7 @@
       },
       "2": {
         "title": "Mundo Colmena",
-        "description": "Landing de juego educativo interactivo desarrollado con React y animaciones CSS, la finalidad del juego era que los participantes fueran buscando en diferentes lugares unos QR Codes donde los dirijian a secciones especificas de la landing para realizar distintos retos relacionados con el evento y cumplir con informar de una manera dinámica e interactiva."
+        "description": "Se desarrolló una landing para un juego educativo interactivo utilizando React y animaciones CSS. Mediante la búsqueda y el escaneo de códigos QR ubicados en diversos puntos, los participantes accedían a secciones específicas de la landing para realizar retos alineados con el evento, garantizando una comunicación dinámica e inmersiva."
       },
       "3": {
         "title": "Colmena Route Game",
@@ -92,8 +92,8 @@
     "title": "Contacto",
     "description": "¿Tienes un proyecto en mente o simplemente quieres saludar? ¡Escríbeme!",
     "details": {
-      "email": "Correo: {{email}}",
-      "whatsapp": "WhatsApp: {{number}}"
+      "email": " {{email}}",
+      "whatsapp": " {{number}}"
     },
     "form": {
       "name": "Tu nombre",

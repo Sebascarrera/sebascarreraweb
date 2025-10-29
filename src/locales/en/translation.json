@@ -26,7 +26,7 @@
       },
       "2": {
         "title": "Mundo Colmena",
-        "description": "Interactive educational game landing developed with React and CSS animations. The purpose of the game was for participants to search in different places for QR codes that directed them to specific sections of the landing to perform various event-related challenges and communicate dynamically and interactively."
+        "description": "A landing page was developed for an interactive educational game using React and CSS animations. By searching for and scanning QR codes placed at various points, participants were directed to specific sections of the landing page to complete event-aligned challenges, ensuring dynamic and immersive communication."
       },
       "3": {
         "title": "Colmena Route Game",
@@ -92,8 +92,8 @@
     "title": "Contact",
     "description": "Do you have a project in mind or just want to say hi? Write me!",
     "details": {
-      "email": "Email: {{email}}",
-      "whatsapp": "WhatsApp: {{number}}"
+      "email": " {{email}}",
+      "whatsapp": " {{number}}"
     },
     "form": {
       "name": "Your name",

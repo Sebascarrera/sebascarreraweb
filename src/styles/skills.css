@@ -20,28 +20,7 @@
   z-index: -2;
 }
 
-.skills-container::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 220vmax;            /* MUY grande: mayor que la diagonal de la pantalla */
-  height: 220vmax;
-  transform: translate(-50%, -50%) rotate(0deg);
-  transform-origin: 50% 50%;
-  border-radius: 50%;        /* círculo -> no hay esquinas visibles */
-  background: conic-gradient(from 0deg,
-    #00ffa3, #00aaff, #ff00aa, #aaff00, #00ffa3
-  );
-  animation: spinWheel 5s linear infinite;
-  opacity: 0.10;
-  z-index: -1;
-  pointer-events: none;
-}
 
-@keyframes spinWheel {
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
 
 .skills-overlay {
   width: 100%;

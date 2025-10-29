@@ -20,29 +20,7 @@
   z-index: -2;
 }
 
-.projects-container::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 220vmax;            /* MUY grande: mayor que la diagonal de la pantalla */
-  height: 220vmax;
-  transform: translate(-50%, -50%) rotate(0deg);
-  transform-origin: 50% 50%;
-  border-radius: 50%;        /* círculo -> no hay esquinas visibles */
-  background: conic-gradient(from 0deg,
-    #00ffa3, #00aaff, #ff00aa, #aaff00, #00ffa3
-  );
-  animation: spinWheel 5s linear infinite;
-  opacity: 0.10;
-  z-index: -1;
-  pointer-events: none;
-}
 
-
-@keyframes spinWheel {
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
 
 .projects-container h2 {
   font-family: 'Roboto', sans-serif;
@@ -227,6 +205,62 @@
   .project-card .video-btn {
     padding: 6px 12px;
     font-size: 0.9rem;
+  }
+}
+
+
+
+
+/* === Ancho consistente de las tarjetas === */
+.projects-grid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+  padding: 20px;
+}
+
+/* Misma anchura para todas las cards en desktop/tablet */
+.project-card {
+  box-sizing: border-box;
+  flex: 0 0 clamp(280px, 30vw, 360px); /* ancho fijo-responsivo */
+  width: clamp(280px, 30vw, 360px);    /* refuerzo si cambia el display */
+  max-width: none;                     /* anula el max-width anterior */
+}
+
+/* Evitar que la imagen fuerce el ancho de la tarjeta */
+.project-card img {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;  /* anula el min-width que podía estirar la card */
+  height: auto;
+  object-fit: contain;
+}
+
+/* Opcional: para alturas más uniformes (estructura vertical) */
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+.project-card p {
+  margin-bottom: 15px; /* empuja botones hacia abajo */
+}
+
+/* === Móvil === */
+@media (max-width: 480px) {
+  .projects-grid {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .project-card {
+    flex: 1 1 100%;
+    width: 100%;          /* cada card ocupa todo el ancho útil */
+    border-radius: 16px;
+    padding: 15px;
+  }
+  .project-card img {
+    max-width: 100%;
   }
 }
 

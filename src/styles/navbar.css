@@ -28,19 +28,8 @@
   text-decoration: none;
   display: inline-block;
   opacity: 0;
-  animation: fadeSlideIn 1.5s forwards;
 }
 
-@keyframes fadeSlideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 
 .navbar-links {
   list-style: none;
@@ -153,4 +142,295 @@
   .navbar-logo .signature {
     font-size: 0.9rem;
   }
+}
+
+
+/* === Neon verde fosforescente para el selector de idioma === */
+.language-selector {
+  position: relative;
+  display: inline-block;
+  margin-right: 25px; /* ya lo tienes en el select; lo movemos al contenedor */
+  border-radius: 6px;
+  isolation: isolate; /* para que los brillos no “sangren” fuera */
+}
+
+/* El <select> conserva la interacción; el contenedor lleva las animaciones */
+.language-selector select {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  padding: 4px 28px 4px 10px; /* un poco más de padding para el glow */
+  border-radius: 6px;
+  appearance: none;          /* oculta flecha nativa en la mayoría de navegadores */
+  position: relative;
+  z-index: 1;
+}
+
+/* Flecha minimal (opcional) */
+.language-selector select::-ms-expand { display: none; } /* IE/Edge Legacy */
+.language-selector::after {
+  content: '▾';
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  translate: 0 -50%;
+  font-size: 0.8rem;
+  color: #00ffa3;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Anillo de brillo estático + pulso suave */
+.language-selector::before {
+  content: '';
+  position: absolute;
+  inset: -2px;                 /* sobresale 2px para el halo */
+  border-radius: 8px;
+  background: radial-gradient(120% 120% at 50% 50%,
+              rgba(0, 255, 163, 0.55) 0%,
+              rgba(0, 255, 163, 0.18) 45%,
+              rgba(0, 255, 163, 0.06) 70%,
+              transparent 100%);
+  filter: blur(6px);
+  opacity: 0.55;
+  z-index: 0;
+  animation: neonPulse 2.4s ease-in-out infinite;
+}
+
+/* Barrido de luz (shimmer) sutil */
+.language-selector .neon-sweep {
+  /* elemento fantasma opcional (lo creamos con :focus-within y :hover) */
+}
+
+.language-selector::marker { content: none; } /* por si algún UA raro muestra bullets */
+
+/* Intensificar en hover/focus */
+.language-selector:hover::before,
+.language-selector:focus-within::before {
+  opacity: 0.9;
+  filter: blur(8px);
+  animation-duration: 1.6s;
+}
+
+/* Borde/halo reactivo en focus del select */
+.language-selector select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 255, 163, 0.45),
+              0 0 18px rgba(0, 255, 163, 0.35);
+  border-color: rgba(0, 255, 163, 0.6);
+}
+
+/* Animación del pulso */
+@keyframes neonPulse {
+  0%, 100% { opacity: 0.55; filter: blur(6px); }
+  50%      { opacity: 0.85; filter: blur(10px); }
+}
+
+/* Línea inferior animada (opcional, estilo “scanner”) */
+.language-selector::after {
+  /* ya usamos ::after para la flecha; usamos ::before + outline para el scanner: */
+}
+.language-selector::selection { background: transparent; }
+
+/* Subrayado “scanner” con pseudo-elemento extra */
+.language-selector > select::after { content: none; } /* seguridad */
+
+/* Usamos un pseudo sobre el contenedor adicional */
+.language-selector::before { /* ya definido para el halo */ }
+.language-selector::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  right: 22px;                /* deja espacio a la flecha */
+  bottom: -1px;
+  height: 2px;
+  background: linear-gradient(90deg,
+              transparent,
+              #00ffa3,
+              transparent);
+  opacity: 0.7;
+  filter: drop-shadow(0 0 6px #00ffa3);
+  animation: scan 2.2s linear infinite;
+  z-index: 0;
+}
+
+/* Barrido del subrayado */
+@keyframes scan {
+  0%   { left: 6px; right: calc(100% - 24px); opacity: 0.0; }
+  10%  { opacity: 0.75; }
+  50%  { left: 6px; right: 22px; opacity: 0.9; }
+  90%  { opacity: 0.75; }
+  100% { left: calc(100% - 24px); right: 22px; opacity: 0.0; }
+}
+
+/* Accesibilidad: reduce animaciones si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+  .language-selector::before,
+  .language-selector::after {
+    animation: none;
+  }
+}
+
+
+
+
+/* === Firma tipo logo: brillo suave + shimmer discreto + subrayado fino === */
+.navbar-logo .signature {
+  position: relative;
+  display: inline-block;
+  letter-spacing: 0.6px;
+  /* Tratamiento visual del “logo” */
+  background: linear-gradient(90deg, #ffffff 0%, #e9fff7 40%, #ffffff 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;                /* usamos el gradiente como color del texto */
+  text-rendering: optimizeLegibility;
+  will-change: filter, background-position;
+  /* Animaciones: ya tienes fadeSlideIn; añadimos glow y shimmer muy sutiles */
+  animation:
+    logoGlow 8s ease-in-out infinite,
+    logoShimmer 12s linear infinite;
+  background-size: 200% 100%;        /* para el shimmer */
+}
+
+/* Subrayado fino con halo verde tenue */
+.navbar-logo .signature::after {
+  content: '';
+  position: absolute;
+  left: 2%;
+  right: 2%;
+  bottom: -4px;
+  height: 2px;
+  background:
+    linear-gradient(90deg, transparent, #00ffa3, transparent);
+  opacity: 0.25;
+  filter: drop-shadow(0 0 6px #00ffa3);
+  border-radius: 2px;
+  animation: underlineBreath 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Un toque extra en hover: sutil, sin “saltos” */
+.navbar-logo .signature:hover {
+  animation-duration: 1.5s, 6s, 9s;  /* acelera ligeramente shimmer y glow */
+  filter: drop-shadow(0 0 8px rgba(0,255,163,0.18));
+}
+
+/* === Keyframes === */
+@keyframes logoGlow {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(0,255,163,0)); }
+  50%      { filter: drop-shadow(0 0 10px rgba(0,255,163,0.22)); }
+}
+
+@keyframes logoShimmer {
+  0%   { background-position: 0% 50%;   }
+  100% { background-position: 200% 50%; }
+}
+
+@keyframes underlineBreath {
+  0%, 100% { opacity: 0.18; filter: drop-shadow(0 0 4px #00ffa3); }
+  50%      { opacity: 0.35; filter: drop-shadow(0 0 10px #00ffa3); }
+}
+
+
+
+/* Hover con leve escala, sin reflow */
+.navbar-logo .signature {
+  transform-origin: left center;
+  will-change: transform;
+  transition: transform 250ms ease;
+}
+
+.navbar-logo .signature:hover {
+  transform: translateZ(0) scale(1.015);
+}
+
+/* Respetar reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .navbar-logo .signature {
+    transition: none;
+    transform: none !important;
+  }
+}
+
+
+/* 1) Usa propiedades transform-individuales para la entrada */
+.navbar-logo .signature {
+  position: relative;
+  display: inline-block;
+  letter-spacing: 0.6px;
+
+  /* Gradiente + efectos que ya tenías (si los usas) */
+  background: linear-gradient(90deg, #ffffff 0%, #e9fff7 40%, #ffffff 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  /* Mantén las animaciones que no tocan transform */
+  animation: logoGlow 8s ease-in-out infinite,
+             logoShimmer 12s linear infinite;
+
+  /* Reemplaza fadeSlideIn: ahora solo manejará opacity + translate */
+  opacity: 0;
+  translate: -20px 0;              /* estado inicial */
+  animation: fadeSlideInFix 1.5s forwards, 
+             logoGlow 8s ease-in-out infinite,
+             logoShimmer 12s linear infinite;
+}
+
+/* 2) Hover con escala (ahora sí funciona) */
+.navbar-logo .signature {
+  transform-origin: left center;
+  will-change: transform;
+  transition: transform 250ms ease;
+}
+.navbar-logo .signature:hover,
+.navbar-logo:hover .signature,
+.navbar-logo a:hover .signature {
+  transform: translateZ(0) scale(1.03);
+}
+
+/* 3) Subrayado sutil (si lo usas) */
+.navbar-logo .signature::after {
+  content: '';
+  position: absolute;
+  left: 2%;
+  right: 2%;
+  bottom: -4px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00ffa3, transparent);
+  opacity: 0.25;
+  filter: drop-shadow(0 0 6px #00ffa3);
+  border-radius: 2px;
+  animation: underlineBreath 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* 4) Keyframes actualizados: sin 'transform', usamos 'translate' */
+@keyframes fadeSlideInFix {
+  0%   { opacity: 0; translate: -20px 0; }
+  100% { opacity: 1; translate: 0 0; }
+}
+
+/* Estos no tocan transform */
+@keyframes logoGlow {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(0,255,163,0)); }
+  50%      { filter: drop-shadow(0 0 10px rgba(0,255,163,0.22)); }
+}
+@keyframes logoShimmer {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+@keyframes underlineBreath {
+  0%, 100% { opacity: 0.18; filter: drop-shadow(0 0 4px #00ffa3); }
+  50%      { opacity: 0.35; filter: drop-shadow(0 0 10px #00ffa3); }
+}
+
+/* Accesibilidad: reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .navbar-logo .signature {
+    animation: fadeSlideInFix 1.5s forwards;
+  }
+  .navbar-logo .signature::after { animation: none; opacity: 0.22; }
 }

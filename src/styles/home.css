@@ -26,7 +26,7 @@
       #153026, #1c3542, #39172f, #232c11, #113125
     );
     animation: spinWheel 5s linear infinite;
-    opacity: 0.80;
+    opacity: 0.40;
     z-index: 0;
     pointer-events: none;
   }
