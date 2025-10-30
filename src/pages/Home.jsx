@@ -2,8 +2,11 @@ import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import '../styles/home.css';
-import videoBg from '../assets/background-portfolio-web-2.mp4';
+import videoBg from '../assets/background-portfolio-web-3.mp4';
 import { LanguageContext } from '../context/LanguageContext.jsx';
+
+// 🖼️ Logo PNG transparente (colócalo en src/assets/img/)
+import jscmLogo from '../assets/img/jscm_logo_transparent.png';
 
 function Home() {
   const { t } = useTranslation();
@@ -17,10 +20,21 @@ function Home() {
           <source src={videoBg} type="video/mp4" />
           {t('common.noVideoSupport')}
         </video>
+
         <div className="home-content">
-          <h1>{t('home.name')}</h1>
+          {/* Reemplazo del h1 por el logo PNG */}
+          <img
+            src={jscmLogo}
+            alt="JSCM — Juan Sebastian Carrera Moya"
+            className="home-logo"
+            decoding="async"
+            width="560"
+            height="560"
+          />
+
           <h2>{t('home.subtitle')}</h2>
           <p>{t('home.description')}</p>
+
           <div className="buttons">
             <Link to={projectsPath} className="btn">{t('home.viewProjects')}</Link>
             <Link to="/selector" className="btn btn--ghost">{t('home.experienceCta')}</Link>
@@ -28,16 +42,10 @@ function Home() {
         </div>
       </section>
 
-      {/*<section className="home-experience">
-        <div className="home-experience__inner">
-          <span className="home-experience__eyebrow">{t('home.experienceEyebrow')}</span>
-          <h2 className="home-experience__title">{t('home.experienceTitle')}</h2>
-          <p className="home-experience__description">{t('home.experienceDescription')}</p>
-          <Link to="/selector" className="home-experience__link">
-            {t('home.experienceLinkLabel')}
-          </Link>
-        </div>
-      </section>*/}
+      {/* Sección opcional
+      <section className="home-experience">
+        ...
+      </section> */}
     </>
   );
 }
