@@ -6,7 +6,7 @@ import '../styles/navbar.css';
 import { LanguageContext } from '../context/LanguageContext.jsx';
 
 // 🖼️ Tu ícono (ruta confirmada por ti)
-import logoIcon from '../assets/img/jscm-icon.png';
+import logoIcon from '../assets/img/icono-imp.png';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

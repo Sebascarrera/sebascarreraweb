@@ -57,7 +57,7 @@
   display: block;
   margin: 0 auto 0.5rem auto;
   /* tamaño responsivo sin perder nitidez */
-  width: min(48vw, 440px);
+  width: min(48vw, 180px);
   max-width: 520px;
   height: auto;
 
@@ -80,7 +80,7 @@
   font-weight: lighter;
   font-size: 1.2rem;
   margin-bottom: 0.3rem;
-  color: darkgray;
+  color: rgb(231, 231, 231);
   opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 1s forwards 0.2s;
@@ -90,7 +90,7 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
   font-size: 1rem;
-  color: darkgray;
+  color: rgb(231, 231, 231);
   max-width: 600px;
   margin: 0 auto 1.5rem;
   opacity: 0;

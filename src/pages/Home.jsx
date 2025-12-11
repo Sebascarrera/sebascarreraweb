@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import '../styles/home.css';
-import videoBg from '../assets/background-portfolio-web-3.mp4';
+import videoBg from '../assets/background-portfolio-web-4.mp4';
 import { LanguageContext } from '../context/LanguageContext.jsx';
 
 // 🖼️ Logo PNG transparente (colócalo en src/assets/img/)
-import jscmLogo from '../assets/img/jscm_logo_transparent.png';
+import jscmLogo from '../assets/img/icono-imp.png';
 
 function Home() {
   const { t } = useTranslation();
@@ -28,10 +28,10 @@ function Home() {
             alt="JSCM — Juan Sebastian Carrera Moya"
             className="home-logo"
             decoding="async"
-            width="560"
-            height="560"
+            width="160"
+            height="160"
           />
-
+          <h1>{t('home.name')}</h1>
           <h2>{t('home.subtitle')}</h2>
           <p>{t('home.description')}</p>
 
