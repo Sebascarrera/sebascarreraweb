@@ -8,7 +8,8 @@
   align-items: center;
   text-align: center;
   background: url('../assets/img/background-projects.jpg') center/cover no-repeat fixed;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   z-index: 0;
 }
 
@@ -123,14 +124,16 @@
 
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
+  transform: translate3d(0, 40px, 0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
 }
 
 .reveal.active {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
 }
+
 
 /* Modal */
 .modal-overlay {
@@ -161,6 +164,23 @@
   max-height: 80vh;
   border-radius: 8px;
 }
+
+.modal-image {
+  display: block;
+  margin: 0 auto;     /* centrada */
+  max-width: 100%;
+  height: auto;
+  max-height: none;   /* clave: que no la limite */
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.modal-content {
+  overflow: auto;  /* clave para poder hacer scroll hacia abajo */
+}
+
+.modal-content { -webkit-overflow-scrolling: touch; }
+
 
 .modal-close {
   position: absolute;

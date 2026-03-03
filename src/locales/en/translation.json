@@ -18,11 +18,12 @@
   "projects": {
     "title": "Featured projects",
     "viewProject": "View project",
+    "viewImage": "View image",
     "viewVideo": "Watch video",
     "items": {
       "1": {
         "title": "Cybersecurity Landing",
-        "description": "Design and development of a web landing for an internal cybersecurity campaign for Porvenir employees."
+        "description": "I designed and developed a landing website for an internal Cybersecurity campaign aimed at Porvenir employees. It was an end-to-end project that centralized everything in one place: three games with different dynamics (dexterity, agility, and mental skills), plus live broadcasts so employees nationwide could join in. The platform also included a points system, participation tracking, and raffle mechanics to boost engagement. The goal was to strengthen the cybersecurity culture, prevent fraud, and promote secure digital habits through an interactive and memorable experience."
       },
       "2": {
         "title": "Mundo Colmena",
@@ -30,31 +31,31 @@
       },
       "3": {
         "title": "Colmena Route Game",
-        "description": "Web application to record and visualize personal goals."
+        "description": "Colmena Route Game is a 3D racing experience designed as a meeting point between entertainment and brand engagement. The track becomes an interactive stage where promotions, messages, and brand information are delivered in context—building awareness and recall as the player races, competes, and explores."
       },
       "4": {
         "title": "UKCOL Wildlife Game",
         "description": "Interactive game developed for touch screens that aims to teach in a friendly way about the diversity of the Colombian ecosystem."
       },
       "5": {
-        "title": "Pacman Anti-Fraud Game",
-        "description": "Educational interactive game developed with React and CSS animations."
+        "title": "APP FullStaff Video",
+        "description": "FullStaff is an application created to centralize the search for professionals and skilled trades that people may urgently need (technicians, maintenance, services, among others). In one place, it allows users to find, contact, and connect with the right profile to solve a real need quickly and safely, while opening up job opportunities for those who offer their services."
       },
       "6": {
-        "title": "Goals App",
-        "description": "Web application to register and view personal goals."
+        "title": "GoGo Racing App",
+        "description": "An interactive experience created for car dealerships that blends nostalgia and technology. This 2D iPad game, inspired by 1980s arcade classics, lets users “drive” by tilting the device and dodging obstacles on the road. More than just a game, it serves as a digital touchpoint that elevates the in-showroom brand experience, boosts engagement, and supports the customer journey toward purchase."
       },
       "7": {
-        "title": "Personal Portfolio",
-        "description": "Design and development of my website as a front-end designer and developer."
+        "title": "Money week Challenge app web",
+        "description": "I designed and developed a landing page (UI/UX) as a proposal for the Money Week Challenge at Banco de Bogotá, an internal competition created to engage and connect employees nationwide. The platform centralized the full experience in one place, combining skill- and puzzle-based games with live broadcasts, and featured a user-centered navigation designed to maximize participation, engagement, and a sense of community throughout the challenge."
       },
       "8": {
-        "title": "Pacman Anti-Fraud Game",
-        "description": "Educational interactive game developed with React and CSS animations."
+        "title": "Sprint Falabella",
+        "description": "An interactive web game designed for promotional campaigns and branded activations: a time-based puzzle challenge where the winner is the player who completes it in the shortest time, combining skill, focus, and speed to drive excitement and competition. This project was built end-to-end—from concept and UI/UX design to full development in React—with a smooth, responsive experience optimized for high-traffic participation. It includes gamification mechanics (timer, progress, and competitive dynamics) that boost engagement and turn a promotion into a memorable, brand-driven experience."
       },
       "9": {
-        "title": "Goals App",
-        "description": "Web application to register and view personal goals."
+        "title": "Virtual AI Host - BdB",
+        "description": "Development of an interactive audiovisual experience featuring an AI-generated avatar. The project centered on the creation of a virtual character capable of moderating events in real-time and fostering active audience engagement through dynamic interactions."
       }
     }
   },

@@ -19,10 +19,11 @@
     "title": "Proyectos destacados",
     "viewProject": "Ver proyecto",
     "viewVideo": "Ver video",
+    "viewImage": "Ver imagen",
     "items": {
       "1": {
         "title": "Landing Ciberseguridad",
-        "description": "Diseño y desarrollo de Landing Web para una campaña interna sobre Ciberseguridad a los empleados de Porvenir."
+        "description": "landing web para una campaña interna de Ciberseguridad dirigida a los colaboradores de Porvenir. Fue un proyecto integral que centralizó, en un solo sitio, tres juegos con dinámicas diferentes (destreza, agilidad y habilidad mental), además de transmisiones en vivo para conectar a empleados a nivel nacional. La plataforma incluyó sistema de puntajes, seguimiento de participación y mecánicas de rifas para incentivar el engagement. El objetivo fue fortalecer la cultura de ciberseguridad, prevenir fraudes y promover buenas prácticas digitales de forma interactiva y memorable."
       },
       "2": {
         "title": "Mundo Colmena",
@@ -30,31 +31,31 @@
       },
       "3": {
         "title": "Colmena Route Game",
-        "description": "Aplicación web para registrar y visualizar propósitos personales."
+        "description": "Colmena Route Game es una experiencia de carrera en 3D pensada como un punto de encuentro entre entretenimiento y marca. El circuito funciona como un escenario interactivo donde promociones, mensajes e información de marca se presentan de forma contextual, creando recordación mientras el jugador avanza, compite y explora."
       },
       "4": {
         "title": "Juego UKCOL Vida Silvestre",
         "description": "Juego interactivo desarrollado para pantallas touch, el cual busca enseñar de forma amigable sobre la diversidad del ecosistema Colombiano."
       },
       "5": {
-        "title": "Juego de Pacman Antifraude",
-        "description": "Juego educativo interactivo desarrollado con React y animaciones CSS."
+        "title": "Video promocional APP FullStaff",
+        "description": "FullStaff es una aplicación creada para centralizar la búsqueda de profesionales y oficios que las personas pueden necesitar con urgencia (técnicos, mantenimiento, servicios, entre otros). En un solo lugar, permite encontrar, contactar y conectarse con el perfil adecuado para resolver una necesidad real, de forma rápida y segura, mientras se abren oportunidades de empleo para quienes ofrecen sus servicios."
       },
       "6": {
-        "title": "App de Propósitos",
-        "description": "Aplicación web para registrar y visualizar propósitos personales."
+        "title": "GoGo Racing",
+        "description": "Una experiencia interactiva creada para concesionarios que combina nostalgia y tecnología. Este juego 2D para iPad, inspirado en los arcades de los 80s, permite al usuario “manejar” inclinando el dispositivo y esquivando obstáculos en la carretera. Más que un juego, funciona como un punto de contacto digital que amplifica la experiencia de marca en sala, genera engagement y acompaña el recorrido del cliente hacia la compra."
       },
       "7": {
-        "title": "Portafolio Personal",
-        "description": "Diseño y desarrollo de mi sitio web como diseñador y desarrollador front-end."
+        "title": "Development & UI/UX — Money Week Challenge",
+        "description": "Diseñé y desarrollé una landing page (UI/UX) como propuesta para el Money Week Challenge del Banco de Bogotá, un concurso interno creado para activar y conectar a los colaboradores a nivel nacional. La plataforma centralizaba la experiencia en un solo lugar, integrando juegos de destreza e ingenio y transmisiones en vivo, con una navegación pensada para maximizar participación, engagement y sentido de comunidad durante el reto."
       },
       "8": {
-        "title": "Juego de Pacman Antifraude",
-        "description": "Juego educativo interactivo desarrollado con React y animaciones CSS."
+        "title": "Juego Sprint Falabella",
+        "description": "Juego web interactivo diseñado para campañas promocionales y activaciones de marca, un reto de rompecabezas contrarreloj donde gana quien complete la pieza en el menor tiempo, combinando destreza, enfoque y velocidad para generar emoción y competencia. El proyecto fue desarrollado end-to-end: concepto, UI/UX y diseño visual, más la implementación completa en React, con una experiencia fluida y responsive pensada para alto tráfico. Incluye mecánicas de gamificación (tiempo, progreso y dinámica competitiva) que aumentan el engagement y convierten una promoción en una experiencia memorable."
       },
       "9": {
-        "title": "App de Propósitos",
-        "description": "Aplicación web para registrar y visualizar propósitos personales."
+        "title": "IA Host Virtual Bdb",
+        "description": "Desarrollo de una experiencia audiovisual interactiva mediante un avatar generado con Inteligencia Artificial. El proyecto consistió en la creación de un personaje virtual capaz de presentar eventos en tiempo real y fomentar la participación activa de la audiencia a través de interacciones dinámicas."
       }
     }
   },
