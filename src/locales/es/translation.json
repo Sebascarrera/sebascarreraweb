@@ -2,7 +2,8 @@
   "nav": {
     "projects": "Proyectos",
     "skills": "Habilidades",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "showreel": "Showreel"
   },
   "home": {
     "name": "Juan Sebastián Carrera Moya",
@@ -13,49 +14,87 @@
     "experienceEyebrow": "Porvenir 2025",
     "experienceTitle": "Vive la experiencia de ciberseguridad",
     "experienceDescription": "Explora juegos inmersivos que enseñan buenas prácticas digitales mientras pones a prueba tu intuición y reflejos.",
-    "experienceLinkLabel": "Explorar experiencias"
+    "experienceLinkLabel": "Explorar experiencias",
+    "experienceSection": "Experiencia",
+    "showreel": {
+      "title": "En acción",
+      "subtitle": "Un vistazo rápido a mis proyectos"
+    }
   },
   "projects": {
     "title": "Proyectos destacados",
     "viewProject": "Ver proyecto",
     "viewVideo": "Ver video",
     "viewImage": "Ver imagen",
+    "modal": {
+      "problem": "Problema",
+      "solution": "Solución",
+      "stack": "Stack Tecnológico",
+      "liveCta": "Ver proyecto en vivo"
+    },
     "items": {
       "1": {
         "title": "Landing Ciberseguridad",
-        "description": "landing web para una campaña interna de Ciberseguridad dirigida a los colaboradores de Porvenir. Fue un proyecto integral que centralizó, en un solo sitio, tres juegos con dinámicas diferentes (destreza, agilidad y habilidad mental), además de transmisiones en vivo para conectar a empleados a nivel nacional. La plataforma incluyó sistema de puntajes, seguimiento de participación y mecánicas de rifas para incentivar el engagement. El objetivo fue fortalecer la cultura de ciberseguridad, prevenir fraudes y promover buenas prácticas digitales de forma interactiva y memorable."
+        "description": "landing web para una campaña interna de Ciberseguridad dirigida a los colaboradores de Porvenir. Fue un proyecto integral que centralizó, en un solo sitio, tres juegos con dinámicas diferentes (destreza, agilidad y habilidad mental), además de transmisiones en vivo para conectar a empleados a nivel nacional. La plataforma incluyó sistema de puntajes, seguimiento de participación y mecánicas de rifas para incentivar el engagement. El objetivo fue fortalecer la cultura de ciberseguridad, prevenir fraudes y promover buenas prácticas digitales de forma interactiva y memorable.",
+        "stack": ["React", "CSS3", "JavaScript", "HTML5"],
+        "problem": "Necesidad de fortalecer la cultura de ciberseguridad entre colaboradores de forma interactiva y memorable.",
+        "solution": "Landing centralizada con tres juegos (destreza, agilidad y habilidad mental), transmisiones en vivo, sistema de puntajes y mecánicas de rifas para maximizar el engagement."
       },
       "2": {
         "title": "Mundo Colmena",
-        "description": "Se desarrolló una landing para un juego educativo interactivo utilizando React y animaciones CSS. Mediante la búsqueda y el escaneo de códigos QR ubicados en diversos puntos, los participantes accedían a secciones específicas de la landing para realizar retos alineados con el evento, garantizando una comunicación dinámica e inmersiva."
+        "description": "Se desarrolló una landing para un juego educativo interactivo utilizando React y animaciones CSS. Mediante la búsqueda y el escaneo de códigos QR ubicados en diversos puntos, los participantes accedían a secciones específicas de la landing para realizar retos alineados con el evento, garantizando una comunicación dinámica e inmersiva.",
+        "stack": ["React", "CSS Animations", "QR Integration"],
+        "problem": "Crear una experiencia educativa interactiva que conectara puntos físicos con contenido digital durante un evento.",
+        "solution": "Landing con escáner de códigos QR que direccionaba a retos específicos alineados con el evento, generando comunicación dinámica e inmersiva."
       },
       "3": {
         "title": "Colmena Route Game",
-        "description": "Colmena Route Game es una experiencia de carrera en 3D pensada como un punto de encuentro entre entretenimiento y marca. El circuito funciona como un escenario interactivo donde promociones, mensajes e información de marca se presentan de forma contextual, creando recordación mientras el jugador avanza, compite y explora."
+        "description": "Colmena Route Game es una experiencia de carrera en 3D pensada como un punto de encuentro entre entretenimiento y marca. El circuito funciona como un escenario interactivo donde promociones, mensajes e información de marca se presentan de forma contextual, creando recordación mientras el jugador avanza, compite y explora.",
+        "stack": ["3D Web", "JavaScript", "CSS3"],
+        "problem": "Crear un punto de encuentro entre entretenimiento y comunicación de marca dentro de un evento.",
+        "solution": "Experiencia de carrera 3D donde el circuito funciona como escenario interactivo con mensajes y promociones de marca contextuales."
       },
       "4": {
         "title": "Juego UKCOL Vida Silvestre",
-        "description": "Juego interactivo desarrollado para pantallas touch, el cual busca enseñar de forma amigable sobre la diversidad del ecosistema Colombiano."
+        "description": "Juego interactivo desarrollado para pantallas touch, el cual busca enseñar de forma amigable sobre la diversidad del ecosistema Colombiano.",
+        "stack": ["JavaScript", "HTML5", "CSS3", "Touch API"],
+        "problem": "Enseñar sobre la diversidad del ecosistema colombiano de forma amigable e interactiva.",
+        "solution": "Juego interactivo para pantallas touch que gamifica el aprendizaje sobre la flora y fauna colombiana."
       },
       "5": {
         "title": "Video promocional APP FullStaff",
-        "description": "FullStaff es una aplicación creada para centralizar la búsqueda de profesionales y oficios que las personas pueden necesitar con urgencia (técnicos, mantenimiento, servicios, entre otros). En un solo lugar, permite encontrar, contactar y conectarse con el perfil adecuado para resolver una necesidad real, de forma rápida y segura, mientras se abren oportunidades de empleo para quienes ofrecen sus servicios."
+        "description": "FullStaff es una aplicación creada para centralizar la búsqueda de profesionales y oficios que las personas pueden necesitar con urgencia (técnicos, mantenimiento, servicios, entre otros). En un solo lugar, permite encontrar, contactar y conectarse con el perfil adecuado para resolver una necesidad real, de forma rápida y segura, mientras se abren oportunidades de empleo para quienes ofrecen sus servicios.",
+        "stack": ["Video Production", "After Effects", "Premiere Pro"],
+        "problem": "Comunicar el valor diferencial de la app FullStaff a usuarios que buscan profesionales de oficios urgentes.",
+        "solution": "Video promocional que presenta la app como solución centralizada para encontrar, contactar y conectar con profesionales de forma rápida y segura."
       },
       "6": {
         "title": "GoGo Racing",
-        "description": "Una experiencia interactiva creada para concesionarios que combina nostalgia y tecnología. Este juego 2D para iPad, inspirado en los arcades de los 80s, permite al usuario “manejar” inclinando el dispositivo y esquivando obstáculos en la carretera. Más que un juego, funciona como un punto de contacto digital que amplifica la experiencia de marca en sala, genera engagement y acompaña el recorrido del cliente hacia la compra."
+        "description": "Una experiencia interactiva creada para concesionarios que combina nostalgia y tecnología. Este juego 2D para iPad, inspirado en los arcades de los 80s, permite al usuario 'manejar' inclinando el dispositivo y esquivando obstáculos en la carretera. Más que un juego, funciona como un punto de contacto digital que amplifica la experiencia de marca en sala, genera engagement y acompaña el recorrido del cliente hacia la compra.",
+        "stack": ["JavaScript", "HTML5 Canvas", "CSS3", "iPad API"],
+        "problem": "Generar engagement en sala de concesionario y acompañar el recorrido del cliente hacia la compra.",
+        "solution": "Juego 2D para iPad inspirado en arcades de los 80s donde el usuario maneja inclinando el dispositivo, funcionando como punto de contacto digital de marca."
       },
       "7": {
         "title": "Development & UI/UX — Money Week Challenge",
-        "description": "Diseñé y desarrollé una landing page (UI/UX) como propuesta para el Money Week Challenge del Banco de Bogotá, un concurso interno creado para activar y conectar a los colaboradores a nivel nacional. La plataforma centralizaba la experiencia en un solo lugar, integrando juegos de destreza e ingenio y transmisiones en vivo, con una navegación pensada para maximizar participación, engagement y sentido de comunidad durante el reto."
+        "description": "Diseñé y desarrollé una landing page (UI/UX) como propuesta para el Money Week Challenge del Banco de Bogotá, un concurso interno creado para activar y conectar a los colaboradores a nivel nacional. La plataforma centralizaba la experiencia en un solo lugar, integrando juegos de destreza e ingenio y transmisiones en vivo, con una navegación pensada para maximizar participación, engagement y sentido de comunidad durante el reto.",
+        "stack": ["React", "CSS3", "JavaScript", "UI/UX Design"],
+        "problem": "Activar y conectar a los colaboradores del Banco de Bogotá a nivel nacional durante el Money Week Challenge.",
+        "solution": "Landing con juegos de destreza e ingenio, transmisiones en vivo y navegación centrada en el usuario para maximizar participación y sentido de comunidad."
       },
       "8": {
         "title": "Juego Sprint Falabella",
-        "description": "Juego web interactivo diseñado para campañas promocionales y activaciones de marca, un reto de rompecabezas contrarreloj donde gana quien complete la pieza en el menor tiempo, combinando destreza, enfoque y velocidad para generar emoción y competencia. El proyecto fue desarrollado end-to-end: concepto, UI/UX y diseño visual, más la implementación completa en React, con una experiencia fluida y responsive pensada para alto tráfico. Incluye mecánicas de gamificación (tiempo, progreso y dinámica competitiva) que aumentan el engagement y convierten una promoción en una experiencia memorable."
+        "description": "Juego web interactivo diseñado para campañas promocionales y activaciones de marca, un reto de rompecabezas contrarreloj donde gana quien complete la pieza en el menor tiempo, combinando destreza, enfoque y velocidad para generar emoción y competencia. El proyecto fue desarrollado end-to-end: concepto, UI/UX y diseño visual, más la implementación completa en React, con una experiencia fluida y responsive pensada para alto tráfico. Incluye mecánicas de gamificación (tiempo, progreso y dinámica competitiva) que aumentan el engagement y convierten una promoción en una experiencia memorable.",
+        "stack": ["React", "JavaScript", "CSS3", "Gamification"],
+        "problem": "Convertir una promoción de Falabella en una experiencia memorable que genere emoción y competencia.",
+        "solution": "Juego web de rompecabezas contrarreloj con mecánicas de gamificación (tiempo, progreso y competencia), responsive y optimizado para alto tráfico."
       },
       "9": {
         "title": "IA Host Virtual Bdb",
-        "description": "Desarrollo de una experiencia audiovisual interactiva mediante un avatar generado con Inteligencia Artificial. El proyecto consistió en la creación de un personaje virtual capaz de presentar eventos en tiempo real y fomentar la participación activa de la audiencia a través de interacciones dinámicas."
+        "description": "Desarrollo de una experiencia audiovisual interactiva mediante un avatar generado con Inteligencia Artificial. El proyecto consistió en la creación de un personaje virtual capaz de presentar eventos en tiempo real y fomentar la participación activa de la audiencia a través de interacciones dinámicas.",
+        "stack": ["Heygen", "ElevenLabs", "React", "API Integration"],
+        "problem": "Crear un presentador virtual capaz de moderar eventos en tiempo real con interacción dinámica de audiencia.",
+        "solution": "Avatar generado con IA integrado en una experiencia audiovisual interactiva que presenta eventos y fomenta la participación activa en tiempo real."
       }
     }
   },

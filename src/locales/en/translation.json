@@ -2,7 +2,8 @@
   "nav": {
     "projects": "Projects",
     "skills": "Skills",
-    "contact": "Contact"
+    "contact": "Contact",
+    "showreel": "Showreel"
   },
   "home": {
     "name": "Juan Sebastián Carrera Moya",
@@ -13,55 +14,93 @@
     "experienceEyebrow": "Porvenir 2025",
     "experienceTitle": "Experience cybersecurity firsthand",
     "experienceDescription": "Dive into immersive mini-games that teach digital best practices while you test your reflexes and intuition.",
-    "experienceLinkLabel": "Explore experiences"
+    "experienceLinkLabel": "Explore experiences",
+    "experienceSection": "Experience",
+    "showreel": {
+      "title": "In action",
+      "subtitle": "A quick look at my projects"
+    }
   },
   "projects": {
     "title": "Featured projects",
     "viewProject": "View project",
     "viewImage": "View image",
     "viewVideo": "Watch video",
+    "modal": {
+      "problem": "Problem",
+      "solution": "Solution",
+      "stack": "Tech Stack",
+      "liveCta": "View live project"
+    },
     "items": {
       "1": {
         "title": "Cybersecurity Landing",
-        "description": "I designed and developed a landing website for an internal Cybersecurity campaign aimed at Porvenir employees. It was an end-to-end project that centralized everything in one place: three games with different dynamics (dexterity, agility, and mental skills), plus live broadcasts so employees nationwide could join in. The platform also included a points system, participation tracking, and raffle mechanics to boost engagement. The goal was to strengthen the cybersecurity culture, prevent fraud, and promote secure digital habits through an interactive and memorable experience."
+        "description": "I designed and developed a landing website for an internal Cybersecurity campaign aimed at Porvenir employees. It was an end-to-end project that centralized everything in one place: three games with different dynamics (dexterity, agility, and mental skills), plus live broadcasts so employees nationwide could join in. The platform also included a points system, participation tracking, and raffle mechanics to boost engagement. The goal was to strengthen the cybersecurity culture, prevent fraud, and promote secure digital habits through an interactive and memorable experience.",
+        "stack": ["React", "CSS3", "JavaScript", "HTML5"],
+        "problem": "Need to strengthen the cybersecurity culture among employees in an interactive and memorable way.",
+        "solution": "Centralized landing with three games (dexterity, agility, and mental skills), live broadcasts, a points system, and raffle mechanics to maximize engagement."
       },
       "2": {
         "title": "Mundo Colmena",
-        "description": "A landing page was developed for an interactive educational game using React and CSS animations. By searching for and scanning QR codes placed at various points, participants were directed to specific sections of the landing page to complete event-aligned challenges, ensuring dynamic and immersive communication."
+        "description": "A landing page was developed for an interactive educational game using React and CSS animations. By searching for and scanning QR codes placed at various points, participants were directed to specific sections of the landing page to complete event-aligned challenges, ensuring dynamic and immersive communication.",
+        "stack": ["React", "CSS Animations", "QR Integration"],
+        "problem": "Create an interactive educational experience connecting physical touchpoints with digital content during an event.",
+        "solution": "Landing with QR code scanning that directed participants to specific event-aligned challenges, generating dynamic and immersive communication."
       },
       "3": {
         "title": "Colmena Route Game",
-        "description": "Colmena Route Game is a 3D racing experience designed as a meeting point between entertainment and brand engagement. The track becomes an interactive stage where promotions, messages, and brand information are delivered in context—building awareness and recall as the player races, competes, and explores."
+        "description": "Colmena Route Game is a 3D racing experience designed as a meeting point between entertainment and brand engagement. The track becomes an interactive stage where promotions, messages, and brand information are delivered in context—building awareness and recall as the player races, competes, and explores.",
+        "stack": ["3D Web", "JavaScript", "CSS3"],
+        "problem": "Create a meeting point between entertainment and brand communication within an event.",
+        "solution": "3D racing experience where the track serves as an interactive stage with contextual brand messages and promotions."
       },
       "4": {
         "title": "UKCOL Wildlife Game",
-        "description": "Interactive game developed for touch screens that aims to teach in a friendly way about the diversity of the Colombian ecosystem."
+        "description": "Interactive game developed for touch screens that aims to teach in a friendly way about the diversity of the Colombian ecosystem.",
+        "stack": ["JavaScript", "HTML5", "CSS3", "Touch API"],
+        "problem": "Teach about the Colombian ecosystem's diversity in a friendly and interactive way.",
+        "solution": "Interactive touch screen game that gamifies learning about Colombian flora and fauna."
       },
       "5": {
         "title": "APP FullStaff Video",
-        "description": "FullStaff is an application created to centralize the search for professionals and skilled trades that people may urgently need (technicians, maintenance, services, among others). In one place, it allows users to find, contact, and connect with the right profile to solve a real need quickly and safely, while opening up job opportunities for those who offer their services."
+        "description": "FullStaff is an application created to centralize the search for professionals and skilled trades that people may urgently need (technicians, maintenance, services, among others). In one place, it allows users to find, contact, and connect with the right profile to solve a real need quickly and safely, while opening up job opportunities for those who offer their services.",
+        "stack": ["Video Production", "After Effects", "Premiere Pro"],
+        "problem": "Communicate the unique value of the FullStaff app to users seeking urgent trade professionals.",
+        "solution": "Promotional video presenting the app as a centralized solution to quickly and safely find and connect with the right professional."
       },
       "6": {
         "title": "GoGo Racing App",
-        "description": "An interactive experience created for car dealerships that blends nostalgia and technology. This 2D iPad game, inspired by 1980s arcade classics, lets users “drive” by tilting the device and dodging obstacles on the road. More than just a game, it serves as a digital touchpoint that elevates the in-showroom brand experience, boosts engagement, and supports the customer journey toward purchase."
+        "description": "An interactive experience created for car dealerships that blends nostalgia and technology. This 2D iPad game, inspired by 1980s arcade classics, lets users 'drive' by tilting the device and dodging obstacles on the road. More than just a game, it serves as a digital touchpoint that elevates the in-showroom brand experience, boosts engagement, and supports the customer journey toward purchase.",
+        "stack": ["JavaScript", "HTML5 Canvas", "CSS3", "iPad API"],
+        "problem": "Drive in-showroom engagement and support the customer journey toward purchase.",
+        "solution": "2D iPad game inspired by 80s arcades where users drive by tilting the device, acting as a brand digital touchpoint."
       },
       "7": {
         "title": "Money week Challenge app web",
-        "description": "I designed and developed a landing page (UI/UX) as a proposal for the Money Week Challenge at Banco de Bogotá, an internal competition created to engage and connect employees nationwide. The platform centralized the full experience in one place, combining skill- and puzzle-based games with live broadcasts, and featured a user-centered navigation designed to maximize participation, engagement, and a sense of community throughout the challenge."
+        "description": "I designed and developed a landing page (UI/UX) as a proposal for the Money Week Challenge at Banco de Bogotá, an internal competition created to engage and connect employees nationwide. The platform centralized the full experience in one place, combining skill- and puzzle-based games with live broadcasts, and featured a user-centered navigation designed to maximize participation, engagement, and a sense of community throughout the challenge.",
+        "stack": ["React", "CSS3", "JavaScript", "UI/UX Design"],
+        "problem": "Engage and connect Banco de Bogotá employees nationwide during the Money Week Challenge.",
+        "solution": "Landing with skill and puzzle games, live broadcasts, and user-centered navigation to maximize participation and community."
       },
       "8": {
         "title": "Sprint Falabella",
-        "description": "An interactive web game designed for promotional campaigns and branded activations: a time-based puzzle challenge where the winner is the player who completes it in the shortest time, combining skill, focus, and speed to drive excitement and competition. This project was built end-to-end—from concept and UI/UX design to full development in React—with a smooth, responsive experience optimized for high-traffic participation. It includes gamification mechanics (timer, progress, and competitive dynamics) that boost engagement and turn a promotion into a memorable, brand-driven experience."
+        "description": "An interactive web game designed for promotional campaigns and branded activations: a time-based puzzle challenge where the winner is the player who completes it in the shortest time, combining skill, focus, and speed to drive excitement and competition. This project was built end-to-end—from concept and UI/UX design to full development in React—with a smooth, responsive experience optimized for high-traffic participation. It includes gamification mechanics (timer, progress, and competitive dynamics) that boost engagement and turn a promotion into a memorable, brand-driven experience.",
+        "stack": ["React", "JavaScript", "CSS3", "Gamification"],
+        "problem": "Turn a Falabella promotion into a memorable experience that drives excitement and competition.",
+        "solution": "Time-based web puzzle game with gamification mechanics (timer, progress, competition), responsive and optimized for high-traffic."
       },
       "9": {
         "title": "Virtual AI Host - BdB",
-        "description": "Development of an interactive audiovisual experience featuring an AI-generated avatar. The project centered on the creation of a virtual character capable of moderating events in real-time and fostering active audience engagement through dynamic interactions."
+        "description": "Development of an interactive audiovisual experience featuring an AI-generated avatar. The project centered on the creation of a virtual character capable of moderating events in real-time and fostering active audience engagement through dynamic interactions.",
+        "stack": ["Heygen", "ElevenLabs", "React", "API Integration"],
+        "problem": "Create a virtual host capable of moderating real-time events with dynamic audience interaction.",
+        "solution": "AI-generated avatar integrated into an interactive audiovisual experience that hosts events and drives active real-time participation."
       }
     }
   },
   "skills": {
     "title": "Professional Skills",
-    "intro": "As a front-end web designer and developer, I combine creativity and technical precision to build impactful digital experiences.",
+    "intro": "I combine the best of design and development to create attractive, interactive, and user-centered websites. With solid expertise in HTML, CSS, and JavaScript, I build dynamic interfaces that are not only functional but also visually captivating. I have led advanced projects using React, delivering innovative applications that balance creativity with technical performance.\n\nI stay at the forefront of technology through the strategic use of Artificial Intelligence: I am proficient in generative AI tools such as GitHub Copilot for efficient code optimization and creation, as well as Midjourney and Runway for advanced image and video production in digital and web communication.\n\nMy approach is deeply rooted in UI/UX principles — prioritizing usability, accessibility, and intuitive design — to ensure every interaction feels seamless and natural. By merging aesthetic vision, technical precision, and the power of AI, I align each project with client objectives, delivering high-quality results where every technological detail enhances the overall digital experience.",
     "categories": {
       "tech": {
         "title": "Languages & Technologies",
