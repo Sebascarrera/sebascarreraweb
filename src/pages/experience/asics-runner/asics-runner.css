@@ -1,0 +1,624 @@
+/* ── ASICS Runner – Intro ─────────────────────────────────── */
+.ar-wrap {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #001a5e 0%, #003DA5 55%, #0055cc 100%);
+  padding: 40px 20px;
+}
+
+.ar-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  max-width: 960px;
+  width: 100%;
+  align-items: center;
+}
+
+.ar-left {
+  display: flex;
+  justify-content: center;
+}
+
+.ar-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ar-logo {
+  width: min(80%, 300px);
+  border-radius: 16px;
+  box-shadow: 0 20px 48px rgba(0, 15, 60, 0.45);
+  position: relative;
+  z-index: 1;
+  object-fit: cover;
+  animation: ar-float 4s ease-in-out infinite;
+}
+
+@keyframes ar-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+.ar-hero-glow {
+  position: absolute;
+  inset: -40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.14) 0%, transparent 70%);
+  animation: ar-glow 3s ease-in-out infinite;
+}
+
+@keyframes ar-glow {
+  0%, 100% { transform: scale(1);   opacity: 0.7; }
+  50%       { transform: scale(1.1); opacity: 1; }
+}
+
+.ar-eyebrow {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: rgba(227, 24, 55, 0.9);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.ar-title {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 900;
+  line-height: 0.95;
+  color: #fff;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.ar-sub {
+  color: rgba(255,255,255,0.82);
+  line-height: 1.55;
+  margin: 0 0 24px;
+  font-size: 1rem;
+}
+
+.ar-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.ar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1.5px solid;
+  background: rgba(255,255,255,0.07);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.ar-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ar-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.ar-btn {
+  min-height: 50px;
+  padding: 0 28px;
+  border: 0;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+  letter-spacing: 0.04em;
+}
+
+.ar-btn:hover { transform: translateY(-2px); }
+
+.ar-btn--primary {
+  background: #E31837;
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(227,24,55,0.4);
+}
+
+.ar-btn--primary:hover {
+  box-shadow: 0 16px 32px rgba(227,24,55,0.5);
+}
+
+.ar-btn--sec {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.25);
+}
+
+.ar-hint {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .ar-grid { grid-template-columns: 1fr; gap: 32px; }
+  .ar-left { display: none; }
+}
+
+/* ── ASICS Runner – Play ───────────────────────────────────── */
+.ar-page-shell {
+  --navbar-h: 60px;
+  height: calc(100dvh - var(--navbar-h));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #001a5e 0%, #003DA5 55%, #0055cc 100%);
+}
+
+.ar-phone-stage {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ar-game-board {
+  position: relative;
+  /* Ocupa toda la altura disponible y ajusta el ancho por proporción */
+  height: 100%;
+  width: min(calc(100dvh - var(--navbar-h, 60px)) * 9 / 16, 100vw);
+  overflow: hidden;
+  border-radius: 0;
+  background: linear-gradient(180deg, #002d8a 0%, #003DA5 35%, #0050c8 72%, #001a5e 100%);
+  touch-action: none;
+}
+
+.ar-board-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.ar-sky-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ── Parallax image layers ── */
+.ar-layer-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ar-layer-strip {
+  display: flex;
+  width: 200%;
+  height: 100%;
+}
+
+.ar-layer-strip img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.ar-layer-buildings {
+  z-index: 2;
+}
+
+.ar-windows-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.ar-layer-buildings .ar-layer-strip {
+  animation: ar-scroll-buildings 22s linear infinite;
+}
+
+.ar-layer-foreground {
+  z-index: 3;
+}
+.ar-layer-foreground .ar-layer-strip {
+  animation: ar-scroll-foreground 10s linear infinite;
+}
+
+@keyframes ar-scroll-buildings {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes ar-scroll-foreground {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.ar-road-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3.5%;
+  height: 3px;
+  border-radius: 999px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.88) 0px,
+    rgba(255, 255, 255, 0.88) 36px,
+    transparent 36px,
+    transparent 72px
+  );
+  background-size: 72px 100%;
+  animation: ar-road-scroll 0.55s linear infinite;
+  z-index: 5;
+  pointer-events: none;
+}
+
+@keyframes ar-road-scroll {
+  from { background-position-x: 0; }
+  to   { background-position-x: 72px; }
+}
+
+.ar-dust-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.ar-board-top-glow,
+.ar-board-bottom-glow {
+  position: absolute;
+  inset-inline: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.ar-board-top-glow {
+  top: 0;
+  height: 28%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0));
+}
+
+.ar-board-bottom-glow {
+  bottom: 0;
+  height: 32%;
+  background: linear-gradient(0deg, rgba(0,26,94,0.28), rgba(0,26,94,0));
+}
+
+.ar-brand-logo {
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(18%, 90px);
+  z-index: 9;
+  filter: brightness(0) invert(1);
+}
+
+.ar-hud-card,
+.ar-control-pill,
+.ar-overlay-card {
+  position: absolute;
+  z-index: 9;
+  backdrop-filter: blur(14px);
+}
+
+.ar-hud-card {
+  min-width: 72px;
+  padding: 7px 10px;
+  border-radius: 14px;
+  background: rgba(0, 26, 94, 0.85);
+  box-shadow: 0 8px 20px rgba(0, 20, 80, 0.3);
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.ar-hud-left  { top: 10%; left: 14px; }
+.ar-hud-right { top: 10%; right: 14px; }
+
+.ar-hud-kicker,
+.ar-hud-sub {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.82);
+  font-size: 0.65rem;
+}
+
+.ar-hud-card strong {
+  display: block;
+  font-size: 1.4rem;
+  line-height: 1;
+  margin: 4px 0 3px;
+  color: #fff;
+}
+
+.ar-mid-logo {
+  position: absolute;
+  top: 19%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(20%, 72px);
+  z-index: 9;
+  filter: brightness(0) invert(1);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.ar-falling-item {
+  position: absolute;
+  z-index: 6;
+  display: grid;
+  place-items: center;
+  filter: drop-shadow(0 12px 18px rgba(0,20,80,0.25));
+}
+
+.ar-falling-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ar-runner-sprite {
+  position: absolute;
+  z-index: 7;
+  bottom: 44px;
+  transform-origin: center bottom;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 20px rgba(0,15,60,0.3));
+}
+
+.ar-catch-pop {
+  position: absolute;
+  top: 34%;
+  left: 50%;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  font-size: clamp(2rem, 8vw, 3.4rem);
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 4px 0 #E31837, 0 10px 28px rgba(227,24,55,0.4);
+  animation: ar-pop 0.7s ease forwards;
+}
+
+@keyframes ar-pop {
+  0%   { opacity: 0; transform: translate(-50%, 0%) scale(0.6); }
+  20%  { opacity: 1; transform: translate(-50%, -40%) scale(1.05); }
+  100% { opacity: 0; transform: translate(-50%, -110%) scale(1); }
+}
+
+.ar-overlay-card {
+  left: 18px;
+  right: 18px;
+  padding: 22px 20px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(0,20,80,0.97), rgba(0,40,140,0.95));
+  box-shadow: 0 26px 56px rgba(0,15,60,0.45);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.ar-finish-card { top: 30%; }
+
+.ar-overlay-badge {
+  display: inline-flex;
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #E31837;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #fff;
+}
+
+.ar-overlay-card h2 {
+  margin: 14px 0 10px;
+  font-size: clamp(1.85rem, 6vw, 2.5rem);
+  line-height: 0.98;
+  color: #fff;
+}
+
+.ar-overlay-card p {
+  margin: 0 0 14px;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.82);
+}
+
+.ar-cta-button,
+.ar-ghost-button {
+  min-height: 50px;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+  transition: transform 120ms ease, opacity 120ms ease;
+}
+
+.ar-cta-button:hover,
+.ar-ghost-button:hover { transform: translateY(-1px); }
+
+.ar-cta-button {
+  width: 100%;
+  background: #E31837;
+  color: #fff;
+  font-weight: 800;
+  box-shadow: 0 12px 24px rgba(227,24,55,0.35);
+}
+
+.ar-ghost-button {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  font-weight: 700;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.ar-button-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.ar-final-score {
+  display: grid;
+  place-items: center;
+  min-height: 100px;
+  margin: 4px 0 16px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.1);
+  font-size: clamp(2rem, 8vw, 3rem);
+  font-weight: 900;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+@media (max-width: 520px) {
+  .ar-overlay-card { left: 14px; right: 14px; }
+}
+
+/* ── Sunset light canvas ── */
+.ar-sun-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* ── Countdown 3-2-1 ── */
+.ar-countdown {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 10, 50, 0.42);
+  backdrop-filter: blur(3px);
+  pointer-events: none;
+}
+
+.ar-countdown__num {
+  font-size: clamp(5rem, 22vw, 9rem);
+  font-weight: 900;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 6px 0 #E31837, 0 18px 44px rgba(227,24,55,0.55);
+  animation: ar-countdown-pop 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes ar-countdown-pop {
+  0%   { opacity: 0; transform: scale(0.35); }
+  45%  { opacity: 1; transform: scale(1.10); }
+  72%  { transform: scale(0.94); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* ── Combo badge ── */
+.ar-combo-badge {
+  position: absolute;
+  top: 27%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9;
+  padding: 5px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #E31837 0%, #ff4500 100%);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 20px rgba(227,24,55,0.55);
+  pointer-events: none;
+  animation: ar-combo-pop 0.28s ease;
+}
+
+@keyframes ar-combo-pop {
+  0%   { transform: translateX(-50%) scale(0.65); }
+  60%  { transform: translateX(-50%) scale(1.1); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+/* ── Timer alert — last 5 s ── */
+.ar-hud--alert {
+  animation: ar-timer-pulse 0.5s ease-in-out infinite;
+}
+
+@keyframes ar-timer-pulse {
+  0%, 100% {
+    background: rgba(0, 26, 94, 0.85);
+    box-shadow: 0 8px 20px rgba(0, 20, 80, 0.3);
+    border-color: rgba(255,255,255,0.12);
+  }
+  50% {
+    background: rgba(190, 12, 35, 0.92);
+    box-shadow: 0 8px 26px rgba(227, 24, 55, 0.55);
+    border-color: rgba(227,24,55,0.5);
+  }
+}
+
+/* ── Golden shoe ── */
+.ar-golden-item img {
+  animation: ar-golden-glow 0.75s ease-in-out infinite alternate;
+}
+
+@keyframes ar-golden-glow {
+  from {
+    filter: sepia(1) saturate(4) hue-rotate(10deg) brightness(1.1)
+            drop-shadow(0 0 8px rgba(255,200,0,0.7));
+  }
+  to {
+    filter: sepia(1) saturate(4) hue-rotate(10deg) brightness(1.35)
+            drop-shadow(0 0 20px rgba(255,200,0,1));
+  }
+}
+
+/* ── Catch pop multiplier label ── */
+.ar-catch-mult {
+  font-size: 0.6em;
+  opacity: 0.85;
+  letter-spacing: 0.04em;
+}
+
+/* ── Confetti canvas ── */
+.ar-confetti-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  pointer-events: none;
+}

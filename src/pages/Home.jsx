@@ -109,44 +109,6 @@ const skillCategories = [
   },
 ];
 
-/* ── Timeline data (real CV) ── */
-const timelineItems = [
-  {
-    period: 'Sep. 2024 – Jul. 2025',
-    company: 'Mentor Canada',
-    role: 'Designer',
-    description:
-      'Responsable de actualizar y modernizar todos los materiales impresos. Lideré el proceso creativo asegurando consistencia con la identidad de marca.',
-  },
-  {
-    period: 'Ene. 2022 – Presente',
-    company: 'Freelance',
-    role: 'Front-End Designer & Developer',
-    description:
-      'Diseñador y desarrollador front-end con experiencia en sitios web completos y juegos interactivos. Proyectos con HTML, CSS, JavaScript y React.',
-  },
-  {
-    period: 'Abr. 2016 – Ene. 2022',
-    company: 'Imperia Software Solutions',
-    role: 'CEO',
-    description:
-      'Lideré el proceso creativo y ejecución de proyectos digitales. Dirigí equipos en creación de interfaces web combinando estética y funcionalidad.',
-  },
-  {
-    period: 'Oct. 2010 – Mar. 2016',
-    company: 'Moya Producciones',
-    role: 'Graphic Designer',
-    description:
-      'Creación de diseños visuales para plataformas y medios digitales. Desarrollo de contenido audiovisual con Premiere Pro y After Effects.',
-  },
-  {
-    period: 'Dic. 2012 – Abr. 2015',
-    company: 'Singularcom',
-    role: 'Graphic Designer',
-    description:
-      'Creación de piezas gráficas para comunicaciones internas y externas. Diseño de contenido visual para plataformas web y materiales de TV.',
-  },
-];
 
 /* ── Contact data ── */
 const EMAIL = 'sebascarreramoya@gmail.com';
@@ -382,7 +344,7 @@ function Home() {
       <section id="experiencia" className="home-section home-timeline">
         <h2 className="section-title">{t('home.experienceSection')}</h2>
         <div className="timeline">
-          {timelineItems.map((item, idx) => (
+          {t('timeline.items', { returnObjects: true }).map((item, idx) => (
             <div key={idx} className={`timeline__item ${idx % 2 === 0 ? 'timeline__item--left' : 'timeline__item--right'}`}>
               <div className="timeline__panel">
                 <span className="timeline__date">{item.period}</span>

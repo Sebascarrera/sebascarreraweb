@@ -145,6 +145,40 @@
   "common": {
     "noVideoSupport": "Your browser does not support videos."
   },
+  "timeline": {
+    "items": [
+      {
+        "period": "Sep. 2024 – Present",
+        "company": "Mentor Canada",
+        "role": "Designer",
+        "description": "Responsible for updating and modernizing all printed materials. I led the creative process ensuring consistency with brand identity."
+      },
+      {
+        "period": "Jan. 2022 – Present",
+        "company": "Freelance",
+        "role": "Front-End Designer & Developer",
+        "description": "Front-end designer and developer with experience building full websites and interactive games. Projects using HTML, CSS, JavaScript, and React."
+      },
+      {
+        "period": "Apr. 2016 – Jan. 2022",
+        "company": "Imperia Software Solutions",
+        "role": "CEO",
+        "description": "Led the creative process and execution of digital projects. Managed teams in building web interfaces combining aesthetics and functionality."
+      },
+      {
+        "period": "Oct. 2010 – Mar. 2016",
+        "company": "Moya Producciones",
+        "role": "Graphic Designer",
+        "description": "Created visual designs for digital platforms and media. Produced audiovisual content using Premiere Pro and After Effects."
+      },
+      {
+        "period": "Dec. 2012 – Apr. 2015",
+        "company": "Singularcom",
+        "role": "Graphic Designer",
+        "description": "Created graphic pieces for internal and external communications. Designed visual content for web platforms and TV materials."
+      }
+    ]
+  },
   "experience": {
     "eyebrow": "Live the experience",
     "title": "Three missions to master cybersecurity",
@@ -171,6 +205,13 @@
         "badge": "Narrative adventure",
         "cta": "Play now",
         "helper": "Duration: 1 minute"
+      },
+      "asics": {
+        "title": "ASICS Runner",
+        "description": "Move side to side catching ASICS sneakers falling from the sky. Score points to win tickets or exclusive discounts.",
+        "badge": "Client proposal",
+        "cta": "Play demo",
+        "helper": "Duration: 25 seconds"
       }
     }
   }

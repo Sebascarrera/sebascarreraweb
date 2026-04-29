@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import firewallImgIntro from "../../assets/img/firewall-img-intro.png";
 import passwordImgIntro from "../../assets/img/contrasena-maestra-img-intro.png";
 import malwareImgIntro from "../../assets/img/malware-img-intro.png";
+import asicsPortada from "../../assets/asics/portada-juego-asics.png";
 import "./styles/experience-base.css";
 import "./styles/ExperienceSelector.css";
 
@@ -15,15 +16,21 @@ const GAMES = [
   },
   {
     id: "password",
-    path: "/contrasena-maestra",         // ✅ apunta al intro del juego
-    image: passwordImgIntro,             // ✅ muestra imagen
-    status: "available",                 // ✅ ahora disponible
+    path: "/contrasena-maestra",
+    image: passwordImgIntro,
+    status: "available",
   },
   {
     id: "malware",
-    path: "/escapa-malware",      // 👈 entra a la intro
-    image: malwareImgIntro,       // 👈 muestra imagen en la card
-    status: "available",    
+    path: "/escapa-malware",
+    image: malwareImgIntro,
+    status: "available",
+  },
+  {
+    id: "asics",
+    path: "/asics-runner",
+    image: asicsPortada,
+    status: "available",
   },
 ];
 
@@ -52,13 +59,14 @@ export default function ExperienceSelector() {
               key={game.id}
               className={`experience-card${isAvailable ? "" : " is-disabled"}`}
             >
-              <div className="experience-card__media">
+              <div className="experience-card__media" style={game.logoStyle || {}}>
                 {game.image ? (
                   <img src={game.image} alt={title} loading="lazy" />
                 ) : (
                   <div className="experience-card__placeholder" aria-hidden />
                 )}
-                <span className="experience-card__badge">{badge}</span>
+                {!game.logoStyle && <span className="experience-card__badge">{badge}</span>}
+                {game.logoStyle && <span className="experience-card__badge" style={{ background: "#E31837", color: "#fff" }}>{badge}</span>}
               </div>
 
               <div className="experience-card__body">

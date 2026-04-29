@@ -10,6 +10,8 @@ import ContrasenaMaestraIntro from './pages/experience/contrasena-maestra/Contra
 import ContrasenaMaestraPlay from './pages/experience/contrasena-maestra/ContrasenaMaestraPlay';
 import MalwareIntro from './pages/experience/escapa-malware/MalwareIntro';
 import MalwarePlay from './pages/experience/escapa-malware/MalwarePlay';
+import AsicsRunnerIntro from './pages/experience/asics-runner/AsicsRunnerIntro';
+import AsicsRunnerPlay from './pages/experience/asics-runner/AsicsRunnerPlay';
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
         <Route path="/contrasena-maestra/play" element={<ContrasenaMaestraPlay />} />
         <Route path="/escapa-malware"          element={<MalwareIntro />} />
         <Route path="/escapa-malware/play"     element={<MalwarePlay />} />
+        <Route path="/asics-runner"            element={<AsicsRunnerIntro />} />
+        <Route path="/asics-runner/play"       element={<AsicsRunnerPlay />} />
       </Routes>
     </>
   );

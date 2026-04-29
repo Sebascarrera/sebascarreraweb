@@ -145,6 +145,40 @@
   "common": {
     "noVideoSupport": "Tu navegador no soporta videos."
   },
+  "timeline": {
+    "items": [
+      {
+        "period": "Sep. 2024 – Presente",
+        "company": "Mentor Canada",
+        "role": "Designer",
+        "description": "Responsable de actualizar y modernizar todos los materiales impresos. Lideré el proceso creativo asegurando consistencia con la identidad de marca."
+      },
+      {
+        "period": "Ene. 2022 – Presente",
+        "company": "Freelance",
+        "role": "Front-End Designer & Developer",
+        "description": "Diseñador y desarrollador front-end con experiencia en sitios web completos y juegos interactivos. Proyectos con HTML, CSS, JavaScript y React."
+      },
+      {
+        "period": "Abr. 2016 – Ene. 2022",
+        "company": "Imperia Software Solutions",
+        "role": "CEO",
+        "description": "Lideré el proceso creativo y ejecución de proyectos digitales. Dirigí equipos en creación de interfaces web combinando estética y funcionalidad."
+      },
+      {
+        "period": "Oct. 2010 – Mar. 2016",
+        "company": "Moya Producciones",
+        "role": "Graphic Designer",
+        "description": "Creación de diseños visuales para plataformas y medios digitales. Desarrollo de contenido audiovisual con Premiere Pro y After Effects."
+      },
+      {
+        "period": "Dic. 2012 – Abr. 2015",
+        "company": "Singularcom",
+        "role": "Graphic Designer",
+        "description": "Creación de piezas gráficas para comunicaciones internas y externas. Diseño de contenido visual para plataformas web y materiales de TV."
+      }
+    ]
+  },
   "experience": {
     "eyebrow": "Vive la experiencia",
     "title": "Tres misiones para dominar la ciberseguridad",
@@ -171,6 +205,13 @@
         "badge": "Aventura narrativa",
         "cta": "Jugar ahora",
         "helper": "Duración: 1 minuto"
+      },
+      "asics": {
+        "title": "ASICS Runner",
+        "description": "Muévete de lado a lado atrapando los tenis ASICS que caen del cielo. Suma puntos y gana entradas o descuentos exclusivos.",
+        "badge": "Propuesta de cliente",
+        "cta": "Jugar demo",
+        "helper": "Duración: 25 segundos"
       }
     }
   }
