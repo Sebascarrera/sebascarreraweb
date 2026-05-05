@@ -110,6 +110,20 @@ const skillCategories = [
 ];
 
 
+/* ── Hero flow nodes ── */
+const LEFT_NODES = [
+  { key: 'frontend', label: 'Frontend Dev' },
+  { key: 'design',   label: 'Diseño UI/UX' },
+  { key: 'react',    label: 'React · JS' },
+  { key: 'motion',   label: 'Motion & Video' },
+];
+const RIGHT_NODES = [
+  { key: 'web',   label: 'Sitios Web' },
+  { key: 'games', label: 'Juegos' },
+  { key: 'exp',   label: 'Experiencias' },
+  { key: 'apps',  label: 'Apps & Demos' },
+];
+
 /* ── Contact data ── */
 const EMAIL = 'sebascarreramoya@gmail.com';
 const WHATSAPP_LINK = 'https://wa.me/573133510006';
@@ -132,6 +146,189 @@ function Home() {
     { id: 8, image: sprintFalabellaImage, modalImage: sprintFalabellaJpg, title: t('projects.items.8.title'), description: t('projects.items.8.description'), stack: t('projects.items.8.stack', { returnObjects: true }), problem: t('projects.items.8.problem'), solution: t('projects.items.8.solution') },
     { id: 9, image: iabdbenkoImage,       video: iabdbenkoVideo,          title: t('projects.items.9.title'), description: t('projects.items.9.description'), stack: t('projects.items.9.stack', { returnObjects: true }), problem: t('projects.items.9.problem'), solution: t('projects.items.9.solution') },
   ];
+
+  /* ── Hero flow canvas ── */
+  const heroRef        = useRef(null);
+  const flowCanvasRef  = useRef(null);
+  const heroLogoRef    = useRef(null);
+  const leftNodeRefs   = useRef([]);
+  const rightNodeRefs  = useRef([]);
+
+  useEffect(() => {
+    const canvas = flowCanvasRef.current;
+    const hero   = heroRef.current;
+    if (!canvas || !hero) return;
+    const ctx = canvas.getContext('2d');
+
+    function bezier(t, p0, p1, p2, p3) {
+      const u = 1 - t;
+      return {
+        x: u*u*u*p0.x + 3*u*u*t*p1.x + 3*u*t*t*p2.x + t*t*t*p3.x,
+        y: u*u*u*p0.y + 3*u*u*t*p1.y + 3*u*t*t*p2.y + t*t*t*p3.y,
+      };
+    }
+
+    const MERGE_DIST = 100; // px from hub center where lines converge
+    let pathData = null;
+
+    function buildPaths() {
+      const logoEl = heroLogoRef.current;
+      if (!logoEl) return null;
+      const hr = hero.getBoundingClientRect();
+      const lr = logoEl.getBoundingClientRect();
+
+      const hubCx = lr.left - hr.left + lr.width  / 2;
+      const hubCy = lr.top  - hr.top  + lr.height / 2;
+
+      // Lines stop MERGE_DIST px from center on each side
+      const leftMerge  = { x: hubCx - MERGE_DIST, y: hubCy };
+      const rightMerge = { x: hubCx + MERGE_DIST, y: hubCy };
+
+      function makePath(sx, sy, ex, ey, baseSpd, nodePos) {
+        const tx = (ex - sx) * 0.44;
+        return {
+          p0: { x: sx, y: sy },
+          p1: { x: sx + tx, y: sy },
+          p2: { x: ex - tx, y: ey },
+          p3: { x: ex, y: ey },
+          nodePos, // actual node position for junction dot
+          dots: [
+            { t: 0,    spd: baseSpd },
+            { t: 0.34, spd: baseSpd },
+            { t: 0.67, spd: baseSpd },
+          ],
+        };
+      }
+
+      // All 4 left paths converge to leftMerge
+      const left = leftNodeRefs.current.map((el, i) => {
+        if (!el) return null;
+        const r  = el.getBoundingClientRect();
+        const sx = r.right - hr.left;
+        const sy = r.top   - hr.top + r.height / 2;
+        return makePath(sx, sy, leftMerge.x, leftMerge.y, 0.14 + i * 0.025, { x: sx, y: sy });
+      }).filter(Boolean);
+
+      // All 4 right paths fan out from rightMerge
+      const right = rightNodeRefs.current.map((el, i) => {
+        if (!el) return null;
+        const r  = el.getBoundingClientRect();
+        const ex = r.left - hr.left;
+        const ey = r.top  - hr.top + r.height / 2;
+        return makePath(rightMerge.x, rightMerge.y, ex, ey, 0.13 + i * 0.025, { x: ex, y: ey });
+      }).filter(Boolean);
+
+      return { paths: [...left, ...right], merges: [leftMerge, rightMerge] };
+    }
+
+    function resize() {
+      canvas.width  = hero.offsetWidth;
+      canvas.height = hero.offsetHeight;
+      pathData = buildPaths();
+    }
+    resize();
+    const ro = new ResizeObserver(resize);
+    ro.observe(hero);
+
+    let animRaf = 0;
+    let lastTs  = performance.now();
+    let time    = 0;
+    const ACCENT     = '0, 212, 200';
+    const TAIL_STEPS = 7;
+
+    function loop(ts) {
+      const dt = Math.min(0.05, (ts - lastTs) / 1000);
+      lastTs = ts;
+      time  += dt;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (!pathData) { animRaf = requestAnimationFrame(loop); return; }
+      const { paths, merges } = pathData;
+
+      for (const path of paths) {
+        /* ── Outer glow trace ── */
+        ctx.beginPath();
+        ctx.moveTo(path.p0.x, path.p0.y);
+        ctx.bezierCurveTo(path.p1.x, path.p1.y, path.p2.x, path.p2.y, path.p3.x, path.p3.y);
+        ctx.strokeStyle = `rgba(${ACCENT}, 0.05)`;
+        ctx.lineWidth   = 5;
+        ctx.stroke();
+
+        /* ── Inner crisp trace ── */
+        ctx.beginPath();
+        ctx.moveTo(path.p0.x, path.p0.y);
+        ctx.bezierCurveTo(path.p1.x, path.p1.y, path.p2.x, path.p2.y, path.p3.x, path.p3.y);
+        ctx.strokeStyle = `rgba(${ACCENT}, 0.14)`;
+        ctx.lineWidth   = 1;
+        ctx.stroke();
+
+        /* ── Node-end junction dot ── */
+        const np     = path.nodePos;
+        const npulse = 0.5 + 0.5 * Math.sin(time * 2.8 + np.x * 0.01);
+        ctx.beginPath();
+        ctx.arc(np.x, np.y, 2.2 + npulse * 1.4, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${ACCENT}, ${(0.38 + npulse * 0.42).toFixed(2)})`;
+        ctx.fill();
+
+        /* ── Travelling dots with comet tail ── */
+        for (const dot of path.dots) {
+          dot.t = (dot.t + dot.spd * dt) % 1;
+
+          for (let j = 1; j <= TAIL_STEPS; j++) {
+            const tt = ((dot.t - j * 0.030 + 1) % 1);
+            const tp = bezier(tt, path.p0, path.p1, path.p2, path.p3);
+            const a  = (1 - j / (TAIL_STEPS + 1)) * 0.42;
+            const r  = Math.max(0.3, 2.0 * (1 - j / (TAIL_STEPS + 1)));
+            ctx.beginPath();
+            ctx.arc(tp.x, tp.y, r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${ACCENT}, ${a.toFixed(3)})`;
+            ctx.fill();
+          }
+
+          const pos = bezier(dot.t, path.p0, path.p1, path.p2, path.p3);
+
+          const grd = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, 8);
+          grd.addColorStop(0,   `rgba(${ACCENT}, 0.80)`);
+          grd.addColorStop(0.4, `rgba(${ACCENT}, 0.28)`);
+          grd.addColorStop(1,   `rgba(${ACCENT}, 0)`);
+          ctx.beginPath();
+          ctx.arc(pos.x, pos.y, 8, 0, Math.PI * 2);
+          ctx.fillStyle = grd;
+          ctx.fill();
+
+          ctx.beginPath();
+          ctx.arc(pos.x, pos.y, 2.2, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${ACCENT}, 1)`;
+          ctx.fill();
+        }
+      }
+
+      /* ── Merge-point pulses (left and right) ── */
+      const hp = 0.5 + 0.5 * Math.sin(time * 2.5);
+      for (const merge of merges) {
+        for (let ring = 0; ring < 3; ring++) {
+          const r = 10 + hp * 11 + ring * 15;
+          const a = Math.max(0, (0.16 - ring * 0.045) * (0.5 + hp * 0.5));
+          const g = ctx.createRadialGradient(merge.x, merge.y, 0, merge.x, merge.y, r);
+          g.addColorStop(0.4, `rgba(${ACCENT}, ${a.toFixed(3)})`);
+          g.addColorStop(1,   `rgba(${ACCENT}, 0)`);
+          ctx.beginPath();
+          ctx.arc(merge.x, merge.y, r, 0, Math.PI * 2);
+          ctx.fillStyle = g;
+          ctx.fill();
+        }
+        ctx.beginPath();
+        ctx.arc(merge.x, merge.y, 3.5 + hp * 1.8, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${ACCENT}, ${(0.55 + hp * 0.45).toFixed(2)})`;
+        ctx.fill();
+      }
+
+      animRaf = requestAnimationFrame(loop);
+    }
+
+    animRaf = requestAnimationFrame(loop);
+    return () => { cancelAnimationFrame(animRaf); ro.disconnect(); };
+  }, []);
 
   /* ── IntersectionObserver for .reveal cards ── */
   const allProjectsRef = useRef(null);
@@ -224,27 +421,54 @@ function Home() {
       <DotGridBackground />
 
       {/* ── 1. HERO ── */}
-      <section className="hero">
-        <div className="hero__text">
-          <h1 className="hero__name">{t('home.name')}</h1>
-          <p className="hero__subtitle">{t('home.subtitle')}</p>
-          <p className="hero__desc">{t('home.description')}</p>
-          <div className="hero__ctas">
-            <a href="#proyectos" className="btn-primary">{t('home.viewProjects')}</a>
-            <Link to="/selector" className="btn-ghost">{t('home.experienceCta')}</Link>
+      <section className="hero" ref={heroRef}>
+
+        {/* Left flow nodes */}
+        <div className="hero__flow-col hero__flow-left">
+          {LEFT_NODES.map((n, i) => (
+            <div key={n.key} ref={el => { leftNodeRefs.current[i] = el; }} className="hero__flow-node">
+              <span className="hero__fn-label">{n.label}</span>
+              <span className="hero__fn-dot" />
+            </div>
+          ))}
+        </div>
+
+        {/* Center: logo as floating background + text on top */}
+        <div className="hero__center" ref={heroLogoRef}>
+          <div className="hero__logo-wrap">
+            <div className="hero__logo-glow" />
+            <img
+              src={jscmLogo}
+              alt="JSCM — Juan Sebastián Carrera Moya"
+              className="hero__logo"
+              decoding="async"
+              width="620"
+              height="620"
+            />
+          </div>
+          <div className="hero__text">
+            <h1 className="hero__name">{t('home.name')}</h1>
+            <p className="hero__subtitle">{t('home.subtitle')}</p>
+            <p className="hero__desc">{t('home.description')}</p>
+            <div className="hero__ctas">
+              <a href="#proyectos" className="btn-primary">{t('home.viewProjects')}</a>
+              <Link to="/selector" className="btn-ghost">{t('home.experienceCta')}</Link>
+            </div>
           </div>
         </div>
-        <div className="hero__logo-wrap">
-          <div className="hero__logo-glow" />
-          <img
-            src={jscmLogo}
-            alt="JSCM — Juan Sebastián Carrera Moya"
-            className="hero__logo"
-            decoding="async"
-            width="620"
-            height="620"
-          />
+
+        {/* Right flow nodes */}
+        <div className="hero__flow-col hero__flow-right">
+          {RIGHT_NODES.map((n, i) => (
+            <div key={n.key} ref={el => { rightNodeRefs.current[i] = el; }} className="hero__flow-node">
+              <span className="hero__fn-dot" />
+              <span className="hero__fn-label">{n.label}</span>
+            </div>
+          ))}
         </div>
+
+        {/* Flow canvas overlay */}
+        <canvas ref={flowCanvasRef} className="hero__flow-canvas" />
       </section>
 
       {/* ── 1b. SHOWREEL ── */}
