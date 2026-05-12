@@ -112,16 +112,57 @@ const skillCategories = [
 
 /* ── Hero flow nodes ── */
 const LEFT_NODES = [
-  { key: 'frontend', label: 'Frontend Dev' },
-  { key: 'design',   label: 'Diseño UI/UX' },
-  { key: 'react',    label: 'React · JS' },
-  { key: 'motion',   label: 'Motion & Video' },
+  { key: 'frontend', label: 'Frontend Dev', icon: (
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <polyline points="4.5,5 1,8 4.5,11"/><polyline points="11.5,5 15,8 11.5,11"/><line x1="9.5" y1="2.5" x2="6.5" y2="13.5"/>
+    </svg>
+  )},
+  { key: 'design', label: 'Diseño UI/UX', icon: (
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M11 2L14 5 6 13 2 14l1-4z"/><line x1="9" y1="4" x2="12" y2="7"/>
+    </svg>
+  )},
+  { key: 'react', label: 'React · JS', icon: (
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden="true">
+      <circle cx="8" cy="8" r="1.5" fill="currentColor" stroke="none"/>
+      <ellipse cx="8" cy="8" rx="7" ry="2.8"/>
+      <ellipse cx="8" cy="8" rx="7" ry="2.8" transform="rotate(60 8 8)"/>
+      <ellipse cx="8" cy="8" rx="7" ry="2.8" transform="rotate(120 8 8)"/>
+    </svg>
+  )},
+  { key: 'motion', label: 'Motion & Video', icon: (
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="1" y="4" width="9" height="8" rx="1"/><polyline points="10,6.5 15,4 15,12 10,9.5"/>
+    </svg>
+  )},
 ];
 const RIGHT_NODES = [
-  { key: 'web',   label: 'Sitios Web' },
-  { key: 'games', label: 'Juegos' },
-  { key: 'exp',   label: 'Experiencias' },
-  { key: 'apps',  label: 'Apps & Demos' },
+  { key: 'web', label: 'Sitios Web', icon: (
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" aria-hidden="true">
+      <circle cx="8" cy="8" r="6.5"/>
+      <path d="M8 1.5C6 4 5 6 5 8s1 4 3 6.5M8 1.5C10 4 11 6 11 8s-1 4-3 6.5"/>
+      <line x1="1.5" y1="8" x2="14.5" y2="8"/>
+    </svg>
+  )},
+  { key: 'games', label: 'Juegos', icon: (
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="1" y="5" width="14" height="7" rx="2.5"/>
+      <line x1="5" y1="8.5" x2="7" y2="8.5"/><line x1="6" y1="7.5" x2="6" y2="9.5"/>
+      <circle cx="10.5" cy="7.8" r="0.9" fill="currentColor" stroke="none"/>
+      <circle cx="12.2" cy="9" r="0.9" fill="currentColor" stroke="none"/>
+    </svg>
+  )},
+  { key: 'exp', label: 'Experiencias', icon: (
+    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+      <path d="M8 1l1.76 5.41H16l-4.88 3.55 1.87 5.47L8 12.1l-5 3.33 1.88-5.47L0 6.41h6.24z"/>
+    </svg>
+  )},
+  { key: 'apps', label: 'Apps & Demos', icon: (
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="1.5" y="1.5" width="5" height="5" rx="1"/><rect x="9.5" y="1.5" width="5" height="5" rx="1"/>
+      <rect x="1.5" y="9.5" width="5" height="5" rx="1"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/>
+    </svg>
+  )},
 ];
 
 /* ── Contact data ── */
@@ -330,17 +371,38 @@ function Home() {
     return () => { cancelAnimationFrame(animRaf); ro.disconnect(); };
   }, []);
 
-  /* ── IntersectionObserver for .reveal cards ── */
-  const allProjectsRef = useRef(null);
+  /* ── Project showcase — horizontal scroll ── */
+  const showcaseRef = useRef(null);
+  const [showcaseIdx, setShowcaseIdx] = useState(0);
   useEffect(() => {
-    const root = allProjectsRef.current;
-    if (!root) return;
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('active'); observer.unobserve(e.target); } }),
-      { threshold: 0.12, rootMargin: '0px 0px -80px 0px' }
+    const track = showcaseRef.current;
+    if (!track) return;
+    const onScroll = () => {
+      setShowcaseIdx(Math.round(track.scrollLeft / track.offsetWidth));
+    };
+    track.addEventListener('scroll', onScroll, { passive: true });
+    const panels = track.querySelectorAll('.showcase__panel');
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        e.target.classList.toggle('showcase__panel--active', e.intersectionRatio >= 0.45);
+      }),
+      { threshold: 0.45, root: track }
     );
-    root.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    panels.forEach(p => obs.observe(p));
+    return () => { track.removeEventListener('scroll', onScroll); obs.disconnect(); };
+  }, []);
+
+  /* ── Scroll reveal — all .scroll-reveal elements ── */
+  useEffect(() => {
+    const els = document.querySelectorAll('.scroll-reveal');
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      }),
+      { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
+    );
+    els.forEach(el => obs.observe(el));
+    return () => obs.disconnect();
   }, []);
 
   /* ── Skills animation ── */
@@ -412,6 +474,12 @@ function Home() {
     };
   }, []);
 
+  const scrollToPanel = (idx) => {
+    const track = showcaseRef.current;
+    if (!track) return;
+    track.scrollTo({ left: Math.max(0, Math.min(idx, projects.length - 1)) * track.offsetWidth, behavior: 'smooth' });
+  };
+
   const openModal  = (id) => setActiveVideo(id);
   const closeModal = ()   => setActiveVideo(null);
   const activeProject = projects.find((p) => p.id === activeVideo);
@@ -426,8 +494,14 @@ function Home() {
         {/* Left flow nodes */}
         <div className="hero__flow-col hero__flow-left">
           {LEFT_NODES.map((n, i) => (
-            <div key={n.key} ref={el => { leftNodeRefs.current[i] = el; }} className="hero__flow-node">
+            <div
+              key={n.key}
+              ref={el => { leftNodeRefs.current[i] = el; }}
+              className="hero__flow-node hero__flow-node--left"
+              style={{ animationDelay: `${100 + i * 100}ms` }}
+            >
               <span className="hero__fn-label">{n.label}</span>
+              <span className="hero__fn-icon">{n.icon}</span>
               <span className="hero__fn-dot" />
             </div>
           ))}
@@ -447,10 +521,17 @@ function Home() {
             />
           </div>
           <div className="hero__text">
-            <h1 className="hero__name">{t('home.name')}</h1>
-            <p className="hero__subtitle">{t('home.subtitle')}</p>
-            <p className="hero__desc">{t('home.description')}</p>
-            <div className="hero__ctas">
+            <h1 className="hero__name">
+              {t('home.name').split(' ').map((word, i, arr) => (
+                <React.Fragment key={i}>
+                  <span className="hero__word" style={{ animationDelay: `${i * 80}ms` }}>{word}</span>
+                  {i < arr.length - 1 && ' '}
+                </React.Fragment>
+              ))}
+            </h1>
+            <p className="hero__subtitle hero-reveal" style={{ animationDelay: '380ms' }}>{t('home.subtitle')}</p>
+            <p className="hero__desc hero-reveal" style={{ animationDelay: '560ms' }}>{t('home.description')}</p>
+            <div className="hero__ctas hero-reveal" style={{ animationDelay: '740ms' }}>
               <a href="#proyectos" className="btn-primary">{t('home.viewProjects')}</a>
               <Link to="/selector" className="btn-ghost">{t('home.experienceCta')}</Link>
             </div>
@@ -460,8 +541,14 @@ function Home() {
         {/* Right flow nodes */}
         <div className="hero__flow-col hero__flow-right">
           {RIGHT_NODES.map((n, i) => (
-            <div key={n.key} ref={el => { rightNodeRefs.current[i] = el; }} className="hero__flow-node">
+            <div
+              key={n.key}
+              ref={el => { rightNodeRefs.current[i] = el; }}
+              className="hero__flow-node hero__flow-node--right"
+              style={{ animationDelay: `${160 + i * 100}ms` }}
+            >
               <span className="hero__fn-dot" />
+              <span className="hero__fn-icon">{n.icon}</span>
               <span className="hero__fn-label">{n.label}</span>
             </div>
           ))}
@@ -473,14 +560,14 @@ function Home() {
 
       {/* ── 1b. SHOWREEL ── */}
       <section id="showreel" className="home-section home-showreel">
-        <h2 className="section-title showreel__title">{t('home.showreel.title')}</h2>
-        <p className="showreel__subtitle">{t('home.showreel.subtitle')}</p>
-        <div className="showreel__video-wrap">
+        <h2 className="section-title showreel__title scroll-reveal">{t('home.showreel.title')}</h2>
+        <p className="showreel__subtitle scroll-reveal" style={{ '--reveal-delay': '120ms' }}>{t('home.showreel.subtitle')}</p>
+        <div className="showreel__video-wrap scroll-reveal" style={{ '--reveal-delay': '260ms' }}>
           <video className="showreel__video" src={videoBg} controls muted loop playsInline>
             {t('common.noVideoSupport')}
           </video>
         </div>
-        <div className="showreel__ctas">
+        <div className="showreel__ctas scroll-reveal" style={{ '--reveal-delay': '400ms' }}>
           <a href="#proyectos" className="btn-primary">{t('home.viewProjects')}</a>
           <Link to="/selector" className="btn-ghost">{t('home.experienceCta')}</Link>
         </div>
@@ -488,44 +575,65 @@ function Home() {
 
       {/* ── 2. PROYECTOS DESTACADOS ── */}
       <section id="proyectos" className="home-section home-projects">
-        <h2 className="section-title">{t('projects.title')}</h2>
+        <h2 className="section-title scroll-reveal">{t('projects.title')}</h2>
         <div className="home-projects__grid">
-          <ProjectCard title={projects[0].title} description={projects[0].description} image={projects[0].image} />
-          <ProjectCard title={projects[1].title} description={projects[1].description} image={projects[1].image} />
-          <ProjectCard title={projects[2].title} description={projects[2].description} image={projects[2].image} />
+          <div className="scroll-reveal" style={{ '--reveal-delay': '120ms' }}><ProjectCard title={projects[0].title} description={projects[0].description} image={projects[0].image} /></div>
+          <div className="scroll-reveal" style={{ '--reveal-delay': '260ms' }}><ProjectCard title={projects[1].title} description={projects[1].description} image={projects[1].image} /></div>
+          <div className="scroll-reveal" style={{ '--reveal-delay': '400ms' }}><ProjectCard title={projects[2].title} description={projects[2].description} image={projects[2].image} /></div>
         </div>
       </section>
 
-      {/* ── 2b. TODOS LOS PROYECTOS ── */}
-      <section className="home-section all-projects" ref={allProjectsRef}>
-        <div className="all-projects__grid">
+      {/* ── 2b. PROJECT SHOWCASE — horizontal scroll (resn.co.nz style) ── */}
+      <section className="home-showcase">
+        <div className="showcase__track" ref={showcaseRef}>
           {projects.map((p, idx) => (
-            <div
-              key={p.id}
-              className="ap-card reveal"
-              style={{ transitionDelay: `${idx * 60}ms` }}
-            >
-              <div className="ap-card__img-wrap">
-                <img src={p.image} alt={p.title} className="ap-card__img" loading="lazy" />
+            <div key={p.id} className="showcase__panel">
+              <div className="showcase__img-side">
+                <img src={p.image} alt={p.title} className="showcase__img" loading="lazy" />
               </div>
-              <div className="ap-card__body">
-                <h3 className="ap-card__title">{p.title}</h3>
-                <p className="ap-card__desc">{p.description}</p>
+              <div className="showcase__text-side">
+                <span className="showcase__count">{String(idx + 1).padStart(2, '0')}</span>
+                <h2 className="showcase__title">{p.title}</h2>
+                <p className="showcase__desc">{p.description}</p>
+                {Array.isArray(p.stack) && p.stack.length > 0 && (
+                  <div className="showcase__stack">
+                    {p.stack.slice(0, 5).map(tech => (
+                      <span key={tech} className="showcase__badge">{tech}</span>
+                    ))}
+                  </div>
+                )}
                 {(p.video || p.modalImage) && (
-                  <button className="ap-card__btn" onClick={() => openModal(p.id)}>
-                    {p.video ? t('projects.viewVideo') : t('projects.viewImage')}
+                  <button className="showcase__cta" onClick={() => openModal(p.id)}>
+                    {p.video ? t('projects.viewVideo') : t('projects.viewImage')} →
                   </button>
                 )}
               </div>
             </div>
           ))}
         </div>
+        <div className="showcase__footer">
+          <div className="showcase__arrows">
+            <button className="showcase__arrow" onClick={() => scrollToPanel(showcaseIdx - 1)} disabled={showcaseIdx === 0} aria-label="Anterior">←</button>
+            <span className="showcase__counter">{String(showcaseIdx + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}</span>
+            <button className="showcase__arrow" onClick={() => scrollToPanel(showcaseIdx + 1)} disabled={showcaseIdx === projects.length - 1} aria-label="Siguiente">→</button>
+          </div>
+          <div className="showcase__dots">
+            {projects.map((_, idx) => (
+              <button
+                key={idx}
+                className={`showcase__dot${showcaseIdx === idx ? ' showcase__dot--active' : ''}`}
+                onClick={() => scrollToPanel(idx)}
+                aria-label={`Proyecto ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ── 3. HABILIDADES ── */}
       <section id="habilidades" className="home-section home-skills" ref={skillsRef}>
-        <h2 className="section-title">{t('skills.title')}</h2>
-        <p className="skills-intro">{t('skills.intro')}</p>
+        <h2 className="section-title scroll-reveal">{t('skills.title')}</h2>
+        <p className="skills-intro scroll-reveal" style={{ '--reveal-delay': '140ms' }}>{t('skills.intro')}</p>
         <div className="skills-grid">
           {(() => {
             let fi = 0;
@@ -584,10 +692,10 @@ function Home() {
 
       {/* ── 5. CONTACTO ── */}
       <section id="contacto" className="home-section home-contact">
-        <h2 className="section-title">{t('contact.title')}</h2>
-        <p className="home-contact__desc">{t('contact.description')}</p>
+        <h2 className="section-title scroll-reveal">{t('contact.title')}</h2>
+        <p className="home-contact__desc scroll-reveal" style={{ '--reveal-delay': '130ms' }}>{t('contact.description')}</p>
         <div className="home-contact__grid">
-          <a className="contact-card" href={`mailto:${EMAIL}`} aria-label="Enviar correo electrónico">
+          <a className="contact-card scroll-reveal" style={{ '--reveal-delay': '240ms' }} href={`mailto:${EMAIL}`} aria-label="Enviar correo electrónico">
             <img src={imgEmail} alt="" className="contact-card__icon" aria-hidden="true" />
             <div className="contact-card__text">
               <span className="contact-card__label">Email</span>
@@ -595,7 +703,7 @@ function Home() {
             </div>
           </a>
 
-          <a className="contact-card" href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" aria-label="Abrir chat de WhatsApp">
+          <a className="contact-card scroll-reveal" style={{ '--reveal-delay': '360ms' }} href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" aria-label="Abrir chat de WhatsApp">
             <img src={imgWhatsapp} alt="" className="contact-card__icon" aria-hidden="true" />
             <div className="contact-card__text">
               <span className="contact-card__label">WhatsApp</span>
@@ -604,7 +712,7 @@ function Home() {
           </a>
 
           {/* TODO: agregar URL de LinkedIn */}
-          <a className="contact-card" href="#" aria-label="Perfil de LinkedIn">
+          <a className="contact-card scroll-reveal" style={{ '--reveal-delay': '480ms' }} href="#" aria-label="Perfil de LinkedIn">
             <svg className="contact-card__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M20.447 20.452H16.893V14.883C16.893 13.555 16.866 11.846 15.041 11.846C13.188 11.846 12.905 13.291 12.905 14.785V20.452H9.351V9H12.765V10.561H12.814C13.288 9.661 14.448 8.711 16.181 8.711C19.782 8.711 20.448 11.081 20.448 14.166L20.447 20.452ZM5.337 7.433C4.193 7.433 3.274 6.507 3.274 5.368C3.274 4.23 4.194 3.305 5.337 3.305C6.477 3.305 7.401 4.23 7.401 5.368C7.401 6.507 6.476 7.433 5.337 7.433ZM7.119 20.452H3.555V9H7.119V20.452ZM22.225 0H1.771C0.792 0 0 0.774 0 1.729V22.271C0 23.227 0.792 24 1.771 24H22.222C23.2 24 24 23.227 24 22.271V1.729C24 0.774 23.2 0 22.222 0H22.225Z"/>
             </svg>
@@ -615,7 +723,7 @@ function Home() {
           </a>
 
           {/* TODO: agregar URL de GitHub */}
-          <a className="contact-card" href="#" aria-label="Perfil de GitHub">
+          <a className="contact-card scroll-reveal" style={{ '--reveal-delay': '600ms' }} href="#" aria-label="Perfil de GitHub">
             <svg className="contact-card__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12 0C5.374 0 0 5.373 0 12C0 17.302 3.438 21.8 8.207 23.387C8.806 23.498 9 23.126 9 22.81V20.576C5.662 21.302 4.967 19.16 4.967 19.16C4.421 17.773 3.634 17.404 3.634 17.404C2.545 16.659 3.717 16.675 3.717 16.675C4.922 16.759 5.556 17.912 5.556 17.912C6.626 19.746 8.363 19.216 9.048 18.909C9.155 18.134 9.466 17.604 9.81 17.305C7.145 17 4.343 15.971 4.343 11.374C4.343 10.063 4.812 8.993 5.579 8.153C5.455 7.85 5.044 6.629 5.696 4.977C5.696 4.977 6.704 4.655 8.997 6.207C9.954 5.941 10.98 5.808 12 5.803C13.02 5.808 14.047 5.941 15.006 6.207C17.297 4.655 18.303 4.977 18.303 4.977C18.956 6.63 18.545 7.851 18.421 8.153C19.191 8.993 19.656 10.064 19.656 11.374C19.656 15.983 16.849 16.998 14.177 17.295C14.607 17.667 15 18.397 15 19.517V22.81C15 23.129 15.192 23.504 15.801 23.386C20.566 21.797 24 17.3 24 12C24 5.373 18.627 0 12 0Z"/>
             </svg>
