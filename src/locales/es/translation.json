@@ -184,6 +184,16 @@
     "title": "Tres misiones para dominar la ciberseguridad",
     "subtitle": "Selecciona un juego interactivo desarrollado para la campaña Porvenir 2025 y descubre cómo defenderte de las amenazas digitales.",
     "bestScore": "Mejor puntuación: {{score}} pts",
+    "featured": {
+      "tag": "Nuevo · Proyecto 2026",
+      "title": "Jornada de Ciberseguridad 2026",
+      "description": "Una feria virtual completa: recorre tres pabellones, entra a los stands y supera seis retos interactivos sobre phishing, deepfake, ransomware, vishing, contraseñas y protección de datos. Es la demo abierta del proyecto corporativo que desarrollé en 2026.",
+      "badge": "Experiencia completa",
+      "facts": ["3 pabellones", "6 retos", "Sin registro"],
+      "cta": "Entrar a la experiencia",
+      "helper": "Se abre en una pestaña nueva · Mejor con sonido",
+      "coverAlt": "Plano general de la feria virtual con tres pabellones"
+    },
     "games": {
       "firewall": {
         "title": "Firewall Defender",

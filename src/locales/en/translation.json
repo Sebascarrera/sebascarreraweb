@@ -184,6 +184,16 @@
     "title": "Three missions to master cybersecurity",
     "subtitle": "Pick an interactive game created for the Porvenir 2025 campaign and learn how to defend yourself from digital threats.",
     "bestScore": "Best score: {{score}} pts",
+    "featured": {
+      "tag": "New · 2026 project",
+      "title": "Cybersecurity Week 2026",
+      "description": "A full virtual fair: walk through three pavilions, step into the booths and beat six interactive challenges on phishing, deepfakes, ransomware, vishing, passwords and data protection. This is the open demo of the corporate project I built in 2026.",
+      "badge": "Full experience",
+      "facts": ["3 pavilions", "6 challenges", "No sign-up"],
+      "cta": "Enter the experience",
+      "helper": "Opens in a new tab · Best with sound",
+      "coverAlt": "Overview of the virtual fair with three pavilions"
+    },
     "games": {
       "firewall": {
         "title": "Firewall Defender",

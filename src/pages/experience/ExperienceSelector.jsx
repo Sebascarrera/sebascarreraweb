@@ -4,8 +4,13 @@ import firewallImgIntro from "../../assets/img/firewall-img-intro.png";
 import passwordImgIntro from "../../assets/img/contrasena-maestra-img-intro.png";
 import malwareImgIntro from "../../assets/img/malware-img-intro.png";
 import asicsPortada from "../../assets/asics/portada-juego-asics.png";
+import jornadaCover from "../../assets/img/jornada-ciberseguridad-2026-cover.jpg";
 import "./styles/experience-base.css";
 import "./styles/ExperienceSelector.css";
+
+// Demo de la "Jornada de Ciberseguridad 2026": vive en su propio sitio (React + Redux,
+// ~46 MB) para no pesar ni mezclar dependencias con este portafolio. Se abre en pestaña nueva.
+const FEATURED_URL = "https://ciberseguridad.sebastiancarreramoya.com";
 
 const GAMES = [
   {
@@ -36,6 +41,7 @@ const GAMES = [
 
 export default function ExperienceSelector() {
   const { t } = useTranslation();
+  const featuredFacts = t("experience.featured.facts", { returnObjects: true });
 
   return (
     <section className="experience">
@@ -44,6 +50,41 @@ export default function ExperienceSelector() {
         <h1 className="experience__title">{t("experience.title")}</h1>
         <p className="experience__subtitle">{t("experience.subtitle")}</p>
       </div>
+
+      <article className="experience-featured">
+        <a
+          className="experience-featured__media"
+          href={FEATURED_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={t("experience.featured.cta")}
+        >
+          <img src={jornadaCover} alt={t("experience.featured.coverAlt")} />
+          <span className="experience-card__badge">{t("experience.featured.badge")}</span>
+        </a>
+
+        <div className="experience-featured__body">
+          <span className="experience-featured__tag">{t("experience.featured.tag")}</span>
+          <h2>{t("experience.featured.title")}</h2>
+          <p>{t("experience.featured.description")}</p>
+          <ul className="experience-featured__facts">
+            {Array.isArray(featuredFacts) && featuredFacts.map((fact) => (
+              <li key={fact}>{fact}</li>
+            ))}
+          </ul>
+          <div className="experience-featured__actions">
+            <a
+              className="boton-enlace-juegos"
+              href={FEATURED_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t("experience.featured.cta")} <span aria-hidden="true">↗</span>
+            </a>
+            <span className="experience-card__helper">{t("experience.featured.helper")}</span>
+          </div>
+        </div>
+      </article>
 
       <div className="experience__grid">
         {GAMES.map((game) => {
