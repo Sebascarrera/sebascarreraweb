@@ -27,6 +27,8 @@ import iabdbenkoImage from '../assets/projects/iaBdb-Enko.png';
 import iabdbenkoVideo from '../assets/videos/iaBdb-Enko.mp4';
 
 import ProjectCard from '../components/ProjectCard.jsx';
+import DesignGallery from '../components/DesignGallery.jsx';
+import { mentorCanada } from '../data/designProjects.js';
 import DotGridBackground from '../components/DotGridBackground.jsx';
 
 /* ── Skill categories ── */
@@ -178,6 +180,7 @@ function Home() {
   /* ── Projects array ── */
   const projects = [
     { id: 1, image: ciberImage,           video: ciberseguridadVideo,     title: t('projects.items.1.title'), description: t('projects.items.1.description'), stack: t('projects.items.1.stack', { returnObjects: true }), problem: t('projects.items.1.problem'), solution: t('projects.items.1.solution') },
+    { id: 10, image: mentorCanada.cover,  gallery: mentorCanada.categories, kind: 'design', title: t('projects.items.10.title'), description: t('projects.items.10.description'), stack: t('projects.items.10.stack', { returnObjects: true }), problem: t('projects.items.10.problem'), solution: t('projects.items.10.solution') },
     { id: 2, image: mundoColmenaImage,    video: mundoColmenaVideo,       title: t('projects.items.2.title'), description: t('projects.items.2.description'), stack: t('projects.items.2.stack', { returnObjects: true }), problem: t('projects.items.2.problem'), solution: t('projects.items.2.solution') },
     { id: 3, image: ColmenaRouteImage,    video: ColmenaRouteVideo,       title: t('projects.items.3.title'), description: t('projects.items.3.description'), stack: t('projects.items.3.stack', { returnObjects: true }), problem: t('projects.items.3.problem'), solution: t('projects.items.3.solution') },
     { id: 4, image: UkcolTouchImage,      video: UkcolTouchVideo,         title: t('projects.items.4.title'), description: t('projects.items.4.description'), stack: t('projects.items.4.stack', { returnObjects: true }), problem: t('projects.items.4.problem'), solution: t('projects.items.4.solution') },
@@ -602,9 +605,9 @@ function Home() {
                     ))}
                   </div>
                 )}
-                {(p.video || p.modalImage) && (
+                {(p.video || p.modalImage || p.gallery) && (
                   <button className="showcase__cta" onClick={() => openModal(p.id)}>
-                    {p.video ? t('projects.viewVideo') : t('projects.viewImage')} →
+                    {p.video ? t('projects.viewVideo') : p.gallery ? t('projects.viewGallery') : t('projects.viewImage')} →
                   </button>
                 )}
               </div>
@@ -742,8 +745,10 @@ function Home() {
             <button className="modal-close" onClick={closeModal} aria-label="Cerrar">✕</button>
 
             {/* Full-width media */}
-            <div className="modal-media">
-              {activeProject.video ? (
+            <div className={`modal-media${activeProject.gallery ? ' modal-media--gallery' : ''}`}>
+              {activeProject.gallery ? (
+                <DesignGallery categories={activeProject.gallery} />
+              ) : activeProject.video ? (
                 <video controls autoPlay className="modal-media__video">
                   <source src={activeProject.video} type="video/mp4" />
                   {t('common.noVideoSupport')}
@@ -762,7 +767,7 @@ function Home() {
                 <div className="modal-col-main">
                   {activeProject.problem && (
                     <div>
-                      <p className="modal-section__heading">{t('projects.modal.problem')}</p>
+                      <p className="modal-section__heading">{activeProject.kind === 'design' ? t('projects.modal.challenge') : t('projects.modal.problem')}</p>
                       <p className="modal-section__text">{activeProject.problem}</p>
                     </div>
                   )}
@@ -777,7 +782,7 @@ function Home() {
                 {/* Right: stack badges */}
                 {Array.isArray(activeProject.stack) && activeProject.stack.length > 0 && (
                   <div>
-                    <p className="modal-section__heading">{t('projects.modal.stack')}</p>
+                    <p className="modal-section__heading">{activeProject.kind === 'design' ? t('projects.modal.tools') : t('projects.modal.stack')}</p>
                     <div className="modal-stack-badges">
                       {activeProject.stack.map((tech) => (
                         <span key={tech} className="modal-badge">{tech}</span>

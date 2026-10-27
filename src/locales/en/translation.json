@@ -25,8 +25,29 @@
     "title": "Featured projects",
     "viewProject": "View project",
     "viewImage": "View image",
+    "viewGallery": "View designs",
+    "designGallery": {
+      "cats": {
+        "banners": "Banners & stands",
+        "brochures": "Brochures"
+      },
+      "pieces": {
+        "banner1": "Roll-up «She is the motivation»",
+        "banner3": "Roll-up «Take shape»",
+        "banner5": "Roll-up «Celebrate her resilience»",
+        "bannersSet": "Roll-up family · A Bold New Era",
+        "backwall": "Stand backwall",
+        "boost": "Counter graphic · BOOST™",
+        "augCovers": "Breast Augmentation Guide · covers",
+        "augStories": "Breast Augmentation Guide · patient stories",
+        "recCover": "Breast Reconstruction Guide · cover",
+        "warranty": "Advantage Warranty brochure 2026 · cover"
+      }
+    },
     "viewVideo": "Watch video",
     "modal": {
+      "challenge": "Challenge",
+      "tools": "Tools",
       "problem": "Problem",
       "solution": "Solution",
       "stack": "Tech Stack",
@@ -95,6 +116,19 @@
         "stack": ["Heygen", "ElevenLabs", "React", "API Integration"],
         "problem": "Create a virtual host capable of moderating real-time events with dynamic audience interaction.",
         "solution": "AI-generated avatar integrated into an interactive audiovisual experience that hosts events and drives active real-time participation."
+      },
+      "10": {
+        "title": "Graphic & Print Design — Mentor Canada · J&J MedTech",
+        "description": "Design of the print and trade-show communication for Mentor Canada (Johnson & Johnson MedTech) under its new «A Bold New Era» brand guidelines: roll-up banners, a stand backwall, patient and warranty brochures.",
+        "stack": [
+          "Adobe Illustrator",
+          "Adobe InDesign",
+          "Adobe Photoshop",
+          "Editorial design",
+          "Print design"
+        ],
+        "problem": "Bring Mentor's new global identity to print and trade-show materials in Canada, with consistent pieces for patients, surgeons and events.",
+        "solution": "A visual system of roll-ups, stand and brochures led by photography, editorial typography and a blue/peach palette; press-ready files (bleed, crop marks and web version)."
       }
     }
   },

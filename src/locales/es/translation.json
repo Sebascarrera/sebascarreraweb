@@ -26,7 +26,28 @@
     "viewProject": "Ver proyecto",
     "viewVideo": "Ver video",
     "viewImage": "Ver imagen",
+    "viewGallery": "Ver diseños",
+    "designGallery": {
+      "cats": {
+        "banners": "Banners y stands",
+        "brochures": "Folletos"
+      },
+      "pieces": {
+        "banner1": "Roll-up «She is the motivation»",
+        "banner3": "Roll-up «Take shape»",
+        "banner5": "Roll-up «Celebrate her resilience»",
+        "bannersSet": "Familia de roll-ups · A Bold New Era",
+        "backwall": "Backwall de stand",
+        "boost": "Gráfica mostrador · BOOST™",
+        "augCovers": "Guía de aumento mamario · portadas",
+        "augStories": "Guía de aumento mamario · historias de pacientes",
+        "recCover": "Guía de reconstrucción mamaria · portada",
+        "warranty": "Folleto Advantage Warranty 2026 · portada"
+      }
+    },
     "modal": {
+      "challenge": "Reto",
+      "tools": "Herramientas",
       "problem": "Problema",
       "solution": "Solución",
       "stack": "Stack Tecnológico",
@@ -95,6 +116,19 @@
         "stack": ["Heygen", "ElevenLabs", "React", "API Integration"],
         "problem": "Crear un presentador virtual capaz de moderar eventos en tiempo real con interacción dinámica de audiencia.",
         "solution": "Avatar generado con IA integrado en una experiencia audiovisual interactiva que presenta eventos y fomenta la participación activa en tiempo real."
+      },
+      "10": {
+        "title": "Diseño gráfico e impresos — Mentor Canada · J&J MedTech",
+        "description": "Diseño de la comunicación impresa y de feria de Mentor Canada (Johnson & Johnson MedTech) bajo su nuevo manual de marca «A Bold New Era»: roll-ups, backwall de stand, folletos de pacientes y garantía.",
+        "stack": [
+          "Adobe Illustrator",
+          "Adobe InDesign",
+          "Adobe Photoshop",
+          "Diseño editorial",
+          "Diseño para impresión"
+        ],
+        "problem": "Llevar la nueva identidad global de Mentor a materiales impresos y de feria en Canadá, con piezas consistentes para pacientes, cirujanos y eventos.",
+        "solution": "Sistema visual de roll-ups, stand y folletos con fotografía protagonista, tipografía editorial y paleta azul/durazno; archivos listos para imprenta (sangrado, marcas de corte y versión web)."
       }
     }
   },
