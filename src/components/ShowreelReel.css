@@ -1,0 +1,47 @@
+.reel { width: 100%; max-width: 1100px; display: grid; grid-template-columns: minmax(0, 1.618fr) minmax(0, 1fr); gap: 18px; align-items: stretch; text-align: left; }
+.reel__frame {
+  position: relative; padding: 12px; border-radius: 18px; align-self: start;
+  background: linear-gradient(160deg, rgba(255,255,255,0.07), rgba(255,255,255,0.015));
+  border: 1px solid rgba(0, 212, 200, 0.22); box-shadow: 0 0 60px rgba(0, 212, 200, 0.12);
+}
+.reel__hud { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 2px 6px 10px; font: 500 0.66rem/1 var(--font-mono, 'Roboto Mono', ui-monospace, monospace); letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-secondary); }
+.reel__rec { display: inline-flex; align-items: center; gap: 7px; color: #ff6b6b; }
+.reel__rec i { width: 7px; height: 7px; border-radius: 50%; background: #ff6b6b; box-shadow: 0 0 8px #ff6b6b; animation: reel-blink 1.4s infinite; }
+@keyframes reel-blink { 50% { opacity: 0.25; } }
+.reel__now { color: var(--accent); }
+.reel__video { width: 100%; display: block; border-radius: 10px; background: #000; aspect-ratio: 16 / 9; object-fit: cover; }
+.reel__corner { position: absolute; width: 18px; height: 18px; border: 2px solid var(--accent); opacity: 0.8; pointer-events: none; }
+.reel__corner--tl { left: -1px; top: -1px; border-right: 0; border-bottom: 0; border-radius: 18px 0 0 0; }
+.reel__corner--tr { right: -1px; top: -1px; border-left: 0; border-bottom: 0; border-radius: 0 18px 0 0; }
+.reel__corner--bl { left: -1px; bottom: -1px; border-right: 0; border-top: 0; border-radius: 0 0 0 18px; }
+.reel__corner--br { right: -1px; bottom: -1px; border-left: 0; border-top: 0; border-radius: 0 0 18px 0; }
+
+.reel__list { display: flex; flex-direction: column; gap: 12px; }
+.reel__card {
+  --c: 0, 212, 200;
+  position: relative; flex: 1; display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; align-items: center; align-content: center;
+  padding: 14px 15px; border-radius: 12px; outline: none; cursor: default;
+  background: linear-gradient(160deg, rgba(255,255,255,0.06), rgba(255,255,255,0.015));
+  border: 1px solid rgba(var(--c), 0.2); box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.reel__card[data-cat="design"] { --c: 167, 139, 250; }
+.reel__card[data-cat="motion"] { --c: 255, 180, 84; }
+.reel__card[data-cat="out"]    { --c: 233, 240, 243; }
+.reel__card:hover, .reel__card.is-on, .reel__card:focus-visible {
+  background: linear-gradient(160deg, rgba(var(--c), 0.16), rgba(var(--c), 0.04));
+  border-color: rgba(var(--c), 0.6); box-shadow: 0 0 20px rgba(var(--c), 0.16); transform: translateY(-2px);
+}
+.reel__card:focus-visible { outline: 2px solid rgb(var(--c)); outline-offset: 2px; }
+.reel__ico { grid-row: 1 / span 3; width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; color: rgb(var(--c)); background: rgba(var(--c), 0.14); border: 1px solid rgba(var(--c), 0.28); }
+.reel__ico svg { width: 17px; height: 17px; }
+.reel__tag { font: 500 0.58rem/1 var(--font-mono, 'Roboto Mono', ui-monospace, monospace); letter-spacing: 0.12em; text-transform: uppercase; color: rgb(var(--c)); align-self: end; }
+.reel__ttl { font-weight: 700; font-size: 0.9rem; line-height: 1.2; color: var(--text-primary); }
+.reel__sub { font-size: 0.74rem; line-height: 1.35; color: var(--text-secondary); }
+.reel__bar { grid-column: 2; height: 2px; border-radius: 2px; background: rgba(var(--c), 0.18); overflow: hidden; margin-top: 4px; }
+.reel__bar i { display: block; height: 100%; width: 0; background: rgb(var(--c)); }
+.reel__card.is-on .reel__bar i { animation: reel-fill 4s linear forwards; }
+@keyframes reel-fill { to { width: 100%; } }
+@media (max-width: 860px) { .reel { grid-template-columns: 1fr; } .reel__frame { align-self: stretch; } }
+@media (prefers-reduced-motion: reduce) { .reel__rec i { animation: none; } .reel__card.is-on .reel__bar i { animation: none; width: 100%; } }

@@ -27,6 +27,7 @@ import iabdbenkoImage from '../assets/projects/iaBdb-Enko.webp';
 import iabdbenkoVideo from '../assets/videos/iaBdb-Enko.mp4';
 
 import ProjectCard from '../components/ProjectCard.jsx';
+import ShowreelReel from '../components/ShowreelReel.jsx';
 import Strengths from '../components/Strengths.jsx';
 import DesignGallery from '../components/DesignGallery.jsx';
 import { mentorCanada } from '../data/designProjects.js';
@@ -547,10 +548,8 @@ function Home() {
       <section id="showreel" className="home-section home-showreel">
         <h2 className="section-title showreel__title scroll-reveal">{t('home.showreel.title')}</h2>
         <p className="showreel__subtitle scroll-reveal" style={{ '--reveal-delay': '120ms' }}>{t('home.showreel.subtitle')}</p>
-        <div className="showreel__video-wrap scroll-reveal" style={{ '--reveal-delay': '260ms' }}>
-          <video className="showreel__video" src={videoBg} controls muted loop playsInline preload="none">
-            {t('common.noVideoSupport')}
-          </video>
+        <div className="scroll-reveal" style={{ '--reveal-delay': '260ms', width: '100%', display: 'flex', justifyContent: 'center' }}>
+          <ShowreelReel src={videoBg} />
         </div>
         <div className="showreel__ctas scroll-reveal" style={{ '--reveal-delay': '400ms' }}>
           <a href="#proyectos" className="btn-primary">{t('home.viewProjects')}</a>

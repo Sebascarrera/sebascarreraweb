@@ -19,7 +19,31 @@
     "experienceSection": "Track record",
     "showreel": {
       "title": "In action",
-      "subtitle": "A quick look at my projects"
+      "subtitle": "A quick look at my projects",
+      "rec": "Showreel",
+      "all": "All",
+      "cats": {
+        "games": {
+          "tag": "Development",
+          "title": "Games",
+          "text": "Challenges played right in the browser"
+        },
+        "exp": {
+          "tag": "Deliverable",
+          "title": "Experiences",
+          "text": "Activations for events and brands"
+        },
+        "web": {
+          "tag": "Design + code",
+          "title": "Websites",
+          "text": "Platforms and landing pages"
+        },
+        "motion": {
+          "tag": "Motion",
+          "title": "Motion",
+          "text": "Animation and video for digital pieces"
+        }
+      }
     },
     "flow": {
       "capabilities": "Capabilities",

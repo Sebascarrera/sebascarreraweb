@@ -19,7 +19,31 @@
     "experienceSection": "Trayectoria",
     "showreel": {
       "title": "En acción",
-      "subtitle": "Un vistazo rápido a mis proyectos"
+      "subtitle": "Un vistazo rápido a mis proyectos",
+      "rec": "Showreel",
+      "all": "Todo",
+      "cats": {
+        "games": {
+          "tag": "Desarrollo",
+          "title": "Juegos",
+          "text": "Retos que se juegan en el navegador"
+        },
+        "exp": {
+          "tag": "Entregable",
+          "title": "Experiencias",
+          "text": "Activaciones para eventos y marcas"
+        },
+        "web": {
+          "tag": "Diseño + código",
+          "title": "Sitios web",
+          "text": "Plataformas y landing pages"
+        },
+        "motion": {
+          "tag": "Movimiento",
+          "title": "Motion",
+          "text": "Animación y video para piezas digitales"
+        }
+      }
     },
     "flow": {
       "capabilities": "Capacidades",
