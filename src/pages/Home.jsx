@@ -7,29 +7,30 @@ import videoBg from '../assets/background-portfolio-web-4.mp4';
 import imgEmail from '../assets/img/email-icon.svg';
 import imgWhatsapp from '../assets/img/whatsapp-icon.svg';
 
-import ciberImage from '../assets/projects/ciberseguridad.png';
+import ciberImage from '../assets/projects/ciberseguridad.webp';
 import ciberseguridadVideo from '../assets/videos/ciberseguridad.mp4';
-import mundoColmenaImage from '../assets/projects/mundo-colmena.png';
+import mundoColmenaImage from '../assets/projects/mundo-colmena.webp';
 import mundoColmenaVideo from '../assets/videos/mundo-colmena.mp4';
-import ColmenaRouteImage from '../assets/projects/colmena-route-game.png';
+import ColmenaRouteImage from '../assets/projects/colmena-route-game.webp';
 import ColmenaRouteVideo from '../assets/videos/COLMENA-ROUTE-GAME.mp4';
-import UkcolTouchImage from '../assets/projects/ukcol-touch.png';
+import UkcolTouchImage from '../assets/projects/ukcol-touch.webp';
 import UkcolTouchVideo from '../assets/videos/ukcol-touch.mp4';
-import FullStaffImage from '../assets/projects/fullstaff.png';
+import FullStaffImage from '../assets/projects/fullstaff.webp';
 import FullStaffVideo from '../assets/videos/fullstaff.mp4';
-import gogoRacingImage from '../assets/projects/gogo-racing.png';
+import gogoRacingImage from '../assets/projects/gogo-racing.webp';
 import gogoRacingVideo from '../assets/videos/gogoracing.mp4';
-import moneyWeekImage from '../assets/projects/money-week.png';
-import moneyWeekJpg from '../assets/videos/moneyweek-challenge.jpg';
-import sprintFalabellaImage from '../assets/projects/sprint-falabella.png';
-import sprintFalabellaJpg from '../assets/videos/sprint-falabella.jpg';
-import iabdbenkoImage from '../assets/projects/iaBdb-Enko.png';
+import moneyWeekImage from '../assets/projects/money-week.webp';
+import moneyWeekJpg from '../assets/videos/moneyweek-challenge.webp';
+import sprintFalabellaImage from '../assets/projects/sprint-falabella.webp';
+import sprintFalabellaJpg from '../assets/videos/sprint-falabella.webp';
+import iabdbenkoImage from '../assets/projects/iaBdb-Enko.webp';
 import iabdbenkoVideo from '../assets/videos/iaBdb-Enko.mp4';
 
 import ProjectCard from '../components/ProjectCard.jsx';
 import DesignGallery from '../components/DesignGallery.jsx';
 import { mentorCanada } from '../data/designProjects.js';
 import DotGridBackground from '../components/DotGridBackground.jsx';
+import StatsStrip from '../components/StatsStrip.jsx';
 
 /* ── Skill categories ── */
 const skillCategories = [
@@ -37,76 +38,66 @@ const skillCategories = [
     key: 'ai',
     title: 'Inteligencia Artificial',
     skills: [
-      { name: 'GitHub Copilot', pct: 92 },
-      { name: 'ChatGPT Codex', pct: 90 },
-      { name: 'Heygen', pct: 88 },
-      { name: 'ElevenLabs', pct: 85 },
-      { name: 'Midjourney', pct: 90 },
-      { name: 'Runway', pct: 87 },
-      { name: 'Envato', pct: 80 },
+      { name: 'GitHub Copilot' },
+      { name: 'ChatGPT Codex' },
+      { name: 'Heygen' },
+      { name: 'ElevenLabs' },
+      { name: 'Midjourney' },
+      { name: 'Runway' },
+      { name: 'Envato' },
     ],
   },
   {
     key: 'tech',
     title: 'Lenguajes & Tecnologías',
     skills: [
-      { name: 'HTML5', pct: 98 },
-      { name: 'CSS3', pct: 95 },
-      { name: 'JavaScript', pct: 90 },
-      { name: 'React', pct: 95 },
-      { name: 'WordPress', pct: 75 },
+      { name: 'HTML5' },
+      { name: 'CSS3' },
+      { name: 'JavaScript' },
+      { name: 'React' },
+      { name: 'WordPress' },
     ],
   },
   {
     key: 'design',
     title: 'Diseño & UI/UX',
     skills: [
-      { name: 'Figma', pct: 95 },
-      { name: 'Sketch', pct: 80 },
-      { name: 'Adobe XD', pct: 85 },
-      { name: 'Photoshop', pct: 90 },
-      { name: 'Illustrator', pct: 88 },
-      { name: 'After Effects', pct: 85 },
+      { name: 'Figma' },
+      { name: 'Sketch' },
+      { name: 'Adobe XD' },
+      { name: 'Photoshop' },
+      { name: 'Illustrator' },
+      { name: 'After Effects' },
     ],
   },
   {
     key: 'frontend',
     title: 'Desarrollo Front-End',
     skills: [
-      { name: 'Componentes reutilizables', pct: 95 },
-      { name: 'Diseño responsivo', pct: 98 },
-      { name: 'Optimización de rendimiento', pct: 85 },
-      { name: 'Accesibilidad (A11y)', pct: 80 },
+      { name: 'Componentes reutilizables' },
+      { name: 'Diseño responsivo' },
+      { name: 'Optimización de rendimiento' },
+      { name: 'Accesibilidad (A11y)' },
     ],
   },
   {
     key: 'video',
     title: 'Producción Audiovisual',
     skills: [
-      { name: 'Premiere Pro', pct: 90 },
-      { name: 'After Effects', pct: 88 },
-      { name: 'Realización audiovisual', pct: 85 },
-      { name: 'Motion Graphics', pct: 82 },
+      { name: 'Premiere Pro' },
+      { name: 'After Effects' },
+      { name: 'Realización audiovisual' },
+      { name: 'Motion Graphics' },
     ],
   },
   {
     key: 'tools',
     title: 'Herramientas & Metodologías',
     skills: [
-      { name: 'Git', pct: 95 },
-      { name: 'SCRUM', pct: 88 },
-      { name: 'SEO técnico básico', pct: 78 },
-      { name: 'Deployment con Vite', pct: 85 },
-    ],
-  },
-  {
-    key: 'soft',
-    title: 'Soft Skills',
-    skills: [
-      { name: 'Liderazgo de proyectos', pct: 92 },
-      { name: 'Comunicación efectiva', pct: 95 },
-      { name: 'Pensamiento creativo', pct: 98 },
-      { name: 'Gestión del tiempo', pct: 88 },
+      { name: 'Git' },
+      { name: 'SCRUM' },
+      { name: 'SEO técnico' },
+      { name: 'Despliegue web' },
     ],
   },
 ];
@@ -170,10 +161,15 @@ const RIGHT_NODES = [
 /* ── Contact data ── */
 const EMAIL = 'sebascarreramoya@gmail.com';
 const WHATSAPP_LINK = 'https://wa.me/573133510006';
+// Pega aquí tus URLs. Si quedan vacías, la tarjeta no se muestra.
+// Alcance verificado por proyecto (personas). Se muestra como chip en la tarjeta y el modal.
+const PROJECT_REACH = { 1: 3000, 7: 5000, 8: 10000 };
+const LINKEDIN_URL = '';
+const GITHUB_URL = '';
 const WHATSAPP_DISPLAY = '+57 3133510006';
 
 function Home() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   /* ── Modal state ── */
   const [activeVideo, setActiveVideo] = useState(null);
 
@@ -408,74 +404,7 @@ function Home() {
     return () => obs.disconnect();
   }, []);
 
-  /* ── Skills animation ── */
   const skillsRef = useRef(null);
-  const rafRef    = useRef(null);
-  const startRef  = useRef(null);
-  const activeRef = useRef(false);
-  const fillRefs  = useRef([]);
-  const pctRefs   = useRef([]);
-
-  useEffect(() => {
-    const section = skillsRef.current;
-    if (!section) return;
-
-    const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
-    const easeInCubic  = t => t * t * t;
-    const CYCLE = 5200;
-    const UP    = 3800;
-    const DOWN  = 1400;
-    const MIN   = 10;
-
-    const flat = skillCategories.flatMap((cat, ci) =>
-      cat.skills.map(s => ({ target: s.pct, delay: ci * 120 }))
-    );
-
-    function animate(now) {
-      if (!startRef.current) startRef.current = now;
-      const elapsed = now - startRef.current;
-
-      flat.forEach(({ target, delay }, idx) => {
-        const fill = fillRefs.current[idx];
-        const pct  = pctRefs.current[idx];
-        if (!fill || !pct) return;
-
-        const t = elapsed < delay
-          ? 0
-          : ((elapsed - delay) % CYCLE);
-
-        const val = t < UP
-          ? MIN + (target - MIN) * easeOutCubic(t / UP)
-          : MIN + (target - MIN) * (1 - easeInCubic((t - UP) / DOWN));
-
-        const rounded = Math.round(val);
-        fill.style.width  = rounded + '%';
-        pct.textContent   = rounded + '%';
-      });
-
-      if (activeRef.current) rafRef.current = requestAnimationFrame(animate);
-    }
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          activeRef.current = true;
-          startRef.current  = null;
-          rafRef.current = requestAnimationFrame(animate);
-        } else {
-          activeRef.current = false;
-          cancelAnimationFrame(rafRef.current);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    observer.observe(section);
-
-    return () => {
-      observer.disconnect();
-      cancelAnimationFrame(rafRef.current);
-    };
-  }, []);
 
   const scrollToPanel = (idx) => {
     const track = showcaseRef.current;
@@ -483,6 +412,7 @@ function Home() {
     track.scrollTo({ left: Math.max(0, Math.min(idx, projects.length - 1)) * track.offsetWidth, behavior: 'smooth' });
   };
 
+  const reachLocale = i18n.language?.startsWith('en') ? 'en-US' : 'es-CO';
   const openModal  = (id) => setActiveVideo(id);
   const closeModal = ()   => setActiveVideo(null);
   const activeProject = projects.find((p) => p.id === activeVideo);
@@ -535,8 +465,8 @@ function Home() {
             <p className="hero__subtitle hero-reveal" style={{ animationDelay: '380ms' }}>{t('home.subtitle')}</p>
             <p className="hero__desc hero-reveal" style={{ animationDelay: '560ms' }}>{t('home.description')}</p>
             <div className="hero__ctas hero-reveal" style={{ animationDelay: '740ms' }}>
-              <a href="#proyectos" className="btn-primary">{t('home.viewProjects')}</a>
-              <Link to="/selector" className="btn-ghost">{t('home.experienceCta')}</Link>
+              <a href="#contacto" className="btn-primary">{t('home.ctaProject')}</a>
+              <a href="#proyectos" className="btn-ghost">{t('home.viewProjects')}</a>
             </div>
           </div>
         </div>
@@ -561,12 +491,14 @@ function Home() {
         <canvas ref={flowCanvasRef} className="hero__flow-canvas" />
       </section>
 
+      <StatsStrip />
+
       {/* ── 1b. SHOWREEL ── */}
       <section id="showreel" className="home-section home-showreel">
         <h2 className="section-title showreel__title scroll-reveal">{t('home.showreel.title')}</h2>
         <p className="showreel__subtitle scroll-reveal" style={{ '--reveal-delay': '120ms' }}>{t('home.showreel.subtitle')}</p>
         <div className="showreel__video-wrap scroll-reveal" style={{ '--reveal-delay': '260ms' }}>
-          <video className="showreel__video" src={videoBg} controls muted loop playsInline>
+          <video className="showreel__video" src={videoBg} controls muted loop playsInline preload="none">
             {t('common.noVideoSupport')}
           </video>
         </div>
@@ -597,6 +529,7 @@ function Home() {
               <div className="showcase__text-side">
                 <span className="showcase__count">{String(idx + 1).padStart(2, '0')}</span>
                 <h2 className="showcase__title">{p.title}</h2>
+                {PROJECT_REACH[p.id] && <span className="reach-chip">{t('projects.reach', { n: PROJECT_REACH[p.id].toLocaleString(reachLocale) })}</span>}
                 <p className="showcase__desc">{p.description}</p>
                 {Array.isArray(p.stack) && p.stack.length > 0 && (
                   <div className="showcase__stack">
@@ -639,35 +572,16 @@ function Home() {
         <p className="skills-intro scroll-reveal" style={{ '--reveal-delay': '140ms' }}>{t('skills.intro')}</p>
         <div className="skills-grid">
           {(() => {
-            let fi = 0;
             return skillCategories.map((cat) => (
               <div
                 key={cat.key}
                 className={`skill-card${cat.key === 'ai' ? ' skill-card--wide' : ''}`}
               >
                 <h3 className="skill-card__title">{cat.title}</h3>
-                <div className="skill-card__bars">
-                  {cat.skills.map((skill) => {
-                    const idx = fi++;
-                    return (
-                      <div key={skill.name} className="skill-bar2">
-                        <div className="skill-bar2__header">
-                          <span className="skill-bar2__label">{skill.name}</span>
-                          <span
-                            className="skill-bar2__pct"
-                            ref={el => { pctRefs.current[idx] = el; }}
-                          >10%</span>
-                        </div>
-                        <div className="skill-bar2__track">
-                          <div
-                            className="skill-bar2__fill"
-                            ref={el => { fillRefs.current[idx] = el; }}
-                            style={{ width: '10%' }}
-                          />
-                        </div>
-                      </div>
-                    );
-                  })}
+                <div className="skill-chips">
+                  {cat.skills.map((skill) => (
+                    <span key={skill.name} className="skill-chip">{skill.name}</span>
+                  ))}
                 </div>
               </div>
             ));
@@ -714,8 +628,8 @@ function Home() {
             </div>
           </a>
 
-          {/* TODO: agregar URL de LinkedIn */}
-          <a className="contact-card scroll-reveal" style={{ '--reveal-delay': '480ms' }} href="#" aria-label="Perfil de LinkedIn">
+          {LINKEDIN_URL && (
+          <a className="contact-card scroll-reveal" style={{ '--reveal-delay': '480ms' }} href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" aria-label="Perfil de LinkedIn">
             <svg className="contact-card__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M20.447 20.452H16.893V14.883C16.893 13.555 16.866 11.846 15.041 11.846C13.188 11.846 12.905 13.291 12.905 14.785V20.452H9.351V9H12.765V10.561H12.814C13.288 9.661 14.448 8.711 16.181 8.711C19.782 8.711 20.448 11.081 20.448 14.166L20.447 20.452ZM5.337 7.433C4.193 7.433 3.274 6.507 3.274 5.368C3.274 4.23 4.194 3.305 5.337 3.305C6.477 3.305 7.401 4.23 7.401 5.368C7.401 6.507 6.476 7.433 5.337 7.433ZM7.119 20.452H3.555V9H7.119V20.452ZM22.225 0H1.771C0.792 0 0 0.774 0 1.729V22.271C0 23.227 0.792 24 1.771 24H22.222C23.2 24 24 23.227 24 22.271V1.729C24 0.774 23.2 0 22.222 0H22.225Z"/>
             </svg>
@@ -724,17 +638,19 @@ function Home() {
               <span className="contact-card__value">Juan Sebastián Carrera</span>
             </div>
           </a>
+          )}
 
-          {/* TODO: agregar URL de GitHub */}
-          <a className="contact-card scroll-reveal" style={{ '--reveal-delay': '600ms' }} href="#" aria-label="Perfil de GitHub">
+          {GITHUB_URL && (
+          <a className="contact-card scroll-reveal" style={{ '--reveal-delay': '600ms' }} href={GITHUB_URL} target="_blank" rel="noopener noreferrer" aria-label="Perfil de GitHub">
             <svg className="contact-card__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12 0C5.374 0 0 5.373 0 12C0 17.302 3.438 21.8 8.207 23.387C8.806 23.498 9 23.126 9 22.81V20.576C5.662 21.302 4.967 19.16 4.967 19.16C4.421 17.773 3.634 17.404 3.634 17.404C2.545 16.659 3.717 16.675 3.717 16.675C4.922 16.759 5.556 17.912 5.556 17.912C6.626 19.746 8.363 19.216 9.048 18.909C9.155 18.134 9.466 17.604 9.81 17.305C7.145 17 4.343 15.971 4.343 11.374C4.343 10.063 4.812 8.993 5.579 8.153C5.455 7.85 5.044 6.629 5.696 4.977C5.696 4.977 6.704 4.655 8.997 6.207C9.954 5.941 10.98 5.808 12 5.803C13.02 5.808 14.047 5.941 15.006 6.207C17.297 4.655 18.303 4.977 18.303 4.977C18.956 6.63 18.545 7.851 18.421 8.153C19.191 8.993 19.656 10.064 19.656 11.374C19.656 15.983 16.849 16.998 14.177 17.295C14.607 17.667 15 18.397 15 19.517V22.81C15 23.129 15.192 23.504 15.801 23.386C20.566 21.797 24 17.3 24 12C24 5.373 18.627 0 12 0Z"/>
             </svg>
             <div className="contact-card__text">
               <span className="contact-card__label">GitHub</span>
-              <span className="contact-card__value">sebascarreramoya</span>
+              <span className="contact-card__value">{GITHUB_URL.replace(/^https?:\/\/(www\.)?github\.com\//, '')}</span>
             </div>
           </a>
+          )}
         </div>
       </section>
 
@@ -761,6 +677,7 @@ function Home() {
             {/* Project details */}
             <div className="modal-body">
               <h2 className="modal-title">{activeProject.title}</h2>
+              {PROJECT_REACH[activeProject.id] && <span className="reach-chip">{t('projects.reach', { n: PROJECT_REACH[activeProject.id].toLocaleString(reachLocale) })}</span>}
 
               <div className="modal-cols">
                 {/* Left: problem + solution */}

@@ -7,22 +7,31 @@
   },
   "home": {
     "name": "Juan Sebastián Carrera Moya",
-    "subtitle": "Diseñador y Desarrollador Web Frontend",
-    "description": "Fusiono diseño de vanguardia con desarrollo técnico avanzado. Especialista en React, UI/UX e Inteligencia Artificial (GitHub Copilot, ChatGpt Codex, Heygen, Elevenlabs, Envato, Midjourney, Runway) para crear experiencias digitales de alto impacto.",
+    "subtitle": "Tu aliado tecnológico para experiencias digitales",
+    "description": "Diseño y desarrollo plataformas, juegos y experiencias interactivas con React, UI/UX e inteligencia artificial, para marcas que quieren conectar con miles de personas.",
     "viewProjects": "Ver proyectos",
+    "ctaProject": "Cuéntame tu proyecto",
     "experienceCta": "Vive la experiencia",
     "experienceEyebrow": "Porvenir 2025",
     "experienceTitle": "Vive la experiencia de ciberseguridad",
     "experienceDescription": "Explora juegos inmersivos que enseñan buenas prácticas digitales mientras pones a prueba tu intuición y reflejos.",
     "experienceLinkLabel": "Explorar experiencias",
-    "experienceSection": "Experiencia",
+    "experienceSection": "Trayectoria",
     "showreel": {
       "title": "En acción",
       "subtitle": "Un vistazo rápido a mis proyectos"
     }
   },
+  "stats": {
+    "aria": "Cifras destacadas",
+    "years": "años creando experiencias digitales para empresas",
+    "projects": "proyectos entregados",
+    "reach": "personas alcanzadas en una sola experiencia",
+    "sectors": "sectores: banca, retail, seguros y salud"
+  },
   "projects": {
     "title": "Proyectos destacados",
+    "reach": "+{{n}} personas alcanzadas",
     "viewProject": "Ver proyecto",
     "viewVideo": "Ver video",
     "viewImage": "Ver imagen",
@@ -133,8 +142,8 @@
     }
   },
   "skills": {
-    "title": "Habilidades Profesionales",
-    "intro": "Combino lo mejor del diseño y el desarrollo para crear sitios web atractivos, interactivos y centrados en el usuario. Con sólida experiencia en HTML, CSS y JavaScript, construyo interfaces dinámicas que no solo son funcionales, sino también visualmente cautivadoras. He liderado proyectos avanzados utilizando React, entregando aplicaciones innovadoras que equilibran la creatividad con el rendimiento técnico. \n\nMe mantengo a la vanguardia tecnológica mediante el uso estratégico de Inteligencia Artificial: domino herramientas de IA generativa como GitHub Copilot para la optimización y creación de código eficiente, así como Midjourney y Runway para la producción avanzada de imágenes y video en comunicación digital y web. \n\nMi enfoque está profundamente arraigado en los principios de UI/UX —priorizando la usabilidad, la accesibilidad y el diseño intuitivo— para asegurar que cada interacción se sienta fluida y natural. Al fusionar visión estética, precisión técnica y el poder de la IA, alineo cada proyecto con los objetivos del cliente, entregando resultados de alta calidad donde cada detalle tecnológico potencia la experiencia digital global.",
+    "title": "Stack y capacidades",
+    "intro": "Combino diseño, desarrollo e inteligencia artificial para entregar de principio a fin: desde la idea y la interfaz hasta el producto publicado y funcionando.",
     "categories": {
       "tech": {
         "title": "Lenguajes & Tecnologías",
@@ -163,8 +172,8 @@
     }
   },
   "contact": {
-    "title": "Contacto",
-    "description": "¿Tienes un proyecto en mente o simplemente quieres saludar? ¡Escríbeme!",
+    "title": "Hablemos de tu proyecto",
+    "description": "Cuéntame qué quieres lograr y te respondo con una propuesta clara. Escríbeme por WhatsApp o correo.",
     "details": {
       "email": " {{email}}",
       "whatsapp": " {{number}}"

@@ -1249,3 +1249,24 @@
   .hero__logo-glow { animation: none; }
   .reveal { transition: none; }
 }
+
+/* ── Habilidades: chips ── */
+.skill-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.skill-card--wide .skill-chips { gap: 0.6rem; }
+.skill-chip {
+  font-size: 0.82rem; font-weight: 500; color: var(--text-primary);
+  padding: 0.38rem 0.85rem; border-radius: 999px;
+  background: rgba(0, 212, 200, 0.07); border: 1px solid rgba(0, 212, 200, 0.22);
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+.skill-chip:hover { border-color: var(--accent); background: rgba(0, 212, 200, 0.14); transform: translateY(-1px); }
+
+/* ── Alcance por proyecto ── */
+.reach-chip {
+  display: inline-flex; align-items: center; gap: 0.4rem; align-self: flex-start;
+  margin: 0.2rem 0 0.9rem; padding: 0.3rem 0.8rem; border-radius: 999px;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.02em; color: var(--accent);
+  background: rgba(0, 212, 200, 0.1); border: 1px solid rgba(0, 212, 200, 0.35);
+}
+.reach-chip::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+.modal-body .reach-chip { margin-top: -0.2rem; }

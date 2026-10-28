@@ -7,22 +7,31 @@
   },
   "home": {
     "name": "Juan Sebastián Carrera Moya",
-    "subtitle": "Frontend Web Designer and Developer",
-    "description": "I transform ideas into impactful and functional digital experiences.",
+    "subtitle": "Your technology partner for digital experiences",
+    "description": "I design and build platforms, games and interactive experiences with React, UI/UX and AI for brands that want to reach thousands of people.",
     "viewProjects": "See projects",
+    "ctaProject": "Tell me about your project",
     "experienceCta": "Live the experience",
     "experienceEyebrow": "Porvenir 2025",
     "experienceTitle": "Experience cybersecurity firsthand",
     "experienceDescription": "Dive into immersive mini-games that teach digital best practices while you test your reflexes and intuition.",
     "experienceLinkLabel": "Explore experiences",
-    "experienceSection": "Experience",
+    "experienceSection": "Track record",
     "showreel": {
       "title": "In action",
       "subtitle": "A quick look at my projects"
     }
   },
+  "stats": {
+    "aria": "Key figures",
+    "years": "years building digital experiences for companies",
+    "projects": "projects delivered",
+    "reach": "people reached in a single experience",
+    "sectors": "sectors: banking, retail, insurance and healthcare"
+  },
   "projects": {
     "title": "Featured projects",
+    "reach": "{{n}}+ people reached",
     "viewProject": "View project",
     "viewImage": "View image",
     "viewGallery": "View designs",
@@ -133,8 +142,8 @@
     }
   },
   "skills": {
-    "title": "Professional Skills",
-    "intro": "I combine the best of design and development to create attractive, interactive, and user-centered websites. With solid expertise in HTML, CSS, and JavaScript, I build dynamic interfaces that are not only functional but also visually captivating. I have led advanced projects using React, delivering innovative applications that balance creativity with technical performance.\n\nI stay at the forefront of technology through the strategic use of Artificial Intelligence: I am proficient in generative AI tools such as GitHub Copilot for efficient code optimization and creation, as well as Midjourney and Runway for advanced image and video production in digital and web communication.\n\nMy approach is deeply rooted in UI/UX principles — prioritizing usability, accessibility, and intuitive design — to ensure every interaction feels seamless and natural. By merging aesthetic vision, technical precision, and the power of AI, I align each project with client objectives, delivering high-quality results where every technological detail enhances the overall digital experience.",
+    "title": "Stack & capabilities",
+    "intro": "I combine design, development and artificial intelligence to deliver end to end: from the idea and the interface to the product live and running.",
     "categories": {
       "tech": {
         "title": "Languages & Technologies",
@@ -163,8 +172,8 @@
     }
   },
   "contact": {
-    "title": "Contact",
-    "description": "Do you have a project in mind or just want to say hi? Write me!",
+    "title": "Let's talk about your project",
+    "description": "Tell me what you want to achieve and I'll reply with a clear proposal. Reach me on WhatsApp or by email.",
     "details": {
       "email": " {{email}}",
       "whatsapp": " {{number}}"
