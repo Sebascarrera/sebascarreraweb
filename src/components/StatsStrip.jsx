@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './StatsStrip.css';
 
-const CAREER_START_YEAR = 2015;
+/* Misma fecha de inicio que Trayectoria: octubre de 2010 */
+const CAREER_START = new Date(2010, 9, 1);
 
 function Counter({ to, locale }) {
   const ref = useRef(null);
@@ -36,7 +37,9 @@ function Counter({ to, locale }) {
 function StatsStrip() {
   const { t, i18n } = useTranslation();
   const locale = i18n.language?.startsWith('en') ? 'en-US' : 'es-CO';
-  const years = new Date().getFullYear() - CAREER_START_YEAR;
+  const now = new Date();
+  let years = now.getFullYear() - CAREER_START.getFullYear();
+  if (now < new Date(now.getFullYear(), CAREER_START.getMonth(), 1)) years -= 1;
   const items = [
     { to: years, plus: true, label: t('stats.years') },
     { to: 500, plus: true, label: t('stats.projects') },
