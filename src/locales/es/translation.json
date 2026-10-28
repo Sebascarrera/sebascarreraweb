@@ -473,6 +473,71 @@
       "email": "Tu correo electrónico",
       "message": "Tu mensaje...",
       "send": "Enviar mensaje"
+    },
+    "builder": {
+      "q1": "¿Qué necesitas?",
+      "q2": "¿Para cuándo?",
+      "ready": "Tu mensaje, listo",
+      "hello": "Hola Sebastián, vi tu portafolio. Necesito",
+      "generic": "hablar de un proyecto",
+      "and": "y",
+      "more": "Te cuento más:",
+      "subject": "Quiero hablar de un proyecto",
+      "emailBtn": "Correo",
+      "needs": {
+        "web": {
+          "label": "Sitio web / app",
+          "phrase": "un sitio web o app"
+        },
+        "demo": {
+          "label": "Demo o juego",
+          "phrase": "una demo o juego interactivo"
+        },
+        "ux": {
+          "label": "Diseño UI/UX",
+          "phrase": "diseño UI/UX"
+        },
+        "video": {
+          "label": "Video / Motion",
+          "phrase": "video o motion"
+        },
+        "lead": {
+          "label": "Liderar equipo",
+          "phrase": "alguien que lidere el equipo del proyecto"
+        },
+        "ai": {
+          "label": "Con IA",
+          "phrase": "integrar IA a mi producto"
+        }
+      },
+      "when": {
+        "asap": {
+          "label": "Urgente",
+          "phrase": "lo antes posible"
+        },
+        "weeks": {
+          "label": "Próximas semanas",
+          "phrase": "en las próximas semanas"
+        },
+        "explore": {
+          "label": "Explorando",
+          "phrase": "aún lo estoy explorando"
+        }
+      },
+      "steps": {
+        "one": {
+          "title": "Me cuentas",
+          "text": "Qué necesitas y para cuándo, con tus palabras."
+        },
+        "two": {
+          "title": "Propuesta clara",
+          "text": "Alcance, enfoque y siguientes pasos, sin enredos."
+        },
+        "three": {
+          "title": "Arrancamos",
+          "text": "Diseño, desarrollo y equipo trabajando en un solo flujo."
+        }
+      }
     }
   },
   "common": {

@@ -473,6 +473,71 @@
       "email": "Your email",
       "message": "Your message...",
       "send": "Send message"
+    },
+    "builder": {
+      "q1": "What do you need?",
+      "q2": "By when?",
+      "ready": "Your message, ready",
+      "hello": "Hi Sebastián, I saw your portfolio. I need",
+      "generic": "to talk about a project",
+      "and": "and",
+      "more": "Let me tell you more:",
+      "subject": "I'd like to talk about a project",
+      "emailBtn": "Email",
+      "needs": {
+        "web": {
+          "label": "Website / app",
+          "phrase": "a website or app"
+        },
+        "demo": {
+          "label": "Demo or game",
+          "phrase": "an interactive demo or game"
+        },
+        "ux": {
+          "label": "UI/UX design",
+          "phrase": "UI/UX design"
+        },
+        "video": {
+          "label": "Video / Motion",
+          "phrase": "video or motion"
+        },
+        "lead": {
+          "label": "Team lead",
+          "phrase": "someone to lead the project team"
+        },
+        "ai": {
+          "label": "With AI",
+          "phrase": "to integrate AI into my product"
+        }
+      },
+      "when": {
+        "asap": {
+          "label": "Urgent",
+          "phrase": "as soon as possible"
+        },
+        "weeks": {
+          "label": "Next weeks",
+          "phrase": "in the coming weeks"
+        },
+        "explore": {
+          "label": "Exploring",
+          "phrase": "I'm still exploring"
+        }
+      },
+      "steps": {
+        "one": {
+          "title": "You tell me",
+          "text": "What you need and by when, in your own words."
+        },
+        "two": {
+          "title": "Clear proposal",
+          "text": "Scope, approach and next steps, no fuss."
+        },
+        "three": {
+          "title": "We start",
+          "text": "Design, development and team working in one flow."
+        }
+      }
     }
   },
   "common": {

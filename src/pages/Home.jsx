@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import '../styles/home.css';
 import jscmLogo from '../assets/img/icono-imp-hero.png';
 import videoBg from '../assets/background-portfolio-web-4.mp4';
-import imgEmail from '../assets/img/email-icon.svg';
-import imgWhatsapp from '../assets/img/whatsapp-icon.svg';
 
 import ciberImage from '../assets/projects/ciberseguridad.webp';
 import ciberseguridadVideo from '../assets/videos/ciberseguridad.mp4';
@@ -31,6 +29,7 @@ import FeaturedProjects from '../components/FeaturedProjects.jsx';
 import ShowreelReel from '../components/ShowreelReel.jsx';
 import StackConstellation from '../components/StackConstellation.jsx';
 import CareerMap from '../components/CareerMap.jsx';
+import ContactBuilder from '../components/ContactBuilder.jsx';
 import Strengths from '../components/Strengths.jsx';
 import DesignGallery from '../components/DesignGallery.jsx';
 import { mentorCanada } from '../data/designProjects.js';
@@ -100,8 +99,6 @@ const WHATSAPP_LINK = 'https://wa.me/573133510006';
 // Alcance verificado por proyecto (personas). Se muestra como chip en la tarjeta y el modal.
 const PROJECT_REACH = { 1: 3000, 7: 5000, 8: 10000 };
 const JORNADA_2026_URL = 'https://ciberseguridad.sebastiancarreramoya.com';
-const LINKEDIN_URL = '';
-const GITHUB_URL = '';
 const WHATSAPP_DISPLAY = '+57 3133510006';
 
 function Home() {
@@ -486,47 +483,7 @@ function Home() {
       <section id="contacto" className="home-section home-contact">
         <h2 className="section-title scroll-reveal">{t('contact.title')}</h2>
         <p className="home-contact__desc scroll-reveal" style={{ '--reveal-delay': '130ms' }}>{t('contact.description')}</p>
-        <div className="home-contact__grid">
-          <a className="contact-card scroll-reveal" style={{ '--reveal-delay': '240ms' }} href={`mailto:${EMAIL}`} aria-label="Enviar correo electrónico">
-            <img src={imgEmail} alt="" className="contact-card__icon" aria-hidden="true" />
-            <div className="contact-card__text">
-              <span className="contact-card__label">Email</span>
-              <span className="contact-card__value">{EMAIL}</span>
-            </div>
-          </a>
-
-          <a className="contact-card scroll-reveal" style={{ '--reveal-delay': '360ms' }} href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" aria-label="Abrir chat de WhatsApp">
-            <img src={imgWhatsapp} alt="" className="contact-card__icon" aria-hidden="true" />
-            <div className="contact-card__text">
-              <span className="contact-card__label">WhatsApp</span>
-              <span className="contact-card__value">{WHATSAPP_DISPLAY}</span>
-            </div>
-          </a>
-
-          {LINKEDIN_URL && (
-          <a className="contact-card scroll-reveal" style={{ '--reveal-delay': '480ms' }} href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" aria-label="Perfil de LinkedIn">
-            <svg className="contact-card__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M20.447 20.452H16.893V14.883C16.893 13.555 16.866 11.846 15.041 11.846C13.188 11.846 12.905 13.291 12.905 14.785V20.452H9.351V9H12.765V10.561H12.814C13.288 9.661 14.448 8.711 16.181 8.711C19.782 8.711 20.448 11.081 20.448 14.166L20.447 20.452ZM5.337 7.433C4.193 7.433 3.274 6.507 3.274 5.368C3.274 4.23 4.194 3.305 5.337 3.305C6.477 3.305 7.401 4.23 7.401 5.368C7.401 6.507 6.476 7.433 5.337 7.433ZM7.119 20.452H3.555V9H7.119V20.452ZM22.225 0H1.771C0.792 0 0 0.774 0 1.729V22.271C0 23.227 0.792 24 1.771 24H22.222C23.2 24 24 23.227 24 22.271V1.729C24 0.774 23.2 0 22.222 0H22.225Z"/>
-            </svg>
-            <div className="contact-card__text">
-              <span className="contact-card__label">LinkedIn</span>
-              <span className="contact-card__value">Juan Sebastián Carrera</span>
-            </div>
-          </a>
-          )}
-
-          {GITHUB_URL && (
-          <a className="contact-card scroll-reveal" style={{ '--reveal-delay': '600ms' }} href={GITHUB_URL} target="_blank" rel="noopener noreferrer" aria-label="Perfil de GitHub">
-            <svg className="contact-card__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 0C5.374 0 0 5.373 0 12C0 17.302 3.438 21.8 8.207 23.387C8.806 23.498 9 23.126 9 22.81V20.576C5.662 21.302 4.967 19.16 4.967 19.16C4.421 17.773 3.634 17.404 3.634 17.404C2.545 16.659 3.717 16.675 3.717 16.675C4.922 16.759 5.556 17.912 5.556 17.912C6.626 19.746 8.363 19.216 9.048 18.909C9.155 18.134 9.466 17.604 9.81 17.305C7.145 17 4.343 15.971 4.343 11.374C4.343 10.063 4.812 8.993 5.579 8.153C5.455 7.85 5.044 6.629 5.696 4.977C5.696 4.977 6.704 4.655 8.997 6.207C9.954 5.941 10.98 5.808 12 5.803C13.02 5.808 14.047 5.941 15.006 6.207C17.297 4.655 18.303 4.977 18.303 4.977C18.956 6.63 18.545 7.851 18.421 8.153C19.191 8.993 19.656 10.064 19.656 11.374C19.656 15.983 16.849 16.998 14.177 17.295C14.607 17.667 15 18.397 15 19.517V22.81C15 23.129 15.192 23.504 15.801 23.386C20.566 21.797 24 17.3 24 12C24 5.373 18.627 0 12 0Z"/>
-            </svg>
-            <div className="contact-card__text">
-              <span className="contact-card__label">GitHub</span>
-              <span className="contact-card__value">{GITHUB_URL.replace(/^https?:\/\/(www\.)?github\.com\//, '')}</span>
-            </div>
-          </a>
-          )}
-        </div>
+        <ContactBuilder email={EMAIL} whatsapp={WHATSAPP_LINK} whatsappDisplay={WHATSAPP_DISPLAY} />
       </section>
 
       {/* ── MODAL ── */}
