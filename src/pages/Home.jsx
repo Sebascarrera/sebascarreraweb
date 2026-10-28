@@ -27,10 +27,12 @@ import iabdbenkoImage from '../assets/projects/iaBdb-Enko.webp';
 import iabdbenkoVideo from '../assets/videos/iaBdb-Enko.mp4';
 
 import ProjectCard from '../components/ProjectCard.jsx';
+import Strengths from '../components/Strengths.jsx';
 import DesignGallery from '../components/DesignGallery.jsx';
 import { mentorCanada } from '../data/designProjects.js';
 import DotGridBackground from '../components/DotGridBackground.jsx';
 import StatsStrip from '../components/StatsStrip.jsx';
+import DecodeText from '../components/DecodeText.jsx';
 
 /* ── Skill categories ── */
 const skillCategories = [
@@ -105,17 +107,17 @@ const skillCategories = [
 
 /* ── Hero flow nodes ── */
 const LEFT_NODES = [
-  { key: 'frontend', label: 'Frontend Dev', icon: (
+  { key: 'frontend', cat: 'dev', icon: (
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <polyline points="4.5,5 1,8 4.5,11"/><polyline points="11.5,5 15,8 11.5,11"/><line x1="9.5" y1="2.5" x2="6.5" y2="13.5"/>
     </svg>
   )},
-  { key: 'design', label: 'Diseño UI/UX', icon: (
+  { key: 'design', cat: 'design', icon: (
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M11 2L14 5 6 13 2 14l1-4z"/><line x1="9" y1="4" x2="12" y2="7"/>
     </svg>
   )},
-  { key: 'react', label: 'React · JS', icon: (
+  { key: 'react', cat: 'dev', icon: (
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden="true">
       <circle cx="8" cy="8" r="1.5" fill="currentColor" stroke="none"/>
       <ellipse cx="8" cy="8" rx="7" ry="2.8"/>
@@ -123,21 +125,21 @@ const LEFT_NODES = [
       <ellipse cx="8" cy="8" rx="7" ry="2.8" transform="rotate(120 8 8)"/>
     </svg>
   )},
-  { key: 'motion', label: 'Motion & Video', icon: (
+  { key: 'motion', cat: 'motion', icon: (
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <rect x="1" y="4" width="9" height="8" rx="1"/><polyline points="10,6.5 15,4 15,12 10,9.5"/>
     </svg>
   )},
 ];
 const RIGHT_NODES = [
-  { key: 'web', label: 'Sitios Web', icon: (
+  { key: 'web', cat: 'out', icon: (
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" aria-hidden="true">
       <circle cx="8" cy="8" r="6.5"/>
       <path d="M8 1.5C6 4 5 6 5 8s1 4 3 6.5M8 1.5C10 4 11 6 11 8s-1 4-3 6.5"/>
       <line x1="1.5" y1="8" x2="14.5" y2="8"/>
     </svg>
   )},
-  { key: 'games', label: 'Juegos', icon: (
+  { key: 'games', cat: 'out', icon: (
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <rect x="1" y="5" width="14" height="7" rx="2.5"/>
       <line x1="5" y1="8.5" x2="7" y2="8.5"/><line x1="6" y1="7.5" x2="6" y2="9.5"/>
@@ -145,12 +147,12 @@ const RIGHT_NODES = [
       <circle cx="12.2" cy="9" r="0.9" fill="currentColor" stroke="none"/>
     </svg>
   )},
-  { key: 'exp', label: 'Experiencias', icon: (
+  { key: 'exp', cat: 'out', icon: (
     <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
       <path d="M8 1l1.76 5.41H16l-4.88 3.55 1.87 5.47L8 12.1l-5 3.33 1.88-5.47L0 6.41h6.24z"/>
     </svg>
   )},
-  { key: 'apps', label: 'Apps & Demos', icon: (
+  { key: 'apps', cat: 'out', icon: (
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <rect x="1.5" y="1.5" width="5" height="5" rx="1"/><rect x="9.5" y="1.5" width="5" height="5" rx="1"/>
       <rect x="1.5" y="9.5" width="5" height="5" rx="1"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/>
@@ -194,11 +196,21 @@ function Home() {
   const leftNodeRefs   = useRef([]);
   const rightNodeRefs  = useRef([]);
 
+  /* Tarjeta activa: hover/foco manda; si no, recorre las tarjetas sola */
+  const activeRef = useRef(-1);
+  const hoverRef  = useRef(-1);
+
   useEffect(() => {
     const canvas = flowCanvasRef.current;
     const hero   = heroRef.current;
     if (!canvas || !hero) return;
     const ctx = canvas.getContext('2d');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const CAT_RGB = { dev: '0, 212, 200', design: '167, 139, 250', motion: '255, 180, 84', out: '233, 240, 243' };
+    const ACCENT  = '0, 212, 200';
+    const TAIL_STEPS = 7;
+    const MERGE_DIST = 100; // px from hub center where lines converge
 
     function bezier(t, p0, p1, p2, p3) {
       const u = 1 - t;
@@ -208,7 +220,6 @@ function Home() {
       };
     }
 
-    const MERGE_DIST = 100; // px from hub center where lines converge
     let pathData = null;
 
     function buildPaths() {
@@ -216,46 +227,35 @@ function Home() {
       if (!logoEl) return null;
       const hr = hero.getBoundingClientRect();
       const lr = logoEl.getBoundingClientRect();
-
       const hubCx = lr.left - hr.left + lr.width  / 2;
       const hubCy = lr.top  - hr.top  + lr.height / 2;
-
-      // Lines stop MERGE_DIST px from center on each side
       const leftMerge  = { x: hubCx - MERGE_DIST, y: hubCy };
       const rightMerge = { x: hubCx + MERGE_DIST, y: hubCy };
 
-      function makePath(sx, sy, ex, ey, baseSpd, nodePos) {
+      function makePath(el, isLeft, sx, sy, ex, ey, baseSpd, nodePos, idx) {
         const tx = (ex - sx) * 0.44;
+        const cat = el.dataset.cat;
         return {
-          p0: { x: sx, y: sy },
-          p1: { x: sx + tx, y: sy },
-          p2: { x: ex - tx, y: ey },
-          p3: { x: ex, y: ey },
-          nodePos, // actual node position for junction dot
-          dots: [
-            { t: 0,    spd: baseSpd },
-            { t: 0.34, spd: baseSpd },
-            { t: 0.67, spd: baseSpd },
-          ],
+          el, isLeft, idx, cat, rgb: CAT_RGB[cat] || ACCENT,
+          p0: { x: sx, y: sy }, p1: { x: sx + tx, y: sy },
+          p2: { x: ex - tx, y: ey }, p3: { x: ex, y: ey },
+          nodePos, flash: 0, dim: 1,
+          dots: [{ t: 0, spd: baseSpd }, { t: 0.34, spd: baseSpd }, { t: 0.67, spd: baseSpd }],
         };
       }
 
-      // All 4 left paths converge to leftMerge
       const left = leftNodeRefs.current.map((el, i) => {
         if (!el) return null;
-        const r  = el.getBoundingClientRect();
-        const sx = r.right - hr.left;
-        const sy = r.top   - hr.top + r.height / 2;
-        return makePath(sx, sy, leftMerge.x, leftMerge.y, 0.14 + i * 0.025, { x: sx, y: sy });
+        const r = el.getBoundingClientRect();
+        const sx = r.right - hr.left, sy = r.top - hr.top + r.height / 2;
+        return makePath(el, true, sx, sy, leftMerge.x, leftMerge.y, 0.14 + i * 0.025, { x: sx, y: sy }, i);
       }).filter(Boolean);
 
-      // All 4 right paths fan out from rightMerge
       const right = rightNodeRefs.current.map((el, i) => {
         if (!el) return null;
-        const r  = el.getBoundingClientRect();
-        const ex = r.left - hr.left;
-        const ey = r.top  - hr.top + r.height / 2;
-        return makePath(rightMerge.x, rightMerge.y, ex, ey, 0.13 + i * 0.025, { x: ex, y: ey });
+        const r = el.getBoundingClientRect();
+        const ex = r.left - hr.left, ey = r.top - hr.top + r.height / 2;
+        return makePath(el, false, rightMerge.x, rightMerge.y, ex, ey, 0.13 + i * 0.025, { x: ex, y: ey }, left.length + i);
       }).filter(Boolean);
 
       return { paths: [...left, ...right], merges: [leftMerge, rightMerge] };
@@ -264,7 +264,9 @@ function Home() {
     function resize() {
       canvas.width  = hero.offsetWidth;
       canvas.height = hero.offsetHeight;
+      const prev = pathData;
       pathData = buildPaths();
+      if (prev && pathData) pathData.paths.forEach((p, i) => { if (prev.paths[i]) { p.flash = prev.paths[i].flash; p.dim = prev.paths[i].dim; } });
     }
     resize();
     const ro = new ResizeObserver(resize);
@@ -272,9 +274,10 @@ function Home() {
 
     let animRaf = 0;
     let lastTs  = performance.now();
+    let lastAuto = lastTs;
     let time    = 0;
-    const ACCENT     = '0, 212, 200';
-    const TAIL_STEPS = 7;
+    let hubPulse = 0;
+    let auto = 0;
 
     function loop(ts) {
       const dt = Math.min(0.05, (ts - lastTs) / 1000);
@@ -285,12 +288,27 @@ function Home() {
       if (!pathData) { animRaf = requestAnimationFrame(loop); return; }
       const { paths, merges } = pathData;
 
+      if (hoverRef.current < 0 && !reduce && ts - lastAuto > 2600) {
+        auto = (auto + 1) % paths.length;
+        lastAuto = ts;
+      }
+      const act = hoverRef.current >= 0 ? hoverRef.current : (reduce ? -1 : auto);
+      activeRef.current = act;
+      hubPulse = Math.max(0, hubPulse - dt * 1.6);
+
       for (const path of paths) {
+        const rgb = path.rgb;
+        const isA = act === path.idx;
+        const dimTarget = act < 0 ? 1 : (isA ? 1 : 0.35);
+        path.dim += (dimTarget - path.dim) * 0.15;
+        path.flash = Math.max(0, path.flash - dt * 2.2);
+        const d = path.dim;
+
         /* ── Outer glow trace ── */
         ctx.beginPath();
         ctx.moveTo(path.p0.x, path.p0.y);
         ctx.bezierCurveTo(path.p1.x, path.p1.y, path.p2.x, path.p2.y, path.p3.x, path.p3.y);
-        ctx.strokeStyle = `rgba(${ACCENT}, 0.05)`;
+        ctx.strokeStyle = `rgba(${rgb}, ${(0.05 * d + (isA ? 0.08 : 0)).toFixed(3)})`;
         ctx.lineWidth   = 5;
         ctx.stroke();
 
@@ -298,39 +316,45 @@ function Home() {
         ctx.beginPath();
         ctx.moveTo(path.p0.x, path.p0.y);
         ctx.bezierCurveTo(path.p1.x, path.p1.y, path.p2.x, path.p2.y, path.p3.x, path.p3.y);
-        ctx.strokeStyle = `rgba(${ACCENT}, 0.14)`;
-        ctx.lineWidth   = 1;
+        ctx.strokeStyle = `rgba(${rgb}, ${(0.16 * d + (isA ? 0.3 : 0)).toFixed(3)})`;
+        ctx.lineWidth   = isA ? 1.6 : 1;
         ctx.stroke();
 
-        /* ── Node-end junction dot ── */
+        /* ── Node-end junction dot (se enciende con el pulso) ── */
         const np     = path.nodePos;
         const npulse = 0.5 + 0.5 * Math.sin(time * 2.8 + np.x * 0.01);
         ctx.beginPath();
-        ctx.arc(np.x, np.y, 2.2 + npulse * 1.4, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${ACCENT}, ${(0.38 + npulse * 0.42).toFixed(2)})`;
+        ctx.arc(np.x, np.y, 2.2 + npulse * 1.0 + path.flash * 1.8, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${rgb}, ${((0.38 + npulse * 0.3 + path.flash * 0.3) * d).toFixed(2)})`;
         ctx.fill();
 
         /* ── Travelling dots with comet tail ── */
         for (const dot of path.dots) {
-          dot.t = (dot.t + dot.spd * dt) % 1;
+          const prevT = dot.t;
+          dot.t = (dot.t + dot.spd * (isA ? 1.8 : 1) * dt) % 1;
+          if (dot.t < prevT) {
+            if (path.isLeft) hubPulse = 1;      // llegó al chip
+            else path.flash = 1;                // llegó al entregable
+          } else if (path.isLeft && prevT < 0.04 && dot.t >= 0.04) {
+            path.flash = Math.max(path.flash, 0.9); // sale de la capacidad
+          }
 
           for (let j = 1; j <= TAIL_STEPS; j++) {
             const tt = ((dot.t - j * 0.030 + 1) % 1);
             const tp = bezier(tt, path.p0, path.p1, path.p2, path.p3);
-            const a  = (1 - j / (TAIL_STEPS + 1)) * 0.42;
+            const a  = (1 - j / (TAIL_STEPS + 1)) * 0.42 * d;
             const r  = Math.max(0.3, 2.0 * (1 - j / (TAIL_STEPS + 1)));
             ctx.beginPath();
             ctx.arc(tp.x, tp.y, r, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${ACCENT}, ${a.toFixed(3)})`;
+            ctx.fillStyle = `rgba(${rgb}, ${a.toFixed(3)})`;
             ctx.fill();
           }
 
           const pos = bezier(dot.t, path.p0, path.p1, path.p2, path.p3);
-
           const grd = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, 8);
-          grd.addColorStop(0,   `rgba(${ACCENT}, 0.80)`);
-          grd.addColorStop(0.4, `rgba(${ACCENT}, 0.28)`);
-          grd.addColorStop(1,   `rgba(${ACCENT}, 0)`);
+          grd.addColorStop(0,   `rgba(${rgb}, ${(0.80 * d).toFixed(2)})`);
+          grd.addColorStop(0.4, `rgba(${rgb}, ${(0.28 * d).toFixed(2)})`);
+          grd.addColorStop(1,   `rgba(${rgb}, 0)`);
           ctx.beginPath();
           ctx.arc(pos.x, pos.y, 8, 0, Math.PI * 2);
           ctx.fillStyle = grd;
@@ -338,17 +362,22 @@ function Home() {
 
           ctx.beginPath();
           ctx.arc(pos.x, pos.y, 2.2, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${ACCENT}, 1)`;
+          ctx.fillStyle = `rgba(${rgb}, ${d.toFixed(2)})`;
           ctx.fill();
         }
+
+        /* ── Estado de la tarjeta ── */
+        path.el.style.setProperty('--flash', path.flash.toFixed(3));
+        path.el.style.setProperty('--dim', path.dim.toFixed(3));
+        path.el.classList.toggle('is-active', isA);
       }
 
       /* ── Merge-point pulses (left and right) ── */
       const hp = 0.5 + 0.5 * Math.sin(time * 2.5);
       for (const merge of merges) {
         for (let ring = 0; ring < 3; ring++) {
-          const r = 10 + hp * 11 + ring * 15;
-          const a = Math.max(0, (0.16 - ring * 0.045) * (0.5 + hp * 0.5));
+          const r = 10 + hp * 11 + ring * 15 + hubPulse * 6;
+          const a = Math.max(0, (0.16 - ring * 0.045) * (0.5 + hp * 0.5) + hubPulse * 0.06);
           const g = ctx.createRadialGradient(merge.x, merge.y, 0, merge.x, merge.y, r);
           g.addColorStop(0.4, `rgba(${ACCENT}, ${a.toFixed(3)})`);
           g.addColorStop(1,   `rgba(${ACCENT}, 0)`);
@@ -358,8 +387,8 @@ function Home() {
           ctx.fill();
         }
         ctx.beginPath();
-        ctx.arc(merge.x, merge.y, 3.5 + hp * 1.8, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${ACCENT}, ${(0.55 + hp * 0.45).toFixed(2)})`;
+        ctx.arc(merge.x, merge.y, 3.5 + hp * 1.8 + hubPulse * 1.5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${ACCENT}, ${Math.min(1, 0.55 + hp * 0.45).toFixed(2)})`;
         ctx.fill();
       }
 
@@ -426,16 +455,24 @@ function Home() {
 
         {/* Left flow nodes */}
         <div className="hero__flow-col hero__flow-left">
+          <div className="hero__flow-head">{t('home.flow.capabilities')}</div>
           {LEFT_NODES.map((n, i) => (
             <div
               key={n.key}
               ref={el => { leftNodeRefs.current[i] = el; }}
               className="hero__flow-node hero__flow-node--left"
+              data-cat={n.cat}
+              tabIndex={0}
               style={{ animationDelay: `${100 + i * 100}ms` }}
+              onPointerEnter={() => { hoverRef.current = 0 + i; }}
+              onPointerLeave={() => { hoverRef.current = -1; }}
+              onFocus={() => { hoverRef.current = 0 + i; }}
+              onBlur={() => { hoverRef.current = -1; }}
             >
-              <span className="hero__fn-label">{n.label}</span>
-              <span className="hero__fn-icon">{n.icon}</span>
-              <span className="hero__fn-dot" />
+              <span className="hero__fn-ico">{n.icon}</span>
+              <span className="hero__fn-ttl">{t(`home.flow.nodes.${n.key}.label`)}</span>
+              <span className="hero__fn-sub">{t(`home.flow.nodes.${n.key}.sub`)}</span>
+              <span className="hero__fn-tag">{t(`home.flow.cat.${n.cat}`)}</span>
             </div>
           ))}
         </div>
@@ -455,16 +492,19 @@ function Home() {
           </div>
           <div className="hero__text">
             <h1 className="hero__name">
-              {t('home.name').split(' ').map((word, i, arr) => (
-                <React.Fragment key={i}>
-                  <span className="hero__word" style={{ animationDelay: `${i * 80}ms` }}>{word}</span>
-                  {i < arr.length - 1 && ' '}
-                </React.Fragment>
-              ))}
+              <DecodeText
+                className="dt--lines"
+                lines={(() => { const w = t('home.name').split(' '); const k = Math.ceil(w.length / 2); return [w.slice(0, k).join(' '), w.slice(k).join(' ')]; })()}
+                start={0} per={0.06} scramble={0.95}
+              />
             </h1>
-            <p className="hero__subtitle hero-reveal" style={{ animationDelay: '380ms' }}>{t('home.subtitle')}</p>
-            <p className="hero__desc hero-reveal" style={{ animationDelay: '560ms' }}>{t('home.description')}</p>
-            <div className="hero__ctas hero-reveal" style={{ animationDelay: '740ms' }}>
+            <p className="hero__subtitle">
+              <DecodeText text={t('home.subtitle')} start={0.9} per={0.018} scramble={0.55} />
+            </p>
+            <p className="hero__desc">
+              <DecodeText text={t('home.description')} start={1.3} per={0.006} scramble={0.5} />
+            </p>
+            <div className="hero__ctas hero-reveal" style={{ animationDelay: '2200ms' }}>
               <a href="#contacto" className="btn-primary">{t('home.ctaProject')}</a>
               <a href="#proyectos" className="btn-ghost">{t('home.viewProjects')}</a>
             </div>
@@ -473,16 +513,24 @@ function Home() {
 
         {/* Right flow nodes */}
         <div className="hero__flow-col hero__flow-right">
+          <div className="hero__flow-head">{t('home.flow.deliverables')}</div>
           {RIGHT_NODES.map((n, i) => (
             <div
               key={n.key}
               ref={el => { rightNodeRefs.current[i] = el; }}
               className="hero__flow-node hero__flow-node--right"
+              data-cat={n.cat}
+              tabIndex={0}
               style={{ animationDelay: `${160 + i * 100}ms` }}
+              onPointerEnter={() => { hoverRef.current = LEFT_NODES.length + i; }}
+              onPointerLeave={() => { hoverRef.current = -1; }}
+              onFocus={() => { hoverRef.current = LEFT_NODES.length + i; }}
+              onBlur={() => { hoverRef.current = -1; }}
             >
-              <span className="hero__fn-dot" />
-              <span className="hero__fn-icon">{n.icon}</span>
-              <span className="hero__fn-label">{n.label}</span>
+              <span className="hero__fn-ico">{n.icon}</span>
+              <span className="hero__fn-ttl">{t(`home.flow.nodes.${n.key}.label`)}</span>
+              <span className="hero__fn-sub">{t(`home.flow.nodes.${n.key}.sub`)}</span>
+              <span className="hero__fn-tag">{t(`home.flow.cat.${n.cat}`)}</span>
             </div>
           ))}
         </div>
@@ -490,6 +538,8 @@ function Home() {
         {/* Flow canvas overlay */}
         <canvas ref={flowCanvasRef} className="hero__flow-canvas" />
       </section>
+
+      <Strengths />
 
       <StatsStrip />
 

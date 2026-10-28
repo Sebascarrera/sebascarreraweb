@@ -1,0 +1,21 @@
+.dt { display: inline; }
+.dt__rows { display: inline; }
+.dt__row { display: inline; }
+.dt__w { display: inline-block; white-space: nowrap; }
+.dt__ch { display: inline-block; text-align: center; }
+.dt__sp { white-space: pre; }
+.dt__hide { opacity: 0; }
+.dt__scr {
+  color: var(--accent);
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-weight: 500;
+  font-size: 0.78em;
+  line-height: 1;
+}
+.dt__sr {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+/* Las filas del nombre van una debajo de otra, sin partirse */
+.dt--lines .dt__rows { display: flex; flex-direction: column; align-items: center; }
+.dt--lines .dt__row { display: block; white-space: nowrap; }

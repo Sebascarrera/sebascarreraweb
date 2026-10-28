@@ -46,7 +46,7 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 175px 1fr 175px;
+  grid-template-columns: clamp(196px, 17vw, 236px) 1fr clamp(196px, 17vw, 236px);
   align-items: center;
   gap: 1.5rem 2rem;
   backdrop-filter: blur(3px);
@@ -63,60 +63,93 @@
   z-index: 1;
 }
 
-.hero__flow-node {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 9px 13px;
-  border-radius: 11px;
-  background: rgba(0, 212, 200, 0.035);
-  border: 1px solid rgba(0, 212, 200, 0.13);
-  font-size: 0.75rem;
-  font-weight: 500;
+.hero__flow-head {
+  font: 500 0.66rem/1 var(--font-mono, 'Roboto Mono', ui-monospace, monospace);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--text-secondary);
-  white-space: nowrap;
-  transition: border-color 0.3s, background 0.3s, color 0.3s;
-  cursor: default;
+  opacity: 0.8;
+  margin-bottom: 2px;
 }
+.hero__flow-left .hero__flow-head { text-align: right; }
 
-.hero__flow-node:hover {
-  border-color: rgba(0, 212, 200, 0.38);
-  background: rgba(0, 212, 200, 0.07);
-  color: var(--text-primary);
-}
-
-.hero__flow-left .hero__flow-node {
-  flex-direction: row-reverse;
-  justify-content: flex-start;
-}
-
-.hero__fn-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
-  flex-shrink: 0;
-  box-shadow: 0 0 5px var(--accent);
-}
-
-.hero__fn-icon {
-  display: flex;
+/* Tarjeta de capacidad / entregable. Color por categoría. */
+.hero__flow-node {
+  --c: 0, 212, 200;
+  --flash: 0;
+  --dim: 1;
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3px 11px;
   align-items: center;
-  justify-content: center;
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
-  color: var(--accent);
-  opacity: 0.75;
-  transition: opacity 0.3s;
+  padding: 11px 15px 11px 13px;
+  border-radius: 12px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
+  border: 1px solid rgba(var(--c), calc(0.16 + var(--flash) * 0.55));
+  box-shadow: 0 0 calc(var(--flash) * 22px) rgba(var(--c), calc(var(--flash) * 0.5)), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  opacity: calc(0.45 + 0.55 * var(--dim));
+  color: var(--text-primary);
+  cursor: default;
+  outline: none;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
-.hero__fn-icon svg {
-  width: 14px;
-  height: 14px;
+.hero__flow-node[data-cat="design"] { --c: 167, 139, 250; }
+.hero__flow-node[data-cat="motion"] { --c: 255, 180, 84; }
+.hero__flow-node[data-cat="out"]    { --c: 233, 240, 243; }
+.hero__flow-node:hover,
+.hero__flow-node.is-active {
+  background: linear-gradient(160deg, rgba(var(--c), 0.16), rgba(var(--c), 0.04));
+  transform: translateY(-2px);
 }
-.hero__flow-node:hover .hero__fn-icon {
-  opacity: 1;
+.hero__flow-node:focus-visible { outline: 2px solid rgb(var(--c)); outline-offset: 2px; }
+
+.hero__fn-ico {
+  grid-row: 1 / span 3;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  color: rgb(var(--c));
+  background: rgba(var(--c), 0.14);
+  border: 1px solid rgba(var(--c), 0.28);
 }
+.hero__fn-ico svg { width: 17px; height: 17px; }
+.hero__fn-ttl {
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1.2;
+  grid-column: 2;
+  grid-row: 2;
+  align-self: center;
+  white-space: nowrap;
+}
+.hero__fn-sub {
+  font-size: 0.7rem;
+  line-height: 1.35;
+  color: var(--text-secondary);
+  grid-column: 2;
+  grid-row: 3;
+  align-self: start;
+  min-height: 2.7em; /* reserva 2 líneas: la tarjeta no cambia de alto y las líneas de energía siguen alineadas */
+  opacity: 0.6;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+.hero__fn-tag {
+  grid-column: 2;
+  grid-row: 1;
+  font: 500 0.58rem/1 var(--font-mono, 'Roboto Mono', ui-monospace, monospace);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgb(var(--c));
+}
+.hero__flow-node:hover .hero__fn-sub,
+.hero__flow-node.is-active .hero__fn-sub,
+.hero__flow-node:focus-visible .hero__fn-sub { opacity: 1; color: var(--text-primary); }
+/* sin hover (táctil) no hay estado que abra el detalle: se deja visible solo en la activa */
 
 .hero__flow-canvas {
   position: absolute;
@@ -137,45 +170,50 @@
 }
 
 .hero__text {
+  /* Proporción áurea: toda medida es u × φⁿ o serie Fibonacci. u crece con la pantalla. */
+  --u: clamp(11px, 0.55vw + 9.3px, 19px);
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  width: min(100%, calc(var(--u) * 44));
   text-align: center;
 }
 
 .hero__name {
-  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  font-size: min(calc(var(--u) * 4.236), 10.4vw);   /* φ³ */
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.02;
   color: var(--text-primary);
   margin: 0;
   letter-spacing: -0.02em;
 }
 
 .hero__subtitle {
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: calc(var(--u) * 1.618);                /* φ¹ */
   font-weight: 400;
+  line-height: 1.2;
   color: var(--accent);
-  margin: 0;
+  margin: calc(var(--u) * 1.5) 0 0;
+  text-wrap: balance;
 }
 
 .hero__desc {
-  font-size: 0.95rem;
+  font-size: max(14px, var(--u));                   /* φ⁰ */
   color: var(--text-secondary);
-  line-height: 1.7;
-  max-width: 460px;
-  margin: 0;
+  line-height: 1.618;                               /* φ */
+  width: 61.8%;                                     /* 1/φ del bloque */
+  margin: calc(var(--u) * 1.5) 0 0;
+  text-wrap: pretty;
 }
 
 .hero__ctas {
   display: flex;
-  gap: 1rem;
+  gap: calc(var(--u) * 1.5);
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 0.5rem;
+  margin-top: calc(var(--u) * 2.5);
 }
 
 /* ── Hero node reveal — slide in from sides ── */
@@ -1200,7 +1238,7 @@
   }
 
   .hero__center  { min-height: 420px; }
-  .hero__desc    { max-width: 100%; }
+  .hero__desc    { width: 100%; }
 
   .home-projects__grid,
   .all-projects__grid,
