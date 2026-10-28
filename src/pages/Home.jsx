@@ -30,6 +30,7 @@ import iabdbenkoVideo from '../assets/videos/iaBdb-Enko.mp4';
 import FeaturedProjects from '../components/FeaturedProjects.jsx';
 import ShowreelReel from '../components/ShowreelReel.jsx';
 import StackConstellation from '../components/StackConstellation.jsx';
+import CareerMap from '../components/CareerMap.jsx';
 import Strengths from '../components/Strengths.jsx';
 import DesignGallery from '../components/DesignGallery.jsx';
 import { mentorCanada } from '../data/designProjects.js';
@@ -478,19 +479,7 @@ function Home() {
       {/* ── 4. EXPERIENCIA TIMELINE ── */}
       <section id="experiencia" className="home-section home-timeline">
         <h2 className="section-title">{t('home.experienceSection')}</h2>
-        <div className="timeline">
-          {t('timeline.items', { returnObjects: true }).map((item, idx) => (
-            <div key={idx} className={`timeline__item ${idx % 2 === 0 ? 'timeline__item--left' : 'timeline__item--right'}`}>
-              <div className="timeline__panel">
-                <span className="timeline__date">{item.period}</span>
-                <strong className="timeline__company">{item.company}</strong>
-                <span className="timeline__role">{item.role}</span>
-                <p className="timeline__desc">{item.description}</p>
-              </div>
-              <span className="timeline__dot" />
-            </div>
-          ))}
-        </div>
+        <CareerMap locale={reachLocale} />
       </section>
 
       {/* ── 5. CONTACTO ── */}

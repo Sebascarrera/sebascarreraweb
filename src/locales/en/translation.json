@@ -747,5 +747,115 @@
       "toolText": "Part of my toolbox in {{cat}}: over {{n}} projects in this category.",
       "pipeTitle": "One partner, from idea to published product"
     }
+  },
+  "career": {
+    "subtitle": "From graphic designer to CEO of a software house, and today an independent team leader and front-end developer: a career that unites design, teams and code.",
+    "kpis": {
+      "years": "years of professional experience, since October 2010",
+      "stages": "stages, several of them in parallel",
+      "lead": "years leading teams, as CEO and now independently"
+    },
+    "cats": {
+      "design": "Design",
+      "lead": "Leadership",
+      "dev": "Development"
+    },
+    "ui": {
+      "aria": "Professional career timeline",
+      "thread": "Team leadership",
+      "threadText": "Uninterrupted: CEO → independent",
+      "today": "Today",
+      "present": "Present",
+      "stage": "Stage {{n}} of {{total}}",
+      "parallel": "In parallel with",
+      "exclusive": "Full-time focus in this stage.",
+      "year": "year",
+      "years": "years",
+      "month": "month",
+      "monthsWord": "months",
+      "durYears": "years in this stage",
+      "durMonths": "months in this stage",
+      "months": [
+        "Jan.",
+        "Feb.",
+        "Mar.",
+        "Apr.",
+        "May",
+        "Jun.",
+        "Jul.",
+        "Aug.",
+        "Sep.",
+        "Oct.",
+        "Nov.",
+        "Dec."
+      ]
+    },
+    "stages": {
+      "moya": {
+        "company": "Moya Producciones",
+        "role": "Graphic Designer",
+        "desc": "Created visual designs for digital platforms and media. Produced audiovisual content using Premiere Pro and After Effects.",
+        "chips": [
+          "Graphic design",
+          "Audiovisual",
+          "Premiere Pro",
+          "After Effects"
+        ]
+      },
+      "sing": {
+        "company": "Singularcom",
+        "role": "Graphic Designer",
+        "desc": "Created graphic pieces for internal and external communications. Designed visual content for web platforms and TV materials.",
+        "chips": [
+          "Graphic pieces",
+          "Web content",
+          "TV materials"
+        ]
+      },
+      "imp": {
+        "company": "Imperia Software Solutions",
+        "role": "CEO",
+        "desc": "Led the creative process and execution of digital projects. Managed teams in building web interfaces combining aesthetics and functionality.",
+        "chips": [
+          "Team leadership",
+          "Web interfaces",
+          "Digital projects"
+        ]
+      },
+      "free": {
+        "company": "Freelance",
+        "role": "Front-End Designer & Developer",
+        "desc": "Front-end designer and developer with experience building full websites and interactive games. Projects using HTML, CSS, JavaScript, and React. I keep leading design and development teams, now independently.",
+        "chips": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "React",
+          "Team leadership"
+        ]
+      },
+      "men": {
+        "company": "Mentor Canada",
+        "role": "Designer",
+        "desc": "Responsible for updating and modernizing all printed materials. I led the creative process ensuring consistency with brand identity.",
+        "chips": [
+          "Printed materials",
+          "Brand identity"
+        ]
+      }
+    },
+    "story": {
+      "0": "Graphic design",
+      "1": "Own company (CEO)",
+      "2": "Independent",
+      "3": "Front-end development",
+      "4": "Team leadership",
+      "5": "Brand design",
+      "sep0": "→",
+      "sep1": "→",
+      "sep2": ":",
+      "sep3": "+",
+      "sep4": "+"
+    }
   }
 }

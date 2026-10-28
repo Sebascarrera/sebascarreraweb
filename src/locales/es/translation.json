@@ -747,5 +747,115 @@
       "toolText": "Parte de mi caja de herramientas en {{cat}}: más de {{n}} proyectos en esta categoría.",
       "pipeTitle": "Un solo aliado, de la idea al producto publicado"
     }
+  },
+  "career": {
+    "subtitle": "De diseñador gráfico a CEO de una software house, y hoy líder independiente de equipos y desarrollador front-end: una carrera que une diseño, equipos y código.",
+    "kpis": {
+      "years": "años de trayectoria profesional, desde octubre de 2010",
+      "stages": "etapas, con varias en paralelo",
+      "lead": "años dirigiendo equipos, como CEO y hoy de forma independiente"
+    },
+    "cats": {
+      "design": "Diseño",
+      "lead": "Liderazgo",
+      "dev": "Desarrollo"
+    },
+    "ui": {
+      "aria": "Línea de tiempo de la trayectoria profesional",
+      "thread": "Dirección de equipos",
+      "threadText": "Sin interrupción: CEO → independiente",
+      "today": "Hoy",
+      "present": "Presente",
+      "stage": "Etapa {{n}} de {{total}}",
+      "parallel": "En paralelo con",
+      "exclusive": "Dedicación exclusiva en esta etapa.",
+      "year": "año",
+      "years": "años",
+      "month": "mes",
+      "monthsWord": "meses",
+      "durYears": "años en esta etapa",
+      "durMonths": "meses en esta etapa",
+      "months": [
+        "Ene.",
+        "Feb.",
+        "Mar.",
+        "Abr.",
+        "May.",
+        "Jun.",
+        "Jul.",
+        "Ago.",
+        "Sep.",
+        "Oct.",
+        "Nov.",
+        "Dic."
+      ]
+    },
+    "stages": {
+      "moya": {
+        "company": "Moya Producciones",
+        "role": "Graphic Designer",
+        "desc": "Creación de diseños visuales para plataformas y medios digitales. Desarrollo de contenido audiovisual con Premiere Pro y After Effects.",
+        "chips": [
+          "Diseño gráfico",
+          "Audiovisual",
+          "Premiere Pro",
+          "After Effects"
+        ]
+      },
+      "sing": {
+        "company": "Singularcom",
+        "role": "Graphic Designer",
+        "desc": "Creación de piezas gráficas para comunicaciones internas y externas. Diseño de contenido visual para plataformas web y materiales de TV.",
+        "chips": [
+          "Piezas gráficas",
+          "Contenido web",
+          "Materiales de TV"
+        ]
+      },
+      "imp": {
+        "company": "Imperia Software Solutions",
+        "role": "CEO",
+        "desc": "Lideré el proceso creativo y ejecución de proyectos digitales. Dirigí equipos en creación de interfaces web combinando estética y funcionalidad.",
+        "chips": [
+          "Dirección de equipos",
+          "Interfaces web",
+          "Proyectos digitales"
+        ]
+      },
+      "free": {
+        "company": "Freelance",
+        "role": "Front-End Designer & Developer",
+        "desc": "Diseñador y desarrollador front-end con experiencia en sitios web completos y juegos interactivos. Proyectos con HTML, CSS, JavaScript y React. Sigo dirigiendo equipos de diseño y desarrollo, ahora de forma independiente.",
+        "chips": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "React",
+          "Dirección de equipos"
+        ]
+      },
+      "men": {
+        "company": "Mentor Canada",
+        "role": "Designer",
+        "desc": "Responsable de actualizar y modernizar todos los materiales impresos. Lideré el proceso creativo asegurando consistencia con la identidad de marca.",
+        "chips": [
+          "Materiales impresos",
+          "Identidad de marca"
+        ]
+      }
+    },
+    "story": {
+      "0": "Diseño gráfico",
+      "1": "Empresa propia (CEO)",
+      "2": "Independiente",
+      "3": "Desarrollo front-end",
+      "4": "Dirección de equipos",
+      "5": "Diseño de marca",
+      "sep0": "→",
+      "sep1": "→",
+      "sep2": ":",
+      "sep3": "+",
+      "sep4": "+"
+    }
   }
 }
