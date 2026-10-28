@@ -29,83 +29,13 @@ import iabdbenkoVideo from '../assets/videos/iaBdb-Enko.mp4';
 
 import FeaturedProjects from '../components/FeaturedProjects.jsx';
 import ShowreelReel from '../components/ShowreelReel.jsx';
+import StackConstellation from '../components/StackConstellation.jsx';
 import Strengths from '../components/Strengths.jsx';
 import DesignGallery from '../components/DesignGallery.jsx';
 import { mentorCanada } from '../data/designProjects.js';
 import DotGridBackground from '../components/DotGridBackground.jsx';
 import StatsStrip from '../components/StatsStrip.jsx';
 import DecodeText from '../components/DecodeText.jsx';
-
-/* ── Skill categories ── */
-const skillCategories = [
-  {
-    key: 'ai',
-    title: 'Inteligencia Artificial',
-    skills: [
-      { name: 'GitHub Copilot' },
-      { name: 'ChatGPT Codex' },
-      { name: 'Heygen' },
-      { name: 'ElevenLabs' },
-      { name: 'Midjourney' },
-      { name: 'Runway' },
-      { name: 'Envato' },
-    ],
-  },
-  {
-    key: 'tech',
-    title: 'Lenguajes & Tecnologías',
-    skills: [
-      { name: 'HTML5' },
-      { name: 'CSS3' },
-      { name: 'JavaScript' },
-      { name: 'React' },
-      { name: 'WordPress' },
-    ],
-  },
-  {
-    key: 'design',
-    title: 'Diseño & UI/UX',
-    skills: [
-      { name: 'Figma' },
-      { name: 'Sketch' },
-      { name: 'Adobe XD' },
-      { name: 'Photoshop' },
-      { name: 'Illustrator' },
-      { name: 'After Effects' },
-    ],
-  },
-  {
-    key: 'frontend',
-    title: 'Desarrollo Front-End',
-    skills: [
-      { name: 'Componentes reutilizables' },
-      { name: 'Diseño responsivo' },
-      { name: 'Optimización de rendimiento' },
-      { name: 'Accesibilidad (A11y)' },
-    ],
-  },
-  {
-    key: 'video',
-    title: 'Producción Audiovisual',
-    skills: [
-      { name: 'Premiere Pro' },
-      { name: 'After Effects' },
-      { name: 'Realización audiovisual' },
-      { name: 'Motion Graphics' },
-    ],
-  },
-  {
-    key: 'tools',
-    title: 'Herramientas & Metodologías',
-    skills: [
-      { name: 'Git' },
-      { name: 'SCRUM' },
-      { name: 'SEO técnico' },
-      { name: 'Despliegue web' },
-    ],
-  },
-];
-
 
 /* ── Hero flow nodes ── */
 const LEFT_NODES = [
@@ -542,23 +472,7 @@ function Home() {
       <section id="habilidades" className="home-section home-skills" ref={skillsRef}>
         <h2 className="section-title scroll-reveal">{t('skills.title')}</h2>
         <p className="skills-intro scroll-reveal" style={{ '--reveal-delay': '140ms' }}>{t('skills.intro')}</p>
-        <div className="skills-grid">
-          {(() => {
-            return skillCategories.map((cat) => (
-              <div
-                key={cat.key}
-                className={`skill-card${cat.key === 'ai' ? ' skill-card--wide' : ''}`}
-              >
-                <h3 className="skill-card__title">{cat.title}</h3>
-                <div className="skill-chips">
-                  {cat.skills.map((skill) => (
-                    <span key={skill.name} className="skill-chip">{skill.name}</span>
-                  ))}
-                </div>
-              </div>
-            ));
-          })()}
-        </div>
+        <StackConstellation locale={reachLocale} />
       </section>
 
       {/* ── 4. EXPERIENCIA TIMELINE ── */}

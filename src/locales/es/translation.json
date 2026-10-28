@@ -586,5 +586,166 @@
         "text": "De la idea y la interfaz al producto publicado y funcionando: un solo aliado de principio a fin."
       }
     }
+  },
+  "stackMap": {
+    "cats": {
+      "ai": {
+        "label": "Inteligencia artificial",
+        "short": "IA",
+        "unit": "proyectos con IA",
+        "desc": "IA aplicada a código, voz, avatares, imagen y video para entregar más rápido y llegar más lejos."
+      },
+      "code": {
+        "label": "Código y front-end",
+        "short": "Código",
+        "unit": "proyectos de código y front-end",
+        "desc": "Interfaces y experiencias interactivas: de los fundamentos web a React, con rendimiento y accesibilidad."
+      },
+      "design": {
+        "label": "Diseño y UI/UX",
+        "short": "Diseño",
+        "unit": "proyectos de diseño y UI/UX",
+        "desc": "Del prototipo a la pieza final: interfaz, imagen y gráfica lista para pantalla o imprenta."
+      },
+      "video": {
+        "label": "Audiovisual",
+        "short": "Video",
+        "unit": "proyectos audiovisuales",
+        "desc": "Edición, motion graphics y realización audiovisual para piezas que se mueven."
+      },
+      "method": {
+        "label": "Herramientas y método",
+        "short": "Método",
+        "unit": "proyectos, todos con método",
+        "desc": "Cómo se trabaja y se publica: versiones, metodología ágil, SEO técnico y despliegue."
+      }
+    },
+    "tools": {
+      "copilot": {
+        "name": "GitHub Copilot",
+        "short": "Copilot"
+      },
+      "codex": {
+        "name": "ChatGPT Codex",
+        "short": "Codex"
+      },
+      "heygen": {
+        "name": "Heygen"
+      },
+      "elevenlabs": {
+        "name": "ElevenLabs"
+      },
+      "midjourney": {
+        "name": "Midjourney"
+      },
+      "runway": {
+        "name": "Runway"
+      },
+      "envato": {
+        "name": "Envato"
+      },
+      "html5": {
+        "name": "HTML5"
+      },
+      "css3": {
+        "name": "CSS3"
+      },
+      "js": {
+        "name": "JavaScript"
+      },
+      "react": {
+        "name": "React"
+      },
+      "wordpress": {
+        "name": "WordPress"
+      },
+      "figma": {
+        "name": "Figma"
+      },
+      "sketch": {
+        "name": "Sketch"
+      },
+      "xd": {
+        "name": "Adobe XD"
+      },
+      "photoshop": {
+        "name": "Photoshop"
+      },
+      "illustrator": {
+        "name": "Illustrator"
+      },
+      "ae": {
+        "name": "After Effects"
+      },
+      "premiere": {
+        "name": "Premiere Pro",
+        "short": "Premiere"
+      },
+      "git": {
+        "name": "Git"
+      },
+      "scrum": {
+        "name": "SCRUM"
+      },
+      "components": {
+        "name": "Componentes reutilizables",
+        "short": "Componentes"
+      },
+      "responsive": {
+        "name": "Diseño responsivo",
+        "short": "Responsivo"
+      },
+      "performance": {
+        "name": "Optimización de rendimiento",
+        "short": "Rendimiento"
+      },
+      "a11y": {
+        "name": "Accesibilidad (A11y)",
+        "short": "Accesibilidad"
+      },
+      "production": {
+        "name": "Realización audiovisual",
+        "short": "Realización AV"
+      },
+      "motion": {
+        "name": "Motion Graphics",
+        "short": "Motion"
+      },
+      "seo": {
+        "name": "SEO técnico"
+      },
+      "deploy": {
+        "name": "Despliegue web"
+      }
+    },
+    "steps": {
+      "idea": {
+        "title": "Idea",
+        "text": "Entender el reto y el público"
+      },
+      "design": {
+        "title": "Diseño",
+        "text": "Interfaz, prototipo y gráfica"
+      },
+      "dev": {
+        "title": "Desarrollo",
+        "text": "Código a la medida"
+      },
+      "motion": {
+        "title": "Animación e IA",
+        "text": "Motion, video y herramientas de IA"
+      },
+      "live": {
+        "title": "Publicado",
+        "text": "Versionado, SEO y despliegue"
+      }
+    },
+    "ui": {
+      "aria": "Categorías",
+      "graphAria": "Constelación de herramientas por categoría",
+      "growing": "y la cuenta sigue subiendo",
+      "toolText": "Parte de mi caja de herramientas en {{cat}}: más de {{n}} proyectos en esta categoría.",
+      "pipeTitle": "Un solo aliado, de la idea al producto publicado"
+    }
   }
 }

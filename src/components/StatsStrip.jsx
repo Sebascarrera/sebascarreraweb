@@ -39,7 +39,7 @@ function StatsStrip() {
   const years = new Date().getFullYear() - CAREER_START_YEAR;
   const items = [
     { to: years, plus: true, label: t('stats.years') },
-    { to: 60, plus: true, label: t('stats.projects') },
+    { to: 500, plus: true, label: t('stats.projects') },
     { to: 10000, plus: true, label: t('stats.reach') },
     { to: 4, plus: false, label: t('stats.sectors') },
   ];

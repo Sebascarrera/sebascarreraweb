@@ -586,5 +586,166 @@
         "text": "From idea and interface to a published, working product: one partner from start to finish."
       }
     }
+  },
+  "stackMap": {
+    "cats": {
+      "ai": {
+        "label": "Artificial intelligence",
+        "short": "AI",
+        "unit": "projects with AI",
+        "desc": "AI applied to code, voice, avatars, imagery and video to deliver faster and reach further."
+      },
+      "code": {
+        "label": "Code & front-end",
+        "short": "Code",
+        "unit": "code and front-end projects",
+        "desc": "Interfaces and interactive experiences: from web fundamentals to React, with performance and accessibility."
+      },
+      "design": {
+        "label": "Design & UI/UX",
+        "short": "Design",
+        "unit": "design and UI/UX projects",
+        "desc": "From prototype to final piece: interface, imagery and graphics ready for screen or print."
+      },
+      "video": {
+        "label": "Audiovisual",
+        "short": "Video",
+        "unit": "audiovisual projects",
+        "desc": "Editing, motion graphics and audiovisual production for pieces that move."
+      },
+      "method": {
+        "label": "Tools & method",
+        "short": "Method",
+        "unit": "projects, all with method",
+        "desc": "How the work is run and shipped: version control, agile, technical SEO and deployment."
+      }
+    },
+    "tools": {
+      "copilot": {
+        "name": "GitHub Copilot",
+        "short": "Copilot"
+      },
+      "codex": {
+        "name": "ChatGPT Codex",
+        "short": "Codex"
+      },
+      "heygen": {
+        "name": "Heygen"
+      },
+      "elevenlabs": {
+        "name": "ElevenLabs"
+      },
+      "midjourney": {
+        "name": "Midjourney"
+      },
+      "runway": {
+        "name": "Runway"
+      },
+      "envato": {
+        "name": "Envato"
+      },
+      "html5": {
+        "name": "HTML5"
+      },
+      "css3": {
+        "name": "CSS3"
+      },
+      "js": {
+        "name": "JavaScript"
+      },
+      "react": {
+        "name": "React"
+      },
+      "wordpress": {
+        "name": "WordPress"
+      },
+      "figma": {
+        "name": "Figma"
+      },
+      "sketch": {
+        "name": "Sketch"
+      },
+      "xd": {
+        "name": "Adobe XD"
+      },
+      "photoshop": {
+        "name": "Photoshop"
+      },
+      "illustrator": {
+        "name": "Illustrator"
+      },
+      "ae": {
+        "name": "After Effects"
+      },
+      "premiere": {
+        "name": "Premiere Pro",
+        "short": "Premiere"
+      },
+      "git": {
+        "name": "Git"
+      },
+      "scrum": {
+        "name": "SCRUM"
+      },
+      "components": {
+        "name": "Reusable components",
+        "short": "Components"
+      },
+      "responsive": {
+        "name": "Responsive design",
+        "short": "Responsive"
+      },
+      "performance": {
+        "name": "Performance optimization",
+        "short": "Performance"
+      },
+      "a11y": {
+        "name": "Accessibility (A11y)",
+        "short": "Accessibility"
+      },
+      "production": {
+        "name": "Audiovisual production",
+        "short": "Production"
+      },
+      "motion": {
+        "name": "Motion Graphics",
+        "short": "Motion"
+      },
+      "seo": {
+        "name": "Technical SEO"
+      },
+      "deploy": {
+        "name": "Web deployment"
+      }
+    },
+    "steps": {
+      "idea": {
+        "title": "Idea",
+        "text": "Understand the challenge and the audience"
+      },
+      "design": {
+        "title": "Design",
+        "text": "Interface, prototype and graphics"
+      },
+      "dev": {
+        "title": "Development",
+        "text": "Custom code"
+      },
+      "motion": {
+        "title": "Animation & AI",
+        "text": "Motion, video and AI tools"
+      },
+      "live": {
+        "title": "Live",
+        "text": "Versioning, SEO and deployment"
+      }
+    },
+    "ui": {
+      "aria": "Categories",
+      "graphAria": "Constellation of tools by category",
+      "growing": "and still counting",
+      "toolText": "Part of my toolbox in {{cat}}: over {{n}} projects in this category.",
+      "pipeTitle": "One partner, from idea to published product"
+    }
   }
 }
