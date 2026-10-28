@@ -9,6 +9,7 @@ import imgWhatsapp from '../assets/img/whatsapp-icon.svg';
 
 import ciberImage from '../assets/projects/ciberseguridad.webp';
 import ciberseguridadVideo from '../assets/videos/ciberseguridad.mp4';
+import jornada2026Image from '../assets/projects/jornada-2026.webp';
 import mundoColmenaImage from '../assets/projects/mundo-colmena.webp';
 import mundoColmenaVideo from '../assets/videos/mundo-colmena.mp4';
 import ColmenaRouteImage from '../assets/projects/colmena-route-game.webp';
@@ -26,7 +27,7 @@ import sprintFalabellaJpg from '../assets/videos/sprint-falabella.webp';
 import iabdbenkoImage from '../assets/projects/iaBdb-Enko.webp';
 import iabdbenkoVideo from '../assets/videos/iaBdb-Enko.mp4';
 
-import ProjectCard from '../components/ProjectCard.jsx';
+import FeaturedProjects from '../components/FeaturedProjects.jsx';
 import ShowreelReel from '../components/ShowreelReel.jsx';
 import Strengths from '../components/Strengths.jsx';
 import DesignGallery from '../components/DesignGallery.jsx';
@@ -167,6 +168,7 @@ const WHATSAPP_LINK = 'https://wa.me/573133510006';
 // Pega aquí tus URLs. Si quedan vacías, la tarjeta no se muestra.
 // Alcance verificado por proyecto (personas). Se muestra como chip en la tarjeta y el modal.
 const PROJECT_REACH = { 1: 3000, 7: 5000, 8: 10000 };
+const JORNADA_2026_URL = 'https://ciberseguridad.sebastiancarreramoya.com';
 const LINKEDIN_URL = '';
 const GITHUB_URL = '';
 const WHATSAPP_DISPLAY = '+57 3133510006';
@@ -178,6 +180,7 @@ function Home() {
 
   /* ── Projects array ── */
   const projects = [
+    { id: 11, image: jornada2026Image, title: t('projects.cases.11.title'), description: t('projects.cases.11.solution') },
     { id: 1, image: ciberImage,           video: ciberseguridadVideo,     title: t('projects.items.1.title'), description: t('projects.items.1.description'), stack: t('projects.items.1.stack', { returnObjects: true }), problem: t('projects.items.1.problem'), solution: t('projects.items.1.solution') },
     { id: 10, image: mentorCanada.cover,  gallery: mentorCanada.categories, kind: 'design', title: t('projects.items.10.title'), description: t('projects.items.10.description'), stack: t('projects.items.10.stack', { returnObjects: true }), problem: t('projects.items.10.problem'), solution: t('projects.items.10.solution') },
     { id: 2, image: mundoColmenaImage,    video: mundoColmenaVideo,       title: t('projects.items.2.title'), description: t('projects.items.2.description'), stack: t('projects.items.2.stack', { returnObjects: true }), problem: t('projects.items.2.problem'), solution: t('projects.items.2.solution') },
@@ -400,27 +403,6 @@ function Home() {
     return () => { cancelAnimationFrame(animRaf); ro.disconnect(); };
   }, []);
 
-  /* ── Project showcase — horizontal scroll ── */
-  const showcaseRef = useRef(null);
-  const [showcaseIdx, setShowcaseIdx] = useState(0);
-  useEffect(() => {
-    const track = showcaseRef.current;
-    if (!track) return;
-    const onScroll = () => {
-      setShowcaseIdx(Math.round(track.scrollLeft / track.offsetWidth));
-    };
-    track.addEventListener('scroll', onScroll, { passive: true });
-    const panels = track.querySelectorAll('.showcase__panel');
-    const obs = new IntersectionObserver(
-      (entries) => entries.forEach(e => {
-        e.target.classList.toggle('showcase__panel--active', e.intersectionRatio >= 0.45);
-      }),
-      { threshold: 0.45, root: track }
-    );
-    panels.forEach(p => obs.observe(p));
-    return () => { track.removeEventListener('scroll', onScroll); obs.disconnect(); };
-  }, []);
-
   /* ── Scroll reveal — all .scroll-reveal elements ── */
   useEffect(() => {
     const els = document.querySelectorAll('.scroll-reveal');
@@ -435,12 +417,6 @@ function Home() {
   }, []);
 
   const skillsRef = useRef(null);
-
-  const scrollToPanel = (idx) => {
-    const track = showcaseRef.current;
-    if (!track) return;
-    track.scrollTo({ left: Math.max(0, Math.min(idx, projects.length - 1)) * track.offsetWidth, behavior: 'smooth' });
-  };
 
   const reachLocale = i18n.language?.startsWith('en') ? 'en-US' : 'es-CO';
   const openModal  = (id) => setActiveVideo(id);
@@ -559,60 +535,7 @@ function Home() {
 
       {/* ── 2. PROYECTOS DESTACADOS ── */}
       <section id="proyectos" className="home-section home-projects">
-        <h2 className="section-title scroll-reveal">{t('projects.title')}</h2>
-        <div className="home-projects__grid">
-          <div className="scroll-reveal" style={{ '--reveal-delay': '120ms' }}><ProjectCard title={projects[0].title} description={projects[0].description} image={projects[0].image} /></div>
-          <div className="scroll-reveal" style={{ '--reveal-delay': '260ms' }}><ProjectCard title={projects[1].title} description={projects[1].description} image={projects[1].image} /></div>
-          <div className="scroll-reveal" style={{ '--reveal-delay': '400ms' }}><ProjectCard title={projects[2].title} description={projects[2].description} image={projects[2].image} /></div>
-        </div>
-      </section>
-
-      {/* ── 2b. PROJECT SHOWCASE — horizontal scroll (resn.co.nz style) ── */}
-      <section className="home-showcase">
-        <div className="showcase__track" ref={showcaseRef}>
-          {projects.map((p, idx) => (
-            <div key={p.id} className="showcase__panel">
-              <div className="showcase__img-side">
-                <img src={p.image} alt={p.title} className="showcase__img" loading="lazy" />
-              </div>
-              <div className="showcase__text-side">
-                <span className="showcase__count">{String(idx + 1).padStart(2, '0')}</span>
-                <h2 className="showcase__title">{p.title}</h2>
-                {PROJECT_REACH[p.id] && <span className="reach-chip">{t('projects.reach', { n: PROJECT_REACH[p.id].toLocaleString(reachLocale) })}</span>}
-                <p className="showcase__desc">{p.description}</p>
-                {Array.isArray(p.stack) && p.stack.length > 0 && (
-                  <div className="showcase__stack">
-                    {p.stack.slice(0, 5).map(tech => (
-                      <span key={tech} className="showcase__badge">{tech}</span>
-                    ))}
-                  </div>
-                )}
-                {(p.video || p.modalImage || p.gallery) && (
-                  <button className="showcase__cta" onClick={() => openModal(p.id)}>
-                    {p.video ? t('projects.viewVideo') : p.gallery ? t('projects.viewGallery') : t('projects.viewImage')} →
-                  </button>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="showcase__footer">
-          <div className="showcase__arrows">
-            <button className="showcase__arrow" onClick={() => scrollToPanel(showcaseIdx - 1)} disabled={showcaseIdx === 0} aria-label="Anterior">←</button>
-            <span className="showcase__counter">{String(showcaseIdx + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}</span>
-            <button className="showcase__arrow" onClick={() => scrollToPanel(showcaseIdx + 1)} disabled={showcaseIdx === projects.length - 1} aria-label="Siguiente">→</button>
-          </div>
-          <div className="showcase__dots">
-            {projects.map((_, idx) => (
-              <button
-                key={idx}
-                className={`showcase__dot${showcaseIdx === idx ? ' showcase__dot--active' : ''}`}
-                onClick={() => scrollToPanel(idx)}
-                aria-label={`Proyecto ${idx + 1}`}
-              />
-            ))}
-          </div>
-        </div>
+        <FeaturedProjects projects={projects} reach={PROJECT_REACH} liveUrl={JORNADA_2026_URL} locale={reachLocale} onOpen={openModal} />
       </section>
 
       {/* ── 3. HABILIDADES ── */}

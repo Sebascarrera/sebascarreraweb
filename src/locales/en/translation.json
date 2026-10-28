@@ -249,6 +249,153 @@
         "problem": "Bring Mentor's new global identity to print and trade-show materials in Canada, with consistent pieces for patients, surgeons and events.",
         "solution": "A visual system of roll-ups, stand and brochures led by photography, editorial typography and a blue/peach palette; press-ready files (bleed, crop marks and web version)."
       }
+    },
+    "cases": {
+      "subtitle": "What I built, the challenge it solved and the reach it had.",
+      "ui": {
+        "aria": "Filter by type",
+        "challenge": "Challenge",
+        "solution": "Solution",
+        "reached": "people reached",
+        "ctaLive": "Enter the experience",
+        "hint": "Click a project to see it above",
+        "filters": {
+          "all": "All",
+          "games": "Games",
+          "exp": "Experiences",
+          "design": "Design",
+          "video": "Video & AI"
+        }
+      },
+      "1": {
+        "tag": "Experience",
+        "title": "Cybersecurity Day 2025",
+        "problem": "Strengthen cybersecurity culture among employees in an interactive, memorable way.",
+        "solution": "A single landing with three games (dexterity, agility and mental skill), live broadcasts, a scoring system and prize draws to maximize engagement.",
+        "stack": [
+          "React",
+          "CSS3",
+          "JavaScript",
+          "HTML5"
+        ]
+      },
+      "2": {
+        "tag": "Experience",
+        "title": "Mundo Colmena",
+        "problem": "Create an educational experience linking physical spots with digital content during an event.",
+        "solution": "A landing with a QR scanner that sent players to specific challenges aligned with the event.",
+        "stack": [
+          "React",
+          "CSS Animations",
+          "QR Integration"
+        ]
+      },
+      "3": {
+        "tag": "3D game",
+        "title": "Colmena Route Game",
+        "problem": "Create a meeting point between entertainment and brand communication at an event.",
+        "solution": "A 3D racing experience where the circuit is an interactive stage with contextual brand messages and promotions.",
+        "stack": [
+          "3D Web",
+          "JavaScript",
+          "CSS3"
+        ]
+      },
+      "4": {
+        "tag": "Touch game",
+        "title": "Wildlife",
+        "problem": "Teach about the diversity of Colombian ecosystems in a friendly, interactive way.",
+        "solution": "An interactive game for touch screens that gamifies learning about Colombian flora and fauna.",
+        "stack": [
+          "JavaScript",
+          "HTML5",
+          "CSS3",
+          "Touch API"
+        ]
+      },
+      "5": {
+        "tag": "Promo video",
+        "title": "FullStaff app video",
+        "problem": "Communicate the app’s differentiating value to users looking for urgent tradespeople.",
+        "solution": "A promo video that presents the app as a single place to find, contact and connect with professionals.",
+        "stack": [
+          "After Effects",
+          "Premiere Pro",
+          "Video Production"
+        ]
+      },
+      "6": {
+        "tag": "iPad game",
+        "title": "GoGo Racing",
+        "problem": "Drive engagement in the dealership showroom and accompany the customer journey toward purchase.",
+        "solution": "A 2D iPad game inspired by 80s arcades where you steer by tilting the device.",
+        "stack": [
+          "JavaScript",
+          "HTML5 Canvas",
+          "CSS3",
+          "iPad API"
+        ]
+      },
+      "7": {
+        "tag": "Experience",
+        "title": "Money Week Challenge",
+        "problem": "Activate and connect employees nationwide during the Money Week Challenge.",
+        "solution": "A landing with dexterity and wit games, live broadcasts and user-centered navigation to maximize participation.",
+        "stack": [
+          "React",
+          "CSS3",
+          "JavaScript",
+          "UI/UX Design"
+        ]
+      },
+      "8": {
+        "tag": "Web game",
+        "title": "Sprint Falabella",
+        "problem": "Turn a promotion into a memorable experience that sparks excitement and competition.",
+        "solution": "A race-against-the-clock puzzle web game with gamification (time, progress and competition), responsive and optimized for high traffic.",
+        "stack": [
+          "React",
+          "JavaScript",
+          "CSS3",
+          "Gamification"
+        ]
+      },
+      "9": {
+        "tag": "Applied AI",
+        "title": "AI virtual host",
+        "problem": "Create a virtual host able to moderate events in real time with audience interaction.",
+        "solution": "An AI-generated avatar integrated into an interactive audiovisual experience that hosts events and encourages participation.",
+        "stack": [
+          "Heygen",
+          "ElevenLabs",
+          "React",
+          "API Integration"
+        ]
+      },
+      "10": {
+        "tag": "Graphic design",
+        "title": "Print and trade-show materials",
+        "problem": "Bring Mentor’s new global identity to print and trade-show materials in Canada, with consistent pieces.",
+        "solution": "A visual system of roll-ups, booth and brochures with photography-led layouts and editorial typography; print-ready files.",
+        "stack": [
+          "Illustrator",
+          "InDesign",
+          "Photoshop",
+          "Editorial design"
+        ]
+      },
+      "11": {
+        "tag": "Experience",
+        "title": "Cybersecurity Day 2026",
+        "problem": "A corporate information-security day that had to be interactive and accessible to every employee.",
+        "solution": "A complete virtual fair: three pavilions with booths and six interactive challenges on phishing, deepfake, ransomware, vishing, passwords and data protection. Open demo, no sign-up.",
+        "stack": [
+          "React",
+          "Redux",
+          "Vite",
+          "2.5D map"
+        ]
+      }
     }
   },
   "skills": {

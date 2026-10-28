@@ -249,6 +249,153 @@
         "problem": "Llevar la nueva identidad global de Mentor a materiales impresos y de feria en Canadá, con piezas consistentes para pacientes, cirujanos y eventos.",
         "solution": "Sistema visual de roll-ups, stand y folletos con fotografía protagonista, tipografía editorial y paleta azul/durazno; archivos listos para imprenta (sangrado, marcas de corte y versión web)."
       }
+    },
+    "cases": {
+      "subtitle": "Lo que construí, el reto que resolvía y el alcance que tuvo.",
+      "ui": {
+        "aria": "Filtrar por tipo",
+        "challenge": "Reto",
+        "solution": "Solución",
+        "reached": "personas alcanzadas",
+        "ctaLive": "Entrar a la experiencia",
+        "hint": "Clic en un proyecto para verlo arriba",
+        "filters": {
+          "all": "Todos",
+          "games": "Juegos",
+          "exp": "Experiencias",
+          "design": "Diseño",
+          "video": "Video e IA"
+        }
+      },
+      "1": {
+        "tag": "Experiencia",
+        "title": "Jornada de Ciberseguridad 2025",
+        "problem": "Fortalecer la cultura de ciberseguridad entre colaboradores de forma interactiva y memorable.",
+        "solution": "Landing centralizada con tres juegos (destreza, agilidad y habilidad mental), transmisiones en vivo, sistema de puntajes y rifas para maximizar el engagement.",
+        "stack": [
+          "React",
+          "CSS3",
+          "JavaScript",
+          "HTML5"
+        ]
+      },
+      "2": {
+        "tag": "Experiencia",
+        "title": "Mundo Colmena",
+        "problem": "Crear una experiencia educativa que conectara puntos físicos con contenido digital durante un evento.",
+        "solution": "Landing con escáner de códigos QR que direccionaba a retos específicos alineados con el evento.",
+        "stack": [
+          "React",
+          "CSS Animations",
+          "QR Integration"
+        ]
+      },
+      "3": {
+        "tag": "Juego 3D",
+        "title": "Colmena Route Game",
+        "problem": "Crear un punto de encuentro entre entretenimiento y comunicación de marca dentro de un evento.",
+        "solution": "Experiencia de carrera 3D donde el circuito funciona como escenario interactivo con mensajes y promociones de marca contextuales.",
+        "stack": [
+          "3D Web",
+          "JavaScript",
+          "CSS3"
+        ]
+      },
+      "4": {
+        "tag": "Juego touch",
+        "title": "Vida Silvestre",
+        "problem": "Enseñar sobre la diversidad del ecosistema colombiano de forma amigable e interactiva.",
+        "solution": "Juego interactivo para pantallas touch que gamifica el aprendizaje sobre la flora y fauna colombiana.",
+        "stack": [
+          "JavaScript",
+          "HTML5",
+          "CSS3",
+          "Touch API"
+        ]
+      },
+      "5": {
+        "tag": "Video promocional",
+        "title": "Video de la app FullStaff",
+        "problem": "Comunicar el valor diferencial de la app a usuarios que buscan profesionales de oficios urgentes.",
+        "solution": "Video promocional que presenta la app como solución centralizada para encontrar, contactar y conectar con profesionales.",
+        "stack": [
+          "After Effects",
+          "Premiere Pro",
+          "Video Production"
+        ]
+      },
+      "6": {
+        "tag": "Juego para iPad",
+        "title": "GoGo Racing",
+        "problem": "Generar engagement en sala de concesionario y acompañar el recorrido del cliente hacia la compra.",
+        "solution": "Juego 2D para iPad inspirado en arcades de los 80s donde el usuario maneja inclinando el dispositivo.",
+        "stack": [
+          "JavaScript",
+          "HTML5 Canvas",
+          "CSS3",
+          "iPad API"
+        ]
+      },
+      "7": {
+        "tag": "Experiencia",
+        "title": "Money Week Challenge",
+        "problem": "Activar y conectar a los colaboradores a nivel nacional durante el Money Week Challenge.",
+        "solution": "Landing con juegos de destreza e ingenio, transmisiones en vivo y navegación centrada en el usuario para maximizar participación.",
+        "stack": [
+          "React",
+          "CSS3",
+          "JavaScript",
+          "UI/UX Design"
+        ]
+      },
+      "8": {
+        "tag": "Juego web",
+        "title": "Sprint Falabella",
+        "problem": "Convertir una promoción en una experiencia memorable que genere emoción y competencia.",
+        "solution": "Juego web de rompecabezas contrarreloj con gamificación (tiempo, progreso y competencia), responsive y optimizado para alto tráfico.",
+        "stack": [
+          "React",
+          "JavaScript",
+          "CSS3",
+          "Gamification"
+        ]
+      },
+      "9": {
+        "tag": "IA aplicada",
+        "title": "Presentador virtual con IA",
+        "problem": "Crear un presentador virtual capaz de moderar eventos en tiempo real con interacción de audiencia.",
+        "solution": "Avatar generado con IA integrado en una experiencia audiovisual interactiva que presenta eventos y fomenta la participación.",
+        "stack": [
+          "Heygen",
+          "ElevenLabs",
+          "React",
+          "API Integration"
+        ]
+      },
+      "10": {
+        "tag": "Diseño gráfico",
+        "title": "Materiales impresos y de feria",
+        "problem": "Llevar la nueva identidad global de Mentor a materiales impresos y de feria en Canadá, con piezas consistentes.",
+        "solution": "Sistema visual de roll-ups, stand y folletos con fotografía protagonista y tipografía editorial; archivos listos para imprenta.",
+        "stack": [
+          "Illustrator",
+          "InDesign",
+          "Photoshop",
+          "Diseño editorial"
+        ]
+      },
+      "11": {
+        "tag": "Experiencia",
+        "title": "Jornada de Ciberseguridad 2026",
+        "problem": "Una jornada corporativa de seguridad de la información que debía ser interactiva y accesible para todos los colaboradores.",
+        "solution": "Feria virtual completa: tres pabellones con stands y seis retos interactivos sobre phishing, deepfake, ransomware, vishing, contraseñas y protección de datos. Demo abierta, sin registro.",
+        "stack": [
+          "React",
+          "Redux",
+          "Vite",
+          "Mapa 2.5D"
+        ]
+      }
     }
   },
   "skills": {
