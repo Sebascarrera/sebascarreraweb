@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
 
-const SPACING = 18;
+const SPACING = 4;
 const BASE_RADIUS = 1;
-const MAX_RADIUS = 5;
-const INFLUENCE = 140;
+const MAX_RADIUS = 2;
+const INFLUENCE = 240;
 
 export default function DotGridBackground() {
   const canvasRef = useRef(null);
@@ -61,7 +61,7 @@ export default function DotGridBackground() {
 
         if (proximity > 0.85) {
           ctx.shadowColor = 'rgba(255,255,255,0.8)';
-          ctx.shadowBlur = 12;
+          ctx.shadowBlur = 18;
         } else {
           ctx.shadowBlur = 0;
         }
