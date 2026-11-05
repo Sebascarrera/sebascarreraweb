@@ -106,7 +106,8 @@
     "designGallery": {
       "cats": {
         "banners": "Banners & stands",
-        "brochures": "Brochures"
+        "brochures": "Brochures",
+        "stand": "Stand"
       },
       "pieces": {
         "banner1": "Roll-up «She is the motivation»",
@@ -118,7 +119,10 @@
         "augCovers": "Breast Augmentation Guide · covers",
         "augStories": "Breast Augmentation Guide · patient stories",
         "recCover": "Breast Reconstruction Guide · cover",
-        "warranty": "Advantage Warranty brochure 2026 · cover"
+        "warranty": "Advantage Warranty brochure 2026 · cover",
+        "standFront": "Booth · front view with screens",
+        "standScreens": "Booth · side-screen video",
+        "standAngle": "Booth · perspective view"
       }
     },
     "viewVideo": "Watch video",
@@ -128,7 +132,8 @@
       "problem": "Problem",
       "solution": "Solution",
       "stack": "Tech Stack",
-      "liveCta": "View live project"
+      "liveCta": "View live project",
+      "deliverables": "Deliverables"
     },
     "items": {
       "1": {
@@ -248,6 +253,18 @@
         ],
         "problem": "Bring Mentor's new global identity to print and trade-show materials in Canada, with consistent pieces for patients, surgeons and events.",
         "solution": "A visual system of roll-ups, stand and brochures led by photography, editorial typography and a blue/peach palette; press-ready files (bleed, crop marks and web version)."
+      },
+      "12": {
+        "title": "BOOST™ booth — Mentor Breast Canada (international client)",
+        "description": "Complete booth design for Mentor Breast Canada, an international client: a 3D-effect backwall, side-screen videos and the Mentor BOOST™ design on the front counter.",
+        "stack": [
+          "Booth design",
+          "3D-effect backwall",
+          "Screen videos",
+          "Counter design"
+        ],
+        "problem": "Mentor Breast Canada needed its own booth for an event in Ontario, Canada, with a premium brand presence, designed from scratch.",
+        "solution": "We designed the whole booth: a backwall with a 3D effect, videos for the two side screens and the Mentor BOOST™ design on the front counter, consistent with the brand identity."
       }
     },
     "cases": {
@@ -265,7 +282,8 @@
           "exp": "Experiences",
           "design": "Design",
           "video": "Video & AI"
-        }
+        },
+        "intl": "International client"
       },
       "1": {
         "tag": "Experience",
@@ -394,6 +412,19 @@
           "Redux",
           "Vite",
           "2.5D map"
+        ]
+      },
+      "12": {
+        "tag": "Booth design",
+        "client": "Mentor Breast Canada",
+        "title": "BOOST™ booth for Mentor Breast Canada",
+        "problem": "Mentor Breast Canada needed its own booth for an event in Ontario, Canada, with a premium brand presence, designed from scratch to stand out on the show floor.",
+        "solution": "We designed the whole booth: a backwall with a 3D effect, videos for the two side screens and the Mentor BOOST™ design on the front counter, all on-brand.",
+        "stack": [
+          "Booth from scratch",
+          "3D-effect backwall",
+          "Screen videos",
+          "Counter design"
         ]
       }
     }

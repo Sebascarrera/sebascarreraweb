@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import './FeaturedProjects.css';
 
 /* Orden de aparición: lo más reciente primero; la edición 2025 queda más abajo. */
-const ORDER = [11, 10, 8, 7, 3, 2, 9, 1, 6, 4, 5];
-const CAT = { 11: 'exp', 10: 'design', 8: 'games', 7: 'exp', 3: 'games', 2: 'exp', 9: 'video', 1: 'exp', 6: 'games', 4: 'games', 5: 'video' };
+const ORDER = [11, 12, 10, 8, 7, 3, 2, 9, 1, 6, 4, 5];
+const CAT = { 11: 'exp', 12: 'design', 10: 'design', 8: 'games', 7: 'exp', 3: 'games', 2: 'exp', 9: 'video', 1: 'exp', 6: 'games', 4: 'games', 5: 'video' };
 const FILTERS = ['all', 'games', 'exp', 'design', 'video'];
 const FILTER_CAT = { all: 'dev', games: 'dev', exp: 'exp', design: 'design', video: 'video' };
 
@@ -34,6 +34,7 @@ export default function FeaturedProjects({ projects, reach, liveUrl, locale, onO
       idx,
       cat: CAT[id],
       tag: t(`projects.cases.${id}.tag`),
+      client: t(`projects.cases.${id}.client`, { defaultValue: '' }),
       title: t(`projects.cases.${id}.title`),
       problem: t(`projects.cases.${id}.problem`),
       solution: t(`projects.cases.${id}.solution`),
@@ -77,6 +78,12 @@ export default function FeaturedProjects({ projects, reach, liveUrl, locale, onO
         </div>
         <div className="fp__body" key={`b${current.id}`}>
           <span className="fp__tag">{current.tag}</span>
+          {current.client && (
+            <span className="fp__client">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18" /></svg>
+              {t('projects.cases.ui.intl')} · <b>{current.client}</b>
+            </span>
+          )}
           <h3 className="fp__title">{current.title}</h3>
           {reach[current.id] && (
             <div className="fp__reach">
@@ -113,7 +120,7 @@ export default function FeaturedProjects({ projects, reach, liveUrl, locale, onO
                 aria-label={p.title}
               >
                 <img src={p.image} alt="" loading="lazy" />
-                <span className="fp__ctag">{p.tag}</span>
+                <span className="fp__ctag">{p.client ? t('projects.cases.ui.intl') : p.tag}</span>
                 {reach[p.id] && <span className="fp__creach">+{fmt(reach[p.id])}</span>}
                 <span className="fp__cin"><span className="fp__ct">{p.title}</span><span className="fp__cp">{p.problem}</span></span>
               </button>

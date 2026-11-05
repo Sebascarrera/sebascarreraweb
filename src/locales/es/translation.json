@@ -107,7 +107,8 @@
     "designGallery": {
       "cats": {
         "banners": "Banners y stands",
-        "brochures": "Folletos"
+        "brochures": "Folletos",
+        "stand": "Stand"
       },
       "pieces": {
         "banner1": "Roll-up «She is the motivation»",
@@ -119,7 +120,10 @@
         "augCovers": "Guía de aumento mamario · portadas",
         "augStories": "Guía de aumento mamario · historias de pacientes",
         "recCover": "Guía de reconstrucción mamaria · portada",
-        "warranty": "Folleto Advantage Warranty 2026 · portada"
+        "warranty": "Folleto Advantage Warranty 2026 · portada",
+        "standFront": "Stand · vista frontal con pantallas",
+        "standScreens": "Stand · video de pantallas laterales",
+        "standAngle": "Stand · vista en perspectiva"
       }
     },
     "modal": {
@@ -128,7 +132,8 @@
       "problem": "Problema",
       "solution": "Solución",
       "stack": "Stack Tecnológico",
-      "liveCta": "Ver proyecto en vivo"
+      "liveCta": "Ver proyecto en vivo",
+      "deliverables": "Entregables"
     },
     "items": {
       "1": {
@@ -248,6 +253,18 @@
         ],
         "problem": "Llevar la nueva identidad global de Mentor a materiales impresos y de feria en Canadá, con piezas consistentes para pacientes, cirujanos y eventos.",
         "solution": "Sistema visual de roll-ups, stand y folletos con fotografía protagonista, tipografía editorial y paleta azul/durazno; archivos listos para imprenta (sangrado, marcas de corte y versión web)."
+      },
+      "12": {
+        "title": "Stand BOOST™ — Mentor Breast Canada (cliente internacional)",
+        "description": "Diseño completo del stand de Mentor Breast Canada, cliente internacional: backwall con efecto 3D, videos de las pantallas laterales y diseño de Mentor BOOST™ en el counter frontal.",
+        "stack": [
+          "Diseño de stand",
+          "Backwall efecto 3D",
+          "Video para pantallas",
+          "Diseño de counter"
+        ],
+        "problem": "Mentor Breast Canada necesitaba un stand propio para un evento en Ontario, Canadá, con presencia de marca premium y diseñado desde cero.",
+        "solution": "Diseñamos el stand completo: backwall con efecto 3D, videos para las dos pantallas laterales y el diseño de Mentor BOOST™ del counter frontal, coherentes con la identidad de la marca."
       }
     },
     "cases": {
@@ -265,7 +282,8 @@
           "exp": "Experiencias",
           "design": "Diseño",
           "video": "Video e IA"
-        }
+        },
+        "intl": "Cliente internacional"
       },
       "1": {
         "tag": "Experiencia",
@@ -394,6 +412,19 @@
           "Redux",
           "Vite",
           "Mapa 2.5D"
+        ]
+      },
+      "12": {
+        "tag": "Diseño de stand",
+        "client": "Mentor Breast Canada",
+        "title": "Stand BOOST™ para Mentor Breast Canada",
+        "problem": "Mentor Breast Canada necesitaba un stand propio para un evento en Ontario, Canadá, con presencia de marca premium y diseñado desde cero para destacar en el salón.",
+        "solution": "Diseñamos el stand completo: backwall con efecto 3D, videos para las dos pantallas laterales y el diseño de Mentor BOOST™ del counter frontal, todo con la identidad de la marca.",
+        "stack": [
+          "Stand desde cero",
+          "Backwall efecto 3D",
+          "Video para pantallas",
+          "Diseño de counter"
         ]
       }
     }

@@ -32,7 +32,7 @@ import CareerMap from '../components/CareerMap.jsx';
 import ContactBuilder from '../components/ContactBuilder.jsx';
 import Strengths from '../components/Strengths.jsx';
 import DesignGallery from '../components/DesignGallery.jsx';
-import { mentorCanada } from '../data/designProjects.js';
+import { mentorCanada, mentorStand } from '../data/designProjects.js';
 import DotGridBackground from '../components/DotGridBackground.jsx';
 import StatsStrip from '../components/StatsStrip.jsx';
 import DecodeText from '../components/DecodeText.jsx';
@@ -97,7 +97,7 @@ const EMAIL = 'sebascarreramoya@gmail.com';
 const WHATSAPP_LINK = 'https://wa.me/573133510006';
 // Pega aquí tus URLs. Si quedan vacías, la tarjeta no se muestra.
 // Alcance verificado por proyecto (personas). Se muestra como chip en la tarjeta y el modal.
-const PROJECT_REACH = { 1: 3000, 7: 5000, 8: 10000 };
+const PROJECT_REACH = { 1: 3000, 7: 5000, 8: 10000, 12: 1000 };
 const JORNADA_2026_URL = 'https://ciberseguridad.sebastiancarreramoya.com';
 const WHATSAPP_DISPLAY = '+57 3133510006';
 
@@ -109,6 +109,7 @@ function Home() {
   /* ── Projects array ── */
   const projects = [
     { id: 11, image: jornada2026Image, title: t('projects.cases.11.title'), description: t('projects.cases.11.solution') },
+    { id: 12, image: mentorStand.cover,   gallery: mentorStand.categories,  kind: 'stand', title: t('projects.items.12.title'), description: t('projects.items.12.description'), stack: t('projects.items.12.stack', { returnObjects: true }), problem: t('projects.items.12.problem'), solution: t('projects.items.12.solution') },
     { id: 1, image: ciberImage,           video: ciberseguridadVideo,     title: t('projects.items.1.title'), description: t('projects.items.1.description'), stack: t('projects.items.1.stack', { returnObjects: true }), problem: t('projects.items.1.problem'), solution: t('projects.items.1.solution') },
     { id: 10, image: mentorCanada.cover,  gallery: mentorCanada.categories, kind: 'design', title: t('projects.items.10.title'), description: t('projects.items.10.description'), stack: t('projects.items.10.stack', { returnObjects: true }), problem: t('projects.items.10.problem'), solution: t('projects.items.10.solution') },
     { id: 2, image: mundoColmenaImage,    video: mundoColmenaVideo,       title: t('projects.items.2.title'), description: t('projects.items.2.description'), stack: t('projects.items.2.stack', { returnObjects: true }), problem: t('projects.items.2.problem'), solution: t('projects.items.2.solution') },
@@ -516,7 +517,7 @@ function Home() {
                 <div className="modal-col-main">
                   {activeProject.problem && (
                     <div>
-                      <p className="modal-section__heading">{activeProject.kind === 'design' ? t('projects.modal.challenge') : t('projects.modal.problem')}</p>
+                      <p className="modal-section__heading">{(activeProject.kind === 'design' || activeProject.kind === 'stand') ? t('projects.modal.challenge') : t('projects.modal.problem')}</p>
                       <p className="modal-section__text">{activeProject.problem}</p>
                     </div>
                   )}
@@ -531,7 +532,7 @@ function Home() {
                 {/* Right: stack badges */}
                 {Array.isArray(activeProject.stack) && activeProject.stack.length > 0 && (
                   <div>
-                    <p className="modal-section__heading">{activeProject.kind === 'design' ? t('projects.modal.tools') : t('projects.modal.stack')}</p>
+                    <p className="modal-section__heading">{activeProject.kind === 'design' ? t('projects.modal.tools') : activeProject.kind === 'stand' ? t('projects.modal.deliverables') : t('projects.modal.stack')}</p>
                     <div className="modal-stack-badges">
                       {activeProject.stack.map((tech) => (
                         <span key={tech} className="modal-badge">{tech}</span>

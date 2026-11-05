@@ -17,6 +17,9 @@ import augCovers from '../assets/mentor/brochure-aug-covers.webp';
 import augStories from '../assets/mentor/brochure-aug-stories.webp';
 import recCover from '../assets/mentor/brochure-rec-cover.webp';
 import warranty from '../assets/mentor/warranty-cover.webp';
+import standFront from '../assets/mentor/stand-front.webp';
+import standScreens from '../assets/mentor/stand-screens.webp';
+import standAngle from '../assets/mentor/stand-angle.webp';
 
 export const mentorCanada = {
   cover: mentorCover,
@@ -39,6 +42,21 @@ export const mentorCanada = {
         { key: 'augStories', src: augStories },
         { key: 'recCover', src: recCover },
         { key: 'warranty', src: warranty },
+      ],
+    },
+  ],
+};
+
+/* Stand BOOST™ · Mentor Breast Canada (diseño desde cero: backwall 3D, video de pantallas y counter) */
+export const mentorStand = {
+  cover: standFront,
+  categories: [
+    {
+      key: 'stand',
+      pieces: [
+        { key: 'standFront', src: standFront },
+        { key: 'standScreens', src: standScreens },
+        { key: 'standAngle', src: standAngle },
       ],
     },
   ],

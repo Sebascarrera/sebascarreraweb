@@ -70,3 +70,8 @@
 @media (prefers-reduced-motion: reduce) { .fp__img img, .fp__body { animation: none; } .fp__card img { transition: none; } }
 
 .fp__card[style*="span 12"] { min-height: 190px; }
+
+/* Cliente internacional */
+.fp__client { align-self: flex-start; flex-wrap: wrap; white-space: nowrap; display: inline-flex; align-items: center; gap: 7px; font-size: 0.78rem; color: var(--text-secondary); padding: 5px 12px; border-radius: 999px; border: 1px solid rgba(var(--c, 0, 212, 200), 0.45); background: rgba(var(--c, 0, 212, 200), 0.1); }
+.fp__client svg { color: rgb(var(--c, 0, 212, 200)); flex: none; }
+.fp__client b { color: var(--text-primary); font-weight: 700; }
