@@ -75,3 +75,6 @@
 .fp__client { align-self: flex-start; flex-wrap: wrap; white-space: nowrap; display: inline-flex; align-items: center; gap: 7px; font-size: 0.78rem; color: var(--text-secondary); padding: 5px 12px; border-radius: 999px; border: 1px solid rgba(var(--c, 0, 212, 200), 0.45); background: rgba(var(--c, 0, 212, 200), 0.1); }
 .fp__client svg { color: rgb(var(--c, 0, 212, 200)); flex: none; }
 .fp__client b { color: var(--text-primary); font-weight: 700; }
+
+/* Deja espacio bajo la barra de navegación al subir al visor */
+.fp__case { scroll-margin-top: 96px; }

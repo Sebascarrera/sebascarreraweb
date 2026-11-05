@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './FeaturedProjects.css';
 
@@ -26,6 +26,16 @@ export default function FeaturedProjects({ projects, reach, liveUrl, locale, onO
   const { t } = useTranslation();
   const [filter, setFilter] = useState('all');
   const [cur, setCur] = useState(ORDER[0]);
+  const caseRef = useRef(null);
+
+  /* Al elegir un proyecto, sube suavemente al visor para que se note el cambio. */
+  const selectProject = (id) => {
+    setCur(id);
+    const el = caseRef.current;
+    if (!el) return;
+    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  };
 
   const items = useMemo(() => {
     const byId = Object.fromEntries(projects.map((p) => [p.id, p]));
@@ -71,7 +81,7 @@ export default function FeaturedProjects({ projects, reach, liveUrl, locale, onO
         ))}
       </div>
 
-      <article className="fp__case" data-cat={current.cat} aria-live="polite">
+      <article className="fp__case" ref={caseRef} data-cat={current.cat} aria-live="polite">
         <div className="fp__img">
           <span className="fp__num">{String(current.idx + 1).padStart(2, '0')}</span>
           <img key={current.id} src={current.image} alt={current.title} />
@@ -116,7 +126,7 @@ export default function FeaturedProjects({ projects, reach, liveUrl, locale, onO
                 className={`fp__card${p.id === current.id ? ' is-on' : ''}`}
                 data-cat={p.cat}
                 style={{ gridColumn: `span ${spanFor(i, visible.length)}` }}
-                onClick={() => setCur(p.id)}
+                onClick={() => selectProject(p.id)}
                 aria-label={p.title}
               >
                 <img src={p.image} alt="" loading="lazy" />
