@@ -1,10 +1,12 @@
 /* Lógica de la portada cinematográfica (scroll, chip, escenas). Código imperativo aislado en root. */
 /* eslint-disable */
 import { createObra } from './obra.js';
+import { createRetrato } from './retrato.js';
 export function initCine(root,{i18n,work}){
 let alive=true;const _off=[];
 const aw=(t,e,f,o)=>{t.addEventListener(e,f,o);_off.push(()=>t.removeEventListener(e,f,o))};
 const obra=createObra(root,{i18n,work,aw});
+const retrato=createRetrato(root,{aw});
 
 const $=s=>root.querySelector(s),clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),lerp=(a,b,t)=>a+(b-a)*t,ease=x=>x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2;
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,mob=()=>innerWidth<=760;
@@ -263,5 +265,5 @@ root.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>
 setTexts();up();
 })();
 
-return ()=>{alive=false;_off.forEach(f=>f());root.classList.remove('calm')};
+return ()=>{alive=false;retrato.stop();_off.forEach(f=>f());root.classList.remove('calm')};
 }

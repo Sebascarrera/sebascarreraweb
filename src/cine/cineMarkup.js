@@ -41,7 +41,7 @@ export default `<nav>
  <div class="top"><span class="lab"><b>04</b> — <span data-u="s3lab"></span></span><span class="lab" id="c3"></span></div>
  <h2 class="sh disp" data-u="s3h"></h2>
  <div class="pr"><div class="pl" id="pl"><svg viewBox="0 0 1000 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 45H1000" stroke="rgba(255,255,255,.14)" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="none"/><path id="ppath" d="M0 45H1000" stroke="#00D4C8" stroke-width="2.5" vector-effect="non-scaling-stroke" fill="none" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg></div><div class="pt" id="pt"></div></div></div></section>
-<section class="sx" id="s4" aria-label="Career"><div class="stage"><div class="grid"></div>
+<section class="sx" id="s4" aria-label="Career"><div class="stage"><div class="grid"></div><canvas class="rtc" aria-hidden="true"></canvas>
  <div class="top"><span class="lab"><b>05</b> — <span data-u="s4lab"></span></span><span class="lab" data-u="s4meta"></span></div>
  <h2 class="sh disp" data-u="s4h" style="font-size:clamp(28px,min(4.6vw,7svh),80px)"></h2>
  <div class="tl"><div class="yr disp" id="yr">2010<small data-u="yrs"></small></div><ol class="st" id="st"></ol></div></div></section>

@@ -311,3 +311,10 @@ html.cine-on,html.cine-on body{overflow:visible!important;width:auto!important}
 .cine .cms{display:flex;flex-wrap:wrap;gap:6px}.cine .cms span{font:600 11px Inter,sans-serif;padding:5px 10px;border:1px solid var(--line);border-radius:999px;color:var(--fg)}
 .cine .cmgo{align-self:flex-start;text-decoration:none;font:700 12px Archivo,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#001a19;background:var(--acc);padding:13px 20px;border-radius:999px}
 @media(max-width:760px){.cine .cmb{grid-template-columns:1fr;max-height:94svh}.cine .cmx{grid-column:1}.cine .cmm{grid-column:1;grid-row:auto}.cine .cmt{grid-column:1;padding-top:6px}.cine .cd{width:min(82vw,380px)}}
+
+/* Retrato de código (sección 05) */
+.cine .rtc{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.cine .yr{filter:drop-shadow(0 0 18px rgba(8,9,11,.9))}
+.cine .yr small,.cine .st li{text-shadow:0 0 14px #08090B,0 0 6px #08090B,0 0 2px #08090B}
+.cine .sh{text-shadow:0 0 18px rgba(8,9,11,.9)}
+@media(max-width:760px){.cine #s4 .stage{overflow:hidden}.cine .st li{opacity:1}}
