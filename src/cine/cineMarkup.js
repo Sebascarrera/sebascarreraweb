@@ -1,8 +1,9 @@
 // Marcado estático de la portada cinematográfica (contenido propio, sin entrada de usuario).
 export default `<nav>
  <a class="brand" href="#top" aria-label="Sebastián Carrera Moya"><i>JSCM</i><span class="lab" style="color:var(--fg)">Sebastián Carrera Moya</span></a>
- <div class="nr"><a class="l" href="#s1" data-t="nav1"></a><div class="lang" role="group" aria-label="Idioma"><button data-l="es" aria-pressed="true">ES</button><button data-l="en" aria-pressed="false">EN</button></div><a class="cta" href="#fin" data-t="cta"></a></div>
+ <div class="nr"><div class="jl" id="jl"><a href="#s1"></a><a href="#s2"></a><a href="#s2a"></a><a href="#s2b"></a><a href="#s3"></a><a href="#s4"></a></div><div class="lang" role="group" aria-label="Idioma"><button data-l="es" aria-pressed="true">ES</button><button data-l="en" aria-pressed="false">EN</button></div><a class="cta" href="#fin" data-t="cta"></a><button class="jm" id="jm" aria-expanded="false" aria-controls="jmenu" aria-label="Menú"><i></i><i></i></button></div>
 </nav>
+<div class="jmenu" id="jmenu"><a href="#s1"><small>01</small><span></span></a><a href="#s2"><small>03</small><span></span></a><a href="#s2a"><small>04</small><span></span></a><a href="#s2b"><small>05</small><span></span></a><a href="#s3"><small>06</small><span></span></a><a href="#s4"><small>07</small><span></span></a><a href="#fin"><small>08</small><span></span></a></div>
 
 <main id="top">
 <section class="s0" id="s0" aria-label="Opening">
@@ -37,16 +38,18 @@ export default `<nav>
  <div class="top"><span class="lab"><b>03</b> — <span data-u="s2lab"></span></span><span class="lab" id="c2"></span></div>
  <h2 class="sh disp" data-u="s2h"></h2>
  <div class="trk" id="trk"></div><div class="bar"><i id="bar"></i></div></div></section>
+<section class="sx" id="s2a" aria-label="In action"></section>
+<section class="sx" id="s2b" aria-label="Play"></section>
 <section class="sx" id="s3" aria-label="Process"><div class="stage"><div class="grid"></div>
- <div class="top"><span class="lab"><b>04</b> — <span data-u="s3lab"></span></span><span class="lab" id="c3"></span></div>
+ <div class="top"><span class="lab"><b>06</b> — <span data-u="s3lab"></span></span><span class="lab" id="c3"></span></div>
  <h2 class="sh disp" data-u="s3h"></h2>
  <div class="pr"><div class="pl" id="pl"><svg viewBox="0 0 1000 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 45H1000" stroke="rgba(255,255,255,.14)" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="none"/><path id="ppath" d="M0 45H1000" stroke="#00D4C8" stroke-width="2.5" vector-effect="non-scaling-stroke" fill="none" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg></div><div class="pt" id="pt"></div></div></div></section>
 <section class="sx" id="s4" aria-label="Career"><div class="stage"><div class="grid"></div><canvas class="rtc" aria-hidden="true"></canvas>
- <div class="top"><span class="lab"><b>05</b> — <span data-u="s4lab"></span></span><span class="lab" data-u="s4meta"></span></div>
+ <div class="top"><span class="lab"><b>07</b> — <span data-u="s4lab"></span></span><span class="lab" data-u="s4meta"></span></div>
  <h2 class="sh disp" data-u="s4h" style="font-size:clamp(28px,min(4.6vw,7svh),80px)"></h2>
  <div class="tl"><div class="yr disp" id="yr">2010<small data-u="yrs"></small></div><ol class="st" id="st"></ol></div></div></section>
 <section class="end" id="fin">
- <span class="lab"><b>06</b> — <span data-u="s5lab"></span></span>
+ <span class="lab"><b>08</b> — <span data-u="s5lab"></span></span>
  <h2 class="disp" data-u="s5h"></h2>
  <p data-u="s5p"></p>
  <div class="cnb"><div class="cnp"><span class="lab" data-u="need"></span><div class="chs" id="gn"></div><span class="lab" data-u="when"></span><div class="chs" id="gw"></div></div>
