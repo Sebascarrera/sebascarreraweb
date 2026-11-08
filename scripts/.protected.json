@@ -1,0 +1,128 @@
+{
+ "src/assets/background-portfolio-web-4.mp4": {
+  "bytes": 5284674
+ },
+ "src/assets/design/screen1.png": {
+  "bytes": 1310005
+ },
+ "src/assets/design/screen2.png": {
+  "bytes": 898341
+ },
+ "src/assets/img/jornada-ciberseguridad-2026-cover.jpg": {
+  "bytes": 157129
+ },
+ "src/assets/juegos/contrasena.webp": {
+  "bytes": 22608
+ },
+ "src/assets/juegos/firewall.webp": {
+  "bytes": 38820
+ },
+ "src/assets/juegos/jornada.webp": {
+  "bytes": 52642
+ },
+ "src/assets/juegos/malware.webp": {
+  "bytes": 17562
+ },
+ "src/assets/juegos/runner.webp": {
+  "bytes": 41494
+ },
+ "src/assets/mentor/backwall.webp": {
+  "bytes": 23130
+ },
+ "src/assets/mentor/banner-1.webp": {
+  "bytes": 86248
+ },
+ "src/assets/mentor/banner-3.webp": {
+  "bytes": 55074
+ },
+ "src/assets/mentor/banner-5.webp": {
+  "bytes": 53950
+ },
+ "src/assets/mentor/banners-set.webp": {
+  "bytes": 96624
+ },
+ "src/assets/mentor/boost-banner.webp": {
+  "bytes": 29742
+ },
+ "src/assets/mentor/brochure-aug-covers.webp": {
+  "bytes": 138554
+ },
+ "src/assets/mentor/brochure-aug-stories.webp": {
+  "bytes": 112942
+ },
+ "src/assets/mentor/brochure-rec-cover.webp": {
+  "bytes": 137890
+ },
+ "src/assets/mentor/cover.webp": {
+  "bytes": 91718
+ },
+ "src/assets/mentor/stand-angle.webp": {
+  "bytes": 120582
+ },
+ "src/assets/mentor/stand-front.webp": {
+  "bytes": 82592
+ },
+ "src/assets/mentor/stand-screens.webp": {
+  "bytes": 91168
+ },
+ "src/assets/mentor/warranty-cover.webp": {
+  "bytes": 74212
+ },
+ "src/assets/projects/ciberseguridad.webp": {
+  "bytes": 24344
+ },
+ "src/assets/projects/colmena-route-game.webp": {
+  "bytes": 45736
+ },
+ "src/assets/projects/fullstaff.webp": {
+  "bytes": 27496
+ },
+ "src/assets/projects/gogo-racing.webp": {
+  "bytes": 42328
+ },
+ "src/assets/projects/iaBdb-Enko.webp": {
+  "bytes": 69344
+ },
+ "src/assets/projects/jornada-2026.webp": {
+  "bytes": 76520
+ },
+ "src/assets/projects/money-week.webp": {
+  "bytes": 73646
+ },
+ "src/assets/projects/mundo-colmena.webp": {
+  "bytes": 38100
+ },
+ "src/assets/projects/sprint-falabella.webp": {
+  "bytes": 88094
+ },
+ "src/assets/projects/ukcol-touch.webp": {
+  "bytes": 31556
+ },
+ "src/assets/videos/COLMENA-ROUTE-GAME.mp4": {
+  "bytes": 1518254
+ },
+ "src/assets/videos/ciberseguridad.mp4": {
+  "bytes": 4052410
+ },
+ "src/assets/videos/fullstaff.MP4": {
+  "bytes": 1171815
+ },
+ "src/assets/videos/gogoracing.MP4": {
+  "bytes": 1346733
+ },
+ "src/assets/videos/iABdb-enko.mp4": {
+  "bytes": 5556136
+ },
+ "src/assets/videos/moneyweek-challenge.webp": {
+  "bytes": 438868
+ },
+ "src/assets/videos/mundo-colmena.mp4": {
+  "bytes": 4586440
+ },
+ "src/assets/videos/sprint-falabella.webp": {
+  "bytes": 233820
+ },
+ "src/assets/videos/ukcol-touch.mp4": {
+  "bytes": 4532709
+ }
+}

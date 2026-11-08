@@ -16,7 +16,8 @@ const GAMES=[
  {img:imgRunner,path:'/asics-runner',max:2480}
 ];
 const TX={
- es:{nav:['Qué creo','Obra','En acción','Juega','Proceso','Trayectoria','Contacto'],menu:'Menú',
+
+ es:{rights:'© 2010–2026 Sebastián Carrera Moya · Todos los derechos reservados',legal:'Aviso legal',nav:['Qué creo','Obra','En acción','Juega','Proceso','Trayectoria','Contacto'],menu:'Menú',
   aLab:'En acción',aH:'Mi trabajo, <em>en movimiento.</em>',rec:'Showreel',
   cats:[['Desarrollo','Juegos','Retos que se juegan en el navegador'],['Entregable','Experiencias','Activaciones para eventos y marcas'],['Diseño + código','Sitios web','Plataformas y landing pages'],['Movimiento','Motion','Animación y video para piezas digitales']],
   bLab:'Juega',bH:'Pruébalo <em>tú mismo.</em>',ready:'JUGADOR 1 · LISTO',score:'PUNTOS',
@@ -25,7 +26,8 @@ const TX={
    ['Contraseña Maestra','','Crea claves imposibles de descifrar combinando símbolos, números y patrones memorables.','Lógica y memoria','1 min','Jugar ahora'],
    ['Escapa del Malware','','Resuelve acertijos y toma decisiones rápidas para salir ileso de un ataque coordinado.','Aventura narrativa','1 min','Jugar ahora'],
    ['Runner Game','Propuesta de marca','Muévete de lado a lado atrapando los tenis que caen del cielo. Suma puntos y gana descuentos.','Propuesta de cliente','25 s','Jugar demo']]},
- en:{nav:['What I create','Work','In action','Play','Process','Career','Contact'],menu:'Menu',
+
+ en:{rights:'© 2010–2026 Sebastián Carrera Moya · All rights reserved',legal:'Legal notice',nav:['What I create','Work','In action','Play','Process','Career','Contact'],menu:'Menu',
   aLab:'In action',aH:'My work, <em>in motion.</em>',rec:'Showreel',
   cats:[['Development','Games','Challenges played right in the browser'],['Deliverable','Experiences','Activations for events and brands'],['Design + code','Websites','Platforms and landing pages'],['Motion','Motion','Animation and video for digital pieces']],
   bLab:'Play',bH:'Try it <em>yourself.</em>',ready:'PLAYER 1 · READY',score:'SCORE',

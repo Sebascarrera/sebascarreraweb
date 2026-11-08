@@ -4,6 +4,8 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Cine from './cine/Cine';
+import Legal from './pages/Legal';
+import { installProtection } from './protect.js';
 import ExperienceSelector from './pages/experience/ExperienceSelector';
 import FirewallIntro from './pages/experience/firewall/FirewallIntro';
 import FirewallPlay from './pages/experience/firewall/FirewallPlay';
@@ -16,7 +18,8 @@ import AsicsRunnerPlay from './pages/experience/asics-runner/AsicsRunnerPlay';
 
 function App() {
   const { pathname } = useLocation();
-  const isCine = pathname === '/' || pathname.startsWith('/cine');
+  React.useEffect(() => { installProtection(); }, []);
+  const isCine = pathname === '/' || pathname.startsWith('/cine') || pathname === '/aviso-legal';
   return (
     <>
       {!isCine && <Navbar />}
@@ -24,6 +27,7 @@ function App() {
         <Route path="/"            element={<Cine />} />
         <Route path="/cine"        element={<Navigate to="/" replace />} />
         <Route path="/clasico"     element={<Home />} />
+        <Route path="/aviso-legal" element={<Legal />} />
         <Route path="/proyectos"   element={<Navigate to="/#s2"   replace />} />
         <Route path="/projects"    element={<Navigate to="/#s2"   replace />} />
         <Route path="/habilidades" element={<Navigate to="/#s1" replace />} />

@@ -55,7 +55,7 @@ export default `<nav>
  <div class="cnb"><div class="cnp"><span class="lab" data-u="need"></span><div class="chs" id="gn"></div><span class="lab" data-u="when"></span><div class="chs" id="gw"></div></div>
  <div class="cnp"><span class="lab"><b data-u="ready"></b></span><div class="msg" id="msg"></div><div class="bt"><a class="pri" id="wa" href="https://wa.me/573133510006" target="_blank" rel="noopener">WhatsApp</a><a id="ml" href="mailto:sebascarreramoya@gmail.com">Email</a></div>
  <div class="cp"><span>+57 313 351 0006 <button data-cp="+573133510006" data-u="copy"></button></span><span>sebascarreramoya@gmail.com <button data-cp="sebascarreramoya@gmail.com" data-u="copy"></button></span></div></div></div>
- <div class="ft"><span class="lab">© 2026 Sebastián Carrera Moya</span><span class="lab" data-u="foot"></span></div>
+ <div class="ft"><span class="lab" data-j="rights"></span><span class="lab" data-u="foot"></span><a class="lab jlegal" href="/aviso-legal" data-go="/aviso-legal" data-j="legal"></a></div>
 </section>
 
 </main>

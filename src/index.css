@@ -76,3 +76,10 @@ button:focus-visible {
     padding: 0.5em 1em;
   }
 }
+
+
+/* Protección de medios (disuasiva) · © Juan Sebastián Carrera Moya · JSCM-2026 */
+:root{--jscm-sig:"JSCM-2026-SCM-7f3a9c"}
+img,video,canvas,picture,svg{-webkit-user-drag:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+img,video{-webkit-user-drag:none}
+@media print{html{display:none!important}}

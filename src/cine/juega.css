@@ -88,3 +88,6 @@
 
 .cine.calm .jgl li p,.cine.calm .jgl li.on p,.cine.calm .jgl li .jmeta,.cine.calm .jgl li.on .jmeta{max-height:none}
 .cine.calm .jgl li .jplay,.cine.calm .jgl li.on .jplay{max-height:none;opacity:1;padding:13px 20px;margin-top:14px;pointer-events:auto}
+
+.cine .jlegal{text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(255,255,255,.3);transition:color .2s,text-decoration-color .2s}
+.cine .jlegal:hover{color:var(--fg);text-decoration-color:var(--acc)}
