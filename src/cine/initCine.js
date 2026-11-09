@@ -232,7 +232,8 @@ $$('#gw').addEventListener('click',e=>{const b=e.target.closest('.ch');if(!b)ret
 aw(document,'click',e=>{const b=e.target.closest('[data-cp]');if(!b)return;const t=U[lang];const done=()=>{b.textContent=t.copied;setTimeout(()=>b.textContent=t.copy,1400)};try{navigator.clipboard.writeText(b.dataset.cp).then(done,()=>{})}catch(_){}});
 root.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setTimeout(r2,0)));
 const pr=el=>{const r=el.getBoundingClientRect();return clamp(-r.top/(r.height-innerHeight))};
-function up(){if(reduce||mob())return;const vh=innerHeight,vw=innerWidth;
+function yrm(){const y0=$$('#yr');if(!y0)return;const p=reduce?1:clamp((innerHeight*.95-y0.getBoundingClientRect().top)/(innerHeight*.9)),y=Math.round(lerp(2010,new Date().getFullYear(),clamp(p/.85)));y0.firstChild.nodeValue=y;root.querySelectorAll('#st li').forEach(l=>l.classList.toggle('on',y>=+l.dataset.y))}
+function up(){if(reduce||mob()){yrm();return}const vh=innerHeight,vw=innerWidth;
  obra.update(pr($$('#s2')));
  const p3=pr($$('#s3')),q=clamp(p3/.85);$$('#ppath').style.strokeDashoffset=1-q;const k=Math.min(4,Math.floor(q*4+.02));root.querySelectorAll('#pl .nd').forEach((n,i)=>n.classList.toggle('on',q>=(i*.25+.02)||(i===0)&&q>0));root.querySelectorAll('#pt div').forEach((d,i)=>d.classList.toggle('on',q>=i*.25-.01));$$('#c3').textContent='0'+Math.max(1,Math.min(4,Math.ceil(q*4)||1))+' / 04';
  const p4=pr($$('#s4')),y=Math.round(lerp(2010,new Date().getFullYear(),clamp(p4/.85)));$$('#yr').firstChild.nodeValue=y;root.querySelectorAll('#st li').forEach(l=>l.classList.toggle('on',y>=+l.dataset.y))}
