@@ -11,7 +11,7 @@ export default `<nav>
   <div class="grid"></div><canvas id="hc"></canvas><div class="glow" id="glow"></div>
   <div class="chipp" aria-hidden="true"><div class="chipw" id="chip"><div class="tilt" id="tilt"><svg class="ly" id="L0" viewBox="-100 -100 400 400"></svg><svg class="ly" id="L1" viewBox="-100 -100 400 400"></svg><svg class="ly" id="L2" viewBox="-100 -100 400 400"></svg><svg class="ly" id="L3" viewBox="-100 -100 400 400"></svg></div><div class="spec" id="spec"></div></div></div>
   <div class="hero-top" id="htop"><span class="lab"><b>00</b> — <span data-t="s0lab"></span></span><span class="lab" data-t="meta"></span></div>
-  <h1 class="hero-h disp" id="hh"><span id="l1" data-t="h1"></span><span id="l2" data-t="h2"></span><span id="l3" class="o" data-t="h3"></span></h1>
+  <h1 class="hero-h disp" id="hh"><span id="l1" data-t="h1"></span> <span id="l2" data-t="h2"></span> <span id="l3" class="o" data-t="h3"></span></h1>
   <div class="hero-sub" id="hsub"><p data-t="sub"></p><div class="scr"><span class="lab" data-t="scroll"></span><i></i></div></div>
  </div>
 </section>

@@ -16,7 +16,7 @@ function Cine() {
   goRef.current = navigate;
   useEffect(() => {
     const prev = document.title;
-    document.title = 'Sebastián Carrera Moya — De la idea a la realidad digital';
+    document.title = 'Sebastián Carrera Moya — Diseño y desarrollo de experiencias digitales';
     document.documentElement.classList.add('cine-on');
     const dispose = initCine(ref.current, { i18n, work: WORK, go: (p) => goRef.current(p) });
     return () => { dispose(); document.title = prev; document.documentElement.classList.remove('cine-on'); };

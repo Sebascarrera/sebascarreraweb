@@ -1,20 +1,20 @@
 // src/App.jsx
 import React from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
 import Cine from './cine/Cine';
-import Legal from './pages/Legal';
 import { installProtection } from './protect.js';
-import ExperienceSelector from './pages/experience/ExperienceSelector';
-import FirewallIntro from './pages/experience/firewall/FirewallIntro';
-import FirewallPlay from './pages/experience/firewall/FirewallPlay';
-import ContrasenaMaestraIntro from './pages/experience/contrasena-maestra/ContrasenaMaestraIntro';
-import ContrasenaMaestraPlay from './pages/experience/contrasena-maestra/ContrasenaMaestraPlay';
-import MalwareIntro from './pages/experience/escapa-malware/MalwareIntro';
-import MalwarePlay from './pages/experience/escapa-malware/MalwarePlay';
-import AsicsRunnerIntro from './pages/experience/asics-runner/AsicsRunnerIntro';
-import AsicsRunnerPlay from './pages/experience/asics-runner/AsicsRunnerPlay';
+const Navbar = React.lazy(() => import('./components/Navbar'));
+const Home = React.lazy(() => import('./pages/Home'));
+const Legal = React.lazy(() => import('./pages/Legal'));
+const ExperienceSelector = React.lazy(() => import('./pages/experience/ExperienceSelector'));
+const FirewallIntro = React.lazy(() => import('./pages/experience/firewall/FirewallIntro'));
+const FirewallPlay = React.lazy(() => import('./pages/experience/firewall/FirewallPlay'));
+const ContrasenaMaestraIntro = React.lazy(() => import('./pages/experience/contrasena-maestra/ContrasenaMaestraIntro'));
+const ContrasenaMaestraPlay = React.lazy(() => import('./pages/experience/contrasena-maestra/ContrasenaMaestraPlay'));
+const MalwareIntro = React.lazy(() => import('./pages/experience/escapa-malware/MalwareIntro'));
+const MalwarePlay = React.lazy(() => import('./pages/experience/escapa-malware/MalwarePlay'));
+const AsicsRunnerIntro = React.lazy(() => import('./pages/experience/asics-runner/AsicsRunnerIntro'));
+const AsicsRunnerPlay = React.lazy(() => import('./pages/experience/asics-runner/AsicsRunnerPlay'));
 
 function App() {
   const { pathname } = useLocation();
@@ -22,6 +22,7 @@ function App() {
   const isCine = pathname === '/' || pathname.startsWith('/cine') || pathname === '/aviso-legal';
   return (
     <>
+      <React.Suspense fallback={null}>
       {!isCine && <Navbar />}
       <Routes>
         <Route path="/"            element={<Cine />} />
@@ -44,6 +45,7 @@ function App() {
         <Route path="/asics-runner"            element={<AsicsRunnerIntro />} />
         <Route path="/asics-runner/play"       element={<AsicsRunnerPlay />} />
       </Routes>
+      </React.Suspense>
     </>
   );
 }
