@@ -26,7 +26,7 @@ const B={es:[['Productos digitales','Sitios web, plataformas y aplicaciones dise
  ['Interactive worlds','Games, gamification and immersive experiences people want to explore.','Colmena Route Game · Sprint Falabella · GoGo Racing','Fig. 02','World'],
  ['Creative development','Interfaces, motion and web experimentation: the detail that makes something feel different.','BOOST booth · FullStaff video','Fig. 03','Motion'],
  ['AI experiences','Avatars, automation and AI integration in real products.','Virtual AI presenter','Fig. 04','Network']]};
-let lang=(typeof localStorage!=='undefined'&&localStorage.getItem('language')==='en')?'en':'es',active=0;
+let lang=/^\/en(\/|$)/.test(location.pathname)?'en':((typeof localStorage!=='undefined'&&localStorage.getItem('language')==='en')?'en':'es'),active=0;
 const blocks=$('#blocks');
 function render(){
  document.documentElement.lang=lang;
@@ -38,7 +38,7 @@ function render(){
 function setFig(){const b=B[lang][active];$('#fl1').textContent=b[3];$('#fl2').textContent=b[4];$('#cnt').textContent='0'+(active+1)+' / 04';
  root.querySelectorAll('#idx i').forEach((e,i)=>e.classList.toggle('on',i===active));
  root.querySelectorAll('.blk').forEach((e,i)=>e.classList.toggle('on',i===active));if(reduce)drawV(3)}
-root.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>{lang=b.dataset.l;try{localStorage.setItem('language',lang)}catch(_e){}i18n.changeLanguage(lang);render()});
+root.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>{lang=b.dataset.l;try{localStorage.setItem('language',lang)}catch(_e){}i18n.changeLanguage(lang);try{if(/^\/(en\/?)?$/.test(location.pathname))history.replaceState(history.state,'',(lang==='en'?'/en/':'/')+location.hash)}catch(_e){}render()});
 blocks.addEventListener('click',e=>{const k=[...blocks.children].indexOf(e.target.closest('.blk'));if(k>=0&&(mob()||reduce)){active=k;setFig()}});
 /* ---------- chip: 4 capas con profundidad ---------- */
 const layers=[...root.querySelectorAll('.ly')],tiltEl=$('#tilt'),specEl=$('#spec');

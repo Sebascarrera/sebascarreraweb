@@ -6,7 +6,7 @@ import i18n from '../i18n.js';
 export const LanguageContext = createContext();
 
 export function LanguageProvider({ children }) {
-  const [language, setLanguage] = useState(() => localStorage.getItem('language') || 'es');
+  const [language, setLanguage] = useState(() => (/^\/en(\/|$)/.test(window.location.pathname) ? 'en' : (localStorage.getItem('language') || 'es')));
 
   useEffect(() => {
     i18n.changeLanguage(language);

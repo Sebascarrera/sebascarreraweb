@@ -19,13 +19,14 @@ const AsicsRunnerPlay = React.lazy(() => import('./pages/experience/asics-runner
 function App() {
   const { pathname } = useLocation();
   React.useEffect(() => { installProtection(); }, []);
-  const isCine = pathname === '/' || pathname.startsWith('/cine') || pathname === '/aviso-legal';
+  const isCine = pathname === '/' || pathname === '/en' || pathname === '/en/' || pathname.startsWith('/cine') || pathname === '/aviso-legal';
   return (
     <>
       <React.Suspense fallback={null}>
       {!isCine && <Navbar />}
       <Routes>
         <Route path="/"            element={<Cine />} />
+        <Route path="/en"          element={<Cine />} />
         <Route path="/cine"        element={<Navigate to="/" replace />} />
         <Route path="/clasico"     element={<Home />} />
         <Route path="/aviso-legal" element={<Legal />} />
