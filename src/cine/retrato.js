@@ -22,7 +22,7 @@ function layout(){let ph,x0,y0;
  else{ph=H*.97;const pw=ph/ROWS*.5*COLS;x0=Math.max(8,W*.30-pw/2);y0=(H-ph)/2+H*.015}
  const ch=ph/ROWS;return{x0,y0,cw:ch*.5,ch}}
 function update(){const r=sec.getBoundingClientRect(),vh=innerHeight;vis=r.bottom>0&&r.top<vh;
- if(reduce)P=1; else if(mob())P=clamp((vh*.95-r.top)/(vh*.95+r.height*.4)); else P=clamp(-r.top/(r.height-vh));
+ if(reduce)P=1; else if(mob()){const L=loaded&&W?layout():null,ph=L?L.ch*ROWS:vh*.6,pt=r.top+(L?L.y0:0);P=clamp((vh*.95-pt)/(vh*.95+ph*1.15))} else P=clamp(-r.top/(r.height-vh));
  if(reduce)P=1}
 function draw(t){if(!loaded||!W)return;cx.setTransform(dpr,0,0,dpr,0,0);cx.clearRect(0,0,W,H);
  const L=layout(),fs=Math.max(6,L.cw/.55);cx.font='700 '+fs.toFixed(1)+'px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace';cx.textAlign='center';cx.textBaseline='middle';
